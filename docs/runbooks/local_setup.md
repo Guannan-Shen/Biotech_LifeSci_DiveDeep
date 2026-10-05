@@ -8,10 +8,10 @@ and clinicaltrials.gov are usually reachable (the cloud environment blocks them)
 ```bash
 git clone https://github.com/Guannan-Shen/Biotech_LifeSci_DiveDeep.git
 cd Biotech_LifeSci_DiveDeep
-git checkout claude/biotech-investment-framework-oi11k6   # until it is merged to main
+# main holds the latest merged work
 ```
 
-GitHub Desktop works too: File > Clone repository > URL, then switch to the branch above.
+GitHub Desktop works too: File > Clone repository > URL.
 
 ## 2. Check data access (no install needed)
 
