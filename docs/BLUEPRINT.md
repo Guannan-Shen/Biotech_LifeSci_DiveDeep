@@ -61,7 +61,7 @@ dependent on forecasting science.
 | H2 | Launch-execution drift: after approval, the market misprices launch trajectories; early prescription/revenue metrics vs analog curves predict 2-4 quarter returns (REPL, IOVA type). | 10-Q product revenue (XBRL), FDA approvals, analogs | Event study + analog regression |
 | H3 | Catalyst run-up: stocks with a dated binary catalyst drift up into the event; owning the run-up and cutting before the binary has positive expectancy. | ctgov dates, 8-K/PR guidance, PDUFA dates | Event study with exit rules |
 | H4 | Specialist conviction: concentration and changes in dedicated biotech fund ownership (13F, 13D/G) predict forward excess return, especially in small caps. | EDGAR 13F/13D/13G | Quintile sort, lag-aware (45-day 13F delay) |
-| H5 | Trend and regime: XBI regime (vs 200-day MA, rates) and stock relative strength improve timing of fundamental entries. | Prices | Overlay test on H1-H4 |
+| H5 | Trend and regime: XBI regime (vs 200-day MA, rates) and stock relative strength improve timing of fundamental entries. | Prices and Trading Volume | Overlay test on H1-H4 |
 | H6 | Quality inside biotech: profitable or near-profitable specialty pharma (HROW, ETON type) is underfollowed and compounds vs XBI. | XBRL fundamentals | Factor sort |
 | H7 | Trial-registry signals: primary-completion slippage, enrollment cuts, endpoint edits and status changes on ClinicalTrials.gov lead price and outcome. | ctgov version history | Event study |
 | H8 | Takeout likelihood: patent-cliff-driven M&A favors late-stage assets in acquirer-gap therapeutic areas; a takeout probability score adds return. | EDGAR, ctgov, FDA, M&A history | Classifier + portfolio tilt |
