@@ -25,6 +25,18 @@ Ideas not yet scheduled. Promote to the blueprint roadmap when they earn a slot.
 - Modality economics under current IRA rules; track any legislative changes as regime events.
 - Do AI-data tool companies (PACB, TXG, TWST, QSI, ILMN) show measurable revenue from AI or foundation-model customers before AI-native pipelines read out (H9)?
 
+## Moved from TODO.md (investor, 2026-10-05)
+- [x] Another important data/information source is YouTube, or other podcasts, providing
+  deep dives on specific companies and domains. Example: for Humacyte, the YouTube video
+  "Whistleblower Exposes FDA Approval of Dangerous Vascular Graft for Military Use" from
+  the American Whistleblower Podcast showed that Symvess (acellular tissue engineered
+  vessel-tyod) is not that reliable, even after FDA approval. We need a source where
+  doctors from FDA, or scientists from other regulators, may speak the truth.
+  **Status:** designed as M15 (`docs/modules/long_form_media.md`), case study in
+  `docs/research/humacyte_symvess_case.md`, register in
+  `data/reference/dissent_register.csv` (D-020).
+- [ ] Add the American Whistleblower Podcast episode date and speaker to the register.
+
 ## Data sources to evaluate
 - AACT (CTTI) for point-in-time ctgov history.
 - SEC Form 13F and insider transaction data sets.

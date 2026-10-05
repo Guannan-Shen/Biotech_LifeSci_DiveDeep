@@ -15,4 +15,6 @@
 | Q-011 | Adjacent sleeve: confirm 15% cap and pick a diagnostic benchmark (aerospace/defense ETF, or an equal-weight peer basket of de-SPAC deep-tech). | Sizing and evaluation of MRLN-type names | Investor | Open |
 | Q-012 | X API budget and tier; which accounts to follow per company. | M13 build scope | Investor | Open |
 | Q-013 | Results of `scripts/check_data_access.py` on the investor's machine. | Decides where Phase 1 connectors run (Q-004) | Investor | Open |
-| Q-014 | MRLN: verify diluted share count, quarterly burn split, PIPE resale size, KC-135 program status, Reg FD social channels. | Memo cannot assign probabilities without them | Data (M1, M13, M14) | Open |
+| Q-014 | MRLN: verify diluted share count, quarterly burn split, preferred accrued value and terms, PIPE resale size, deal-projection details, executive turnover (8-K 5.02), Reg FD social channels. KC-135 status found: test flights since 2024, still a prototype program. | Memo cannot assign probabilities without them | Data (M1, M13, M14) | Open (partly answered) |
+| Q-015 | YouTube Data API key and a podcast transcript route (platform transcripts vs local speech-to-text)? | M15 automation in Phase 3 | Investor | Open |
+| Q-016 | Daily price history for HUMA and MRLN: the FMP plan blocks charts. Pull on the local machine or a second vendor? | H12 case study returns; H11 supply-day volume | Investor | Open |

@@ -55,9 +55,12 @@ milestone slips more than two quarters, or a prototype contract ends without a f
   are not revenue.
 
 **Price gate.** Three scenarios at one date. Two numbers anchor every scenario:
-- **Cash floor per share** = (usable cash at valuation date, projected) / diluted shares.
-  A stock below its cash floor prices in either continued burn or distrust of management.
-- **Option value** = market cap minus projected cash; the part of the price that pays
+- **Cash floor per share** = (usable cash at valuation date, projected, **minus senior
+  claims**: debt, preferred liquidation preference plus accrued dividends) / common
+  shares. A stock below its cash floor prices in either continued burn or distrust of
+  management. Skipping the senior-claims step overstated MRLN's floor about fivefold
+  (D-019).
+- **Option value** = market cap minus residual cash; the part of the price that pays
   for the technology. Negative option value means the market expects the cash to be
   burned without a return.
 

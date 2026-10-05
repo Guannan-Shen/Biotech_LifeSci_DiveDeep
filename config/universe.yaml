@@ -127,6 +127,14 @@ companies:
     thesis_note: "Amtagvi launch took longer than expected; autologous cell therapy delivery friction."
     snapshot: {price: 14.215, market_cap_usd: 6347025930}
 
+  - ticker: HUMA
+    name: Humacyte
+    cik: "0001818382"
+    role: watchlist
+    archetypes: [launch]
+    thesis_note: "M15 case study: Symvess approved 2024-12-19 over internal FDA dissent; docs/research/humacyte_symvess_case.md"
+    snapshot: {price: 0.5, market_cap_usd: 84000000}
+
   # --- Clinical binary -----------------------------------------------------------
   - ticker: SLS
     name: SELLAS Life Sciences

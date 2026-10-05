@@ -67,6 +67,14 @@ Additional names added 2026-10-05 (see `docs/framework/archetypes.md`): HROW and
 - Initial screening rule: cash covers the next key event plus at least 12 months of
   buffer. This is a conservative screen and is adjusted by business type.
 - Net cash is not a value floor, because it may keep burning.
+- **Seniority check (added 2026-10-05, D-019).** Cash belongs to common shareholders
+  only after senior claims: debt, convertible notes, preferred stock liquidation
+  preference with accrued dividends, and any royalty or revenue-interest financing.
+  Compute `residual cash = usable cash - senior claims` before calling a stock "below
+  cash". Also list ratchet (down-round) terms, because they transfer value from common
+  holders whenever the company raises at a lower price. Lesson from the MRLN memo,
+  where a USD 120M preferred turned an apparent below-cash stock into one priced well
+  above its residual cash.
 
 ### Price gate
 
@@ -230,7 +238,9 @@ Starting parameters, not claimed to be optimal (tested in Phase 3, H5).
 - Weekly at a fixed time: adjusted close, 200-day and 50-day moving averages, 13-week
   relative strength.
 - Candidate buy: fundamentals pass the three gates, price above a rising 200-day MA,
-  relative strength vs the peer benchmark improving.
+  relative strength vs the peer benchmark improving, and the move confirmed by volume
+  (breakout day relative volume above 1.5, up/down volume ratio above 1; definitions in
+  `docs/modules/market_trend.md`, section 2a).
 - Start with one third of the planned position; add only on new evidence that improves
   value or on further trend confirmation, within the total risk budget.
 - Relative benchmark: the matching sub-industry first. XBI fits clinical biotech; it

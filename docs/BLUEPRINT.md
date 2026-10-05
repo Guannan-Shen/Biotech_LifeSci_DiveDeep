@@ -61,13 +61,15 @@ dependent on forecasting science.
 | H2 | Launch-execution drift: after approval, the market misprices launch trajectories; early prescription/revenue metrics vs analog curves predict 2-4 quarter returns (REPL, IOVA type). | 10-Q product revenue (XBRL), FDA approvals, analogs | Event study + analog regression |
 | H3 | Catalyst run-up: stocks with a dated binary catalyst drift up into the event; owning the run-up and cutting before the binary has positive expectancy. | ctgov dates, 8-K/PR guidance, PDUFA dates | Event study with exit rules |
 | H4 | Specialist conviction: concentration and changes in dedicated biotech fund ownership (13F, 13D/G) predict forward excess return, especially in small caps. | EDGAR 13F/13D/13G | Quintile sort, lag-aware (45-day 13F delay) |
-| H5 | Trend and regime: XBI regime (vs 200-day MA, rates) and stock relative strength improve timing of fundamental entries. | Prices and Trading Volume | Overlay test on H1-H4 |
+| H5 | Trend and regime: XBI regime (vs 200-day MA, rates), stock relative strength and volume confirmation (breakouts on above-average volume, accumulation vs distribution) improve timing of fundamental entries. | Prices and Trading Volume | Overlay test on H1-H4 |
 | H6 | Quality inside biotech: profitable or near-profitable specialty pharma (HROW, ETON type) is underfollowed and compounds vs XBI. | XBRL fundamentals | Factor sort |
 | H7 | Trial-registry signals: primary-completion slippage, enrollment cuts, endpoint edits and status changes on ClinicalTrials.gov lead price and outcome. | ctgov version history | Event study |
 | H8 | Takeout likelihood: patent-cliff-driven M&A favors late-stage assets in acquirer-gap therapeutic areas; a takeout probability score adds return. | EDGAR, ctgov, FDA, M&A history | Classifier + portfolio tilt |
 | H9 | AI-for-bio value capture: in the current AI cycle, data generators and tools with recurring consumables convert AI demand into revenue earlier than AI-native drug pipelines. | Segment revenue, customer disclosures | Panel study, slow (multi-year) |
 | H10 | Attention and disclosure on X: official-channel posts lead press releases and filings; abnormal cashtag attention spikes in small caps predict short-term reversal. | X API, EDGAR timestamps | Lead-lag study; event study on attention z-scores |
-| H11 | De-SPAC overhang: PIPE resale registrations, warrant exercisability and lockup expiries predict negative drift; the stock bottoms after supply clears, and below-cash names with controlled burn re-rate. | EDGAR 424B3/S-1, 8-K, prices | Event study around supply dates |
+| H11 | De-SPAC overhang: PIPE resale registrations, warrant exercisability and lockup expiries predict negative drift; the stock bottoms after supply clears, and names trading below residual cash (after senior claims) with controlled burn re-rate. | EDGAR 424B3/S-1, 8-K, prices | Event study around supply dates |
+
+| H12 | Credible dissent: public criticism from qualified insiders (former regulators or reviewers, trial investigators, ex-employees, domain experts) in long-form media precedes negative revisions; a dissent flag improves left-tail avoidance (H1). | Podcasts, YouTube, FDA review documents, petitions | Case studies first (Humacyte), then event study on a labeled dissent set |
 
 Hypotheses are ranked by data availability and testability. H1, H3, H5, H7 come
 first because public data covers them well.
@@ -153,6 +155,7 @@ Design rules:
 | M12 | Reporting | Weekly review, alerts, memo rendering | `docs/modules/portfolio_backtest.md` (section 6) |
 | M13 | Social / X tracker | Official-channel disclosures, expert and press accounts, cashtag attention | `docs/modules/social_x.md` |
 | M14 | Government contracts & non-FDA regulators | USAspending, SAM.gov, DoD contract announcements, FAA records (adjacent sleeve) | `docs/framework/adjacent_deeptech.md` (section 3) |
+| M15 | Long-form media & dissent tracker | Podcasts, YouTube, conference talks, investigative press; dissent register per company | `docs/modules/long_form_media.md` |
 
 Package layout mirrors the modules:
 
