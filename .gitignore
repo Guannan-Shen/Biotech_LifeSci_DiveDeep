@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.env
+
+# Local data store (reference CSVs in data/reference are committed)
+data/raw/
+data/silver/
+data/gold/
+*.duckdb
+reports/

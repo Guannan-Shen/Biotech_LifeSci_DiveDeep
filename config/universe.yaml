@@ -1,0 +1,173 @@
+# Watchlist universe. Schema enforced by src/biotech_divedeep/universe.py.
+#
+# role:        watchlist (followed closely) | screen_only (candidate pool, not yet researched)
+#              | benchmark (index or ETF)
+# archetypes:  see docs/framework/archetypes.md
+# snapshot:    market data at a point in time; never treat as current without a refresh.
+# thesis_note: the investor's own framing; evidence class own_assumption unless sourced.
+
+snapshot_defaults:
+  as_of: "2026-10-05"
+  source: "FMP company profile (profile-symbol endpoint), fetched 2026-10-05"
+
+companies:
+  # --- AI-for-bio data and tools -------------------------------------------------
+  - ticker: PACB
+    name: Pacific Biosciences of California
+    cik: "0001299130"
+    role: watchlist
+    archetypes: [tools]
+    thesis_note: "Most mature 'AI genomic data' inflection name. Watch whether AI demand lifts consumables and revenue."
+    snapshot: {price: 2.54, market_cap_usd: 788928288}
+  - ticker: DNA
+    name: Ginkgo Bioworks
+    cik: "0001830214"
+    role: watchlist
+    archetypes: [ai_platform, tools]
+    thesis_note: "Purest 'AI autonomous lab' platform. Watch when OpenAI / Lilly / Novo collaborations become revenue (unverified)."
+    snapshot: {price: 12.35, market_cap_usd: 806757464}
+  - ticker: QSI
+    name: Quantum-Si
+    cik: "0001816431"
+    role: watchlist
+    archetypes: [tools]
+    thesis_note: "Earliest-stage 'AI protein data' technology option. Watch whether Proteus commercializes on time in 2027."
+    snapshot: {price: 1.55, market_cap_usd: 306625128}
+  - ticker: ILMN
+    name: Illumina
+    cik: "0001110803"
+    role: watchlist
+    archetypes: [tools]
+    thesis_note: "Mature sequencing incumbent; reference for tools peers. Large cap, outside the core small/mid mandate."
+    snapshot: {price: 273.04, market_cap_usd: 41310952000}
+  - ticker: TXG
+    name: 10x Genomics
+    cik: "0001770787"
+    role: watchlist
+    archetypes: [tools]
+    thesis_note: "Single-cell and spatial tools; AI training-data generator candidate."
+    snapshot: {price: 93.5, market_cap_usd: 11870404046}
+  - ticker: TWST
+    name: Twist Bioscience
+    cik: "0001581280"
+    role: watchlist
+    archetypes: [tools]
+    thesis_note: "Synthetic DNA; operating leverage question."
+    snapshot: {price: 188.67, market_cap_usd: 11748726171}
+
+  # --- Software and AI drug discovery --------------------------------------------
+  - ticker: SDGR
+    name: Schrodinger
+    cik: "0001490978"
+    role: watchlist
+    archetypes: [software, ai_platform]
+    thesis_note: "Physics-based software plus pipeline; sum of parts."
+    snapshot: {price: 30.31, market_cap_usd: 2264785144}
+  - ticker: CERT
+    name: Certara
+    cik: "0001827090"
+    role: watchlist
+    archetypes: [software]
+    thesis_note: "Biosimulation software and services."
+    snapshot: {price: 9.36, market_cap_usd: 1456088400}
+  - ticker: RXRX
+    name: Recursion Pharmaceuticals
+    cik: "0001601830"
+    role: watchlist
+    archetypes: [ai_platform, clinical_binary]
+    thesis_note: "AI-native pipeline; platform validated only by human data."
+    snapshot: {price: 4.12, market_cap_usd: 2161673360}
+
+  # --- Diagnostics and clinical data ---------------------------------------------
+  - ticker: TEM
+    name: Tempus AI
+    cik: "0001717115"
+    role: watchlist
+    archetypes: [dx_data]
+    thesis_note: "Testing plus data licensing. Large cap at snapshot."
+    snapshot: {price: 76.63, market_cap_usd: 13425581364}
+  - ticker: GRAL
+    name: GRAIL
+    cik: "0001699031"
+    role: watchlist
+    archetypes: [dx_data]
+    thesis_note: "Multi-cancer early detection; AdCom, approval and coverage are separate nodes."
+    snapshot: {price: 143.26, market_cap_usd: 6148230683}
+
+  # --- Commercial specialty / rare-disease pharma --------------------------------
+  - ticker: HROW
+    name: Harrow
+    cik: "0001360214"
+    role: watchlist
+    archetypes: [commercial_pharma]
+    thesis_note: "Platform-like ophthalmic pharma; quality-inside-biotech candidate (H6)."
+    snapshot: {price: 30.48, market_cap_usd: 1136145261}
+  - ticker: ETON
+    name: Eton Pharmaceuticals
+    cik: "0001710340"
+    role: watchlist
+    archetypes: [commercial_pharma]
+    thesis_note: "Rare-disease commercial portfolio; acquisition-driven growth to audit."
+    snapshot: {price: 55.36, market_cap_usd: 1516440939}
+
+  # --- Launch execution ----------------------------------------------------------
+  - ticker: REPL
+    name: Replimune Group
+    cik: "0001737953"
+    role: watchlist
+    archetypes: [launch]
+    thesis_note: "Investor note: recently FDA approved, launch slower than hoped. Approval status and date unverified in repo."
+    snapshot: {price: 13.07, market_cap_usd: 1098220735}
+  - ticker: IOVA
+    name: Iovance Biotherapeutics
+    cik: "0001425205"
+    role: watchlist
+    archetypes: [launch]
+    thesis_note: "Amtagvi launch took longer than expected; autologous cell therapy delivery friction."
+    snapshot: {price: 14.215, market_cap_usd: 6347025930}
+
+  # --- Clinical binary -----------------------------------------------------------
+  - ticker: SLS
+    name: SELLAS Life Sciences
+    cik: "0001390478"
+    role: watchlist
+    archetypes: [clinical_binary]
+    thesis_note: "Phase 3 'powerball' (galinpepimut-S). Readout timing and design to verify."
+    snapshot: {price: 11.74, market_cap_usd: 2184027420}
+  - ticker: EDSA
+    name: Edesa Biotech
+    cik: "0001540159"
+    role: watchlist
+    archetypes: [clinical_binary]
+    thesis_note: "Event-driven; verify lead program, trial status and funding first."
+    snapshot: {price: 3.86, market_cap_usd: 37184229}
+
+  # --- Specialist-concentration screen (Breakthrough table, undated) -------------
+  # CIKs to be resolved by the EDGAR connector in Phase 1. Archetypes here are provisional.
+  - {ticker: LONA, name: LeonaBio, role: screen_only, archetypes: [clinical_binary]}
+  - {ticker: XLO, name: Xilio Therapeutics, role: screen_only, archetypes: [clinical_binary]}
+  - {ticker: IMA, name: ImageneBio, role: screen_only, archetypes: [clinical_binary]}
+  - {ticker: IBIO, name: iBio, role: screen_only, archetypes: [clinical_binary]}
+  - {ticker: BOLD, name: Boundless Bio, role: screen_only, archetypes: [clinical_binary]}
+  - {ticker: TRAW, name: Traws Pharma, role: screen_only, archetypes: [clinical_binary]}
+  - {ticker: KLRS, name: Kalaris Therapeutics, role: screen_only, archetypes: [clinical_binary]}
+  - {ticker: KPTI, name: Karyopharm Therapeutics, role: screen_only, archetypes: [commercial_pharma]}
+  - {ticker: CNTX, name: Context Therapeutics, role: screen_only, archetypes: [clinical_binary]}
+  - {ticker: ELOX, name: Eloxx Pharmaceuticals, role: screen_only, archetypes: [clinical_binary]}
+  - {ticker: TIL, name: Instil Bio, role: screen_only, archetypes: [clinical_binary]}
+  - {ticker: PLRX, name: Pliant Therapeutics, role: screen_only, archetypes: [clinical_binary]}
+  - {ticker: QNRX, name: Quoin Pharmaceuticals, role: screen_only, archetypes: [clinical_binary]}
+  - {ticker: RNTX, name: Rein Therapeutics, role: screen_only, archetypes: [clinical_binary]}
+  - {ticker: CLRB, name: Cellectar Biosciences, role: screen_only, archetypes: [clinical_binary]}
+  - {ticker: BOLT, name: Bolt Biotherapeutics, role: screen_only, archetypes: [clinical_binary]}
+  - {ticker: NXTC, name: NextCure, role: screen_only, archetypes: [clinical_binary]}
+  - {ticker: NEUP, name: Neuphoria Therapeutics, role: screen_only, archetypes: [clinical_binary]}
+  - {ticker: JSPR, name: Jasper Therapeutics, role: screen_only, archetypes: [clinical_binary]}
+  - {ticker: CNTB, name: Connect Biopharma, role: screen_only, archetypes: [clinical_binary]}
+
+  # --- AI discovery chart, listed names not already above ------------------------
+  - {ticker: ABSI, name: Absci, role: screen_only, archetypes: [ai_platform]}
+
+benchmarks:
+  - {ticker: XBI, name: SPDR S&P Biotech ETF, role: primary}
+  - {ticker: IBB, name: iShares Biotechnology ETF, role: diagnostic}

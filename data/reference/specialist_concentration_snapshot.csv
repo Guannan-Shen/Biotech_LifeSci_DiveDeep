@@ -1,0 +1,21 @@
+rank,company,ticker,market_cap_usd_m,held_pct,specialist_holders,specialist_share_of_institutions_pct,specialists,total_institutions,score
+1,LeonaBio,LONA,191.15,61.08,10,22.7,10,44,99.1
+2,Xilio Therapeutics,XLO,178.15,40.66,7,26.9,7,26,97.3
+3,ImageneBio,IMA,86.34,29.72,8,22.9,8,35,96.5
+4,iBio,IBIO,270.22,27.28,9,16.4,9,55,95.3
+5,Boundless Bio,BOLD,61.42,38.17,7,17.5,7,40,95.1
+6,Traws Pharma,TRAW,27.26,26.73,7,20.0,7,35,94.6
+7,Kalaris Therapeutics,KLRS,74.27,63.57,7,12.3,7,57,94.6
+8,Karyopharm Therapeutics,KPTI,81.23,34.99,11,11.3,11,97,94.1
+9,Context Therapeutics,CNTX,38.66,37.81,9,11.4,9,79,93.9
+10,Eloxx Pharmaceuticals,ELOX,180.70,39.57,4,18.2,4,22,93.4
+11,Instil Bio,TIL,49.07,43.31,4,15.4,4,26,93.2
+12,Pliant Therapeutics,PLRX,70.25,30.45,9,10.5,9,86,92.7
+13,Quoin Pharmaceuticals,QNRX,86.01,25.70,4,21.1,4,19,92.5
+14,Rein Therapeutics,RNTX,75.87,19.01,8,13.3,8,60,92.4
+15,Cellectar Biosciences,CLRB,36.50,16.71,6,20.7,6,29,92.3
+16,Bolt Biotherapeutics,BOLT,7.03,14.39,5,21.7,5,23,91.5
+17,NextCure,NXTC,25.59,14.63,6,20.0,6,30,91.5
+18,Neuphoria Therapeutics,NEUP,23.98,17.81,4,18.2,4,22,91.0
+19,Jasper Therapeutics,JSPR,370.67,17.54,6,13.0,6,46,90.6
+20,Connect Biopharma,CNTB,67.38,12.95,8,14.3,8,56,90.4

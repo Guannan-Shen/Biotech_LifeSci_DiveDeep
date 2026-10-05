@@ -1,0 +1,12 @@
+company,asset,target,target_novelty,modality,indication,furthest_phase_at_chart,cycle_measurement,cycle_months,faster_than_benchmark_pct_low,faster_than_benchmark_pct_high,benchmark_not_like_for_like,ticker_if_listed
+GV20 Therapeutics,GV20-0251,IGSF8,first_in_class,monoclonal antibody,Solid tumors,Phase 1/2,Target ID to IND,36,25,50,true,
+Iambic Therapeutics,IAM1363,HER2,fast_follow,small molecule,HER2-driven solid tumors,Phase 1,Hit ID to FIH,24,50,65,false,
+Absci,ABS-101,TL1A,fast_follow,monoclonal antibody,Inflammatory bowel disease,Phase 1,Hit ID to FIH,24,50,65,false,ABSI
+Generate:Biomedicines,GB-0669,SARS-CoV-2 S2 stem-helix,first_in_class,monoclonal antibody,COVID-19 prophylaxis,Phase 1,Hit ID to FIH,17,65,75,false,
+Insilico Medicine,ISM3312,3CLpro,fast_follow,small molecule,COVID-19,Phase 1,Hit ID to PCC,28,15,45,false,
+Recursion,REC-1245,RBM39,fast_follow,molecular glue degrader,Biomarker-enriched solid tumors and lymphoma,Phase 1/2,Target ID to PCC,18,45,65,true,RXRX
+Insilico Medicine,Rentosertib (INS018_055),TNIK,first_in_class,small molecule,Fibrotic disease,Phase 3,Target ID to PCC,18,45,65,true,
+Schrodinger,SGR-1505,MALT1,fast_follow,small molecule,Hematological malignancies,Phase 1,Hit ID to PCC,10,70,80,false,SDGR
+Recursion (Exscientia),EXS21546,A2AR,fast_follow,small molecule,Oncology,Phase 1/2,Hit ID to PCC,9,70,80,false,RXRX
+BENCHMARK large pharma median,,,,,,,Hit ID to PCC,32-50,,,,
+BENCHMARK large pharma median,,,,,,,PCC to FIH,16-20,,,,
