@@ -22,6 +22,14 @@ Three jobs, in this order:
 3. **Predict**: probabilities for the events that move these stocks (readouts, FDA
    actions, financings, launch trajectories, takeouts), calibrated and backtested.
 
+**Adjacent sleeve (added 2026-10-05, D-013).** The same framework applies to listed
+companies outside biotech that share its economics: pre-revenue or early-revenue,
+venture-like risk, a finite cash runway, and value unlocked by a regulatory or
+customer gate (FAA certification, a defense program of record). First case: MRLN
+(Merlin, AI autonomous flight). These names live in a capped adjacent sleeve; the
+whole portfolio is still judged against XBI, and the sleeve also gets its own
+diagnostic benchmark.
+
 The wider motivation: AI-for-bio is compressing parts of discovery, and slow, expensive
 drug development is the bottleneck between scientific progress and patients. Capital
 that flows to the companies that actually remove that bottleneck is good for returns
@@ -58,6 +66,8 @@ dependent on forecasting science.
 | H7 | Trial-registry signals: primary-completion slippage, enrollment cuts, endpoint edits and status changes on ClinicalTrials.gov lead price and outcome. | ctgov version history | Event study |
 | H8 | Takeout likelihood: patent-cliff-driven M&A favors late-stage assets in acquirer-gap therapeutic areas; a takeout probability score adds return. | EDGAR, ctgov, FDA, M&A history | Classifier + portfolio tilt |
 | H9 | AI-for-bio value capture: in the current AI cycle, data generators and tools with recurring consumables convert AI demand into revenue earlier than AI-native drug pipelines. | Segment revenue, customer disclosures | Panel study, slow (multi-year) |
+| H10 | Attention and disclosure on X: official-channel posts lead press releases and filings; abnormal cashtag attention spikes in small caps predict short-term reversal. | X API, EDGAR timestamps | Lead-lag study; event study on attention z-scores |
+| H11 | De-SPAC overhang: PIPE resale registrations, warrant exercisability and lockup expiries predict negative drift; the stock bottoms after supply clears, and below-cash names with controlled burn re-rate. | EDGAR 424B3/S-1, 8-K, prices | Event study around supply dates |
 
 Hypotheses are ranked by data availability and testability. H1, H3, H5, H7 come
 first because public data covers them well.
@@ -83,6 +93,10 @@ Archetypes decide which model applies (details in `docs/framework/archetypes.md`
 | `software` | Simulation and discovery software | SDGR, CERT | ACV, retention, FCF |
 | `dx_data` | Diagnostics and clinical data | TEM, GRAL | Billable volume x ASP, coverage |
 | `ai_platform` | AI-native discovery or automated labs | RXRX, DNA, SDGR (pipeline) | Platform validation chain + asset rNPV |
+| `regulated_deeptech` | Adjacent sleeve: venture-like, runway-bound, regulatory or program gate | MRLN | Milestone event tree (certification, contracts) + runway + cash floor |
+
+Each company also carries a `sleeve`: `core` (biotech and life sciences) or `adjacent`
+(see `docs/framework/adjacent_deeptech.md`).
 
 ## 5. System architecture
 
@@ -137,6 +151,8 @@ Design rules:
 | M10 | Opportunity map | Unmet need x economics x crowding by indication and modality | `docs/modules/opportunity_map.md` |
 | M11 | Portfolio & backtest | Point-in-time backtest vs XBI, sizing, risk budget, paper trading | `docs/modules/portfolio_backtest.md` |
 | M12 | Reporting | Weekly review, alerts, memo rendering | `docs/modules/portfolio_backtest.md` (section 6) |
+| M13 | Social / X tracker | Official-channel disclosures, expert and press accounts, cashtag attention | `docs/modules/social_x.md` |
+| M14 | Government contracts & non-FDA regulators | USAspending, SAM.gov, DoD contract announcements, FAA records (adjacent sleeve) | `docs/framework/adjacent_deeptech.md` (section 3) |
 
 Package layout mirrors the modules:
 
@@ -165,7 +181,9 @@ src/biotech_divedeep/
 Research order for memos (calibrating one model per archetype): PACB (tools), SDGR
 (software + pipeline), RXRX (AI platform), then TEM/GRAL (dx), QSI/DNA (early product,
 turnaround), REPL/IOVA (launch), SLS/EDSA (binary), HROW/ETON (commercial pharma).
-This is a research order, not a buy order.
+MRLN runs in parallel as the adjacent-sleeve pilot (`docs/memos/MRLN.md`) to test
+whether the framework transfers outside biotech. This is a research order, not a buy
+order.
 
 ## 8. Guardrails
 
@@ -190,3 +208,5 @@ Tracked with status in `notes/open_questions.md`. The ones that change the desig
 4. Where will connectors run? This cloud environment's network policy currently
    blocks sec.gov, api.fda.gov and clinicaltrials.gov.
 5. Target number of holdings and rebalance cadence (weekly review assumed).
+6. Maximum weight of the adjacent sleeve (15% proposed) and its diagnostic benchmark.
+7. Budget for X API access, and the list of accounts worth following per company.

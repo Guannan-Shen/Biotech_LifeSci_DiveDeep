@@ -1,6 +1,6 @@
 import pytest
 
-from biotech_divedeep.universe import Archetype, Role, SizeBucket, Universe, load_universe, size_bucket
+from biotech_divedeep.universe import Archetype, Role, SizeBucket, Sleeve, Universe, load_universe, size_bucket
 
 
 @pytest.fixture(scope="module")
@@ -48,3 +48,10 @@ def test_bad_cik_rejected():
             companies=[{"ticker": "A", "name": "A", "role": "watchlist", "archetypes": ["tools"], "cik": "1299130"}],
             benchmarks=[],
         )
+
+
+def test_adjacent_sleeve(universe):
+    adjacent = universe.with_sleeve(Sleeve.ADJACENT)
+    assert [c.ticker for c in adjacent] == ["MRLN"]
+    assert adjacent[0].archetypes == (Archetype.REGULATED_DEEPTECH,)
+    assert universe.by_ticker("PACB").sleeve == Sleeve.CORE

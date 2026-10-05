@@ -20,6 +20,12 @@ class Archetype(StrEnum):
     SOFTWARE = "software"
     DX_DATA = "dx_data"
     AI_PLATFORM = "ai_platform"
+    REGULATED_DEEPTECH = "regulated_deeptech"
+
+
+class Sleeve(StrEnum):
+    CORE = "core"  # biotech and life sciences
+    ADJACENT = "adjacent"  # runway-bound, regulator-gated companies outside life sciences
 
 
 class Role(StrEnum):
@@ -59,6 +65,7 @@ class Company(BaseModel):
     ticker: str
     name: str
     role: Role
+    sleeve: Sleeve = Sleeve.CORE
     archetypes: tuple[Archetype, ...] = Field(min_length=1)
     cik: str | None = None
     thesis_note: str = ""
@@ -112,6 +119,9 @@ class Universe(BaseModel):
 
     def with_role(self, role: Role) -> list[Company]:
         return [c for c in self.companies if c.role == role]
+
+    def with_sleeve(self, sleeve: Sleeve) -> list[Company]:
+        return [c for c in self.companies if c.sleeve == sleeve]
 
     def with_archetype(self, archetype: Archetype) -> list[Company]:
         return [c for c in self.companies if archetype in c.archetypes]

@@ -1,5 +1,6 @@
 # Watchlist universe. Schema enforced by src/biotech_divedeep/universe.py.
 #
+# sleeve:      core (biotech, life sciences; default) | adjacent (docs/framework/adjacent_deeptech.md)
 # role:        watchlist (followed closely) | screen_only (candidate pool, not yet researched)
 #              | benchmark (index or ETF)
 # archetypes:  see docs/framework/archetypes.md
@@ -141,6 +142,16 @@ companies:
     archetypes: [clinical_binary]
     thesis_note: "Event-driven; verify lead program, trial status and funding first."
     snapshot: {price: 3.86, market_cap_usd: 37184229}
+
+  # --- Adjacent sleeve: regulated deep-tech --------------------------------------
+  - ticker: MRLN
+    name: Merlin
+    cik: "0002028707"
+    role: watchlist
+    sleeve: adjacent
+    archetypes: [regulated_deeptech]
+    thesis_note: "AI autonomous flight; VC-like, investor estimates about 15 months runway. Trading near cash. Memo: docs/memos/MRLN.md"
+    snapshot: {price: 1.57, market_cap_usd: 151542762}
 
   # --- Specialist-concentration screen (Breakthrough table, undated) -------------
   # CIKs to be resolved by the EDGAR connector in Phase 1. Archetypes here are provisional.

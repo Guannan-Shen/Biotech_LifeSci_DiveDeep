@@ -13,6 +13,13 @@ Ideas not yet scheduled. Promote to the blueprint roadmap when they earn a slot.
 - FAERS report counts as a launch-utilization proxy, with stimulated-reporting controls.
 - Implied move from options vs model stress move before binaries.
 
+- Below-cash small caps: re-rating base rate conditional on burn cuts vs continued burn (biotech and adjacent).
+- De-SPAC supply calendar (PIPE resale, warrants, earnouts, lockups) as a drift predictor (H11).
+- X: lead time of executive posts over 8-Ks; cashtag attention z-score reversal (H10).
+
+## Adjacent sleeve candidates (screen before adding)
+- eVTOL, space, defense autonomy, nuclear and fusion names that pass the same gates.
+
 ## Insight questions
 - Which indications have high burden, low therapy coverage and few Phase 2+ entrants?
 - Modality economics under current IRA rules; track any legislative changes as regime events.

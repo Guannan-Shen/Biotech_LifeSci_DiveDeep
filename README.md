@@ -4,7 +4,10 @@ A point-in-time research and decision system for investing in small and mid-cap
 biotech and life-science companies, with one measurable goal: a basket that beats
 **XBI over rolling 6-month and longer windows**, after costs.
 
-It tracks four primary sources (SEC EDGAR, FDA, ClinicalTrials.gov, company news),
+An adjacent sleeve applies the same framework to runway-bound, regulator-gated companies
+outside biotech (first case: MRLN, AI autonomous flight).
+
+It tracks four primary sources (SEC EDGAR, FDA, ClinicalTrials.gov, company news), plus X,
 turns them into a single timestamped event stream, and uses that stream to:
 
 - **Understand** each company through archetype-specific models (clinical binary,
@@ -26,6 +29,8 @@ turns them into a single timestamped event stream, and uses that stream to:
 | [`docs/research/`](docs/research/) | Notes on external material (AI discovery cycle times, specialist ownership) |
 | [`notes/`](notes/) | Session log, decision log, open questions, research backlog |
 | [`config/universe.yaml`](config/universe.yaml) | Watchlist, screen candidates, benchmarks |
+| [`docs/runbooks/local_setup.md`](docs/runbooks/local_setup.md) | Clone locally and check access to SEC, FDA and ClinicalTrials.gov |
+| [`docs/memos/`](docs/memos/) | Company memos (first: MRLN, adjacent-sleeve pilot) |
 
 ## Status
 
@@ -35,6 +40,7 @@ openFDA connectors) is next. See the roadmap in the blueprint.
 ## Setup
 
 ```bash
+python3 scripts/check_data_access.py   # stdlib only; needs SEC_USER_AGENT
 pip install -e ".[dev]"          # add ".[data]" for pandas / pyarrow / duckdb
 python -m pytest
 ruff check .

@@ -12,3 +12,7 @@
 | Q-008 | Which OpenAI / Lilly / Novo collaborations with DNA exist, and are any revenue-bearing? | Core of the DNA thesis | Data (M1, M4) | Open |
 | Q-009 | Date and method of the Breakthrough specialist-concentration table? | Needed before using it as a signal | Investor | Open |
 | Q-010 | Keep the original Chinese framework draft somewhere? Only the English translation is committed. | English-only rule vs provenance | Investor | Open |
+| Q-011 | Adjacent sleeve: confirm 15% cap and pick a diagnostic benchmark (aerospace/defense ETF, or an equal-weight peer basket of de-SPAC deep-tech). | Sizing and evaluation of MRLN-type names | Investor | Open |
+| Q-012 | X API budget and tier; which accounts to follow per company. | M13 build scope | Investor | Open |
+| Q-013 | Results of `scripts/check_data_access.py` on the investor's machine. | Decides where Phase 1 connectors run (Q-004) | Investor | Open |
+| Q-014 | MRLN: verify diluted share count, quarterly burn split, PIPE resale size, KC-135 program status, Reg FD social channels. | Memo cannot assign probabilities without them | Data (M1, M13, M14) | Open |
