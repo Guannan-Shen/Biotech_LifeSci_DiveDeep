@@ -42,6 +42,21 @@ date as the volume. Micro-cap volume is noisy, so features use medians and requi
 dollar-volume floor. Off-exchange and short-volume data (FINRA daily short volume) are a
 later addition.
 
+### 2b. Theme-cohort features (added 2026-10-06, D-021)
+
+Implemented for one-day snapshots in `src/biotech_divedeep/signals/cohort.py`; the
+time-series versions wait for the price store.
+
+| Feature | Definition | Use |
+|---|---|---|
+| Layer | Position in a theme's value chain (e.g., data_generator, clinical_genomics_dx, ai_drug_design) | Group statistics; locate the epicenter of a move |
+| Day class | heavy_distribution (return <= -10%, RVOL >= 2), distribution (<= -4%, RVOL >= 1.5), quiet_decline, up | H13 trigger and the distribution-day count |
+| Run size | Close / 52-week low; 52-week high / low | Strongest single correlate of the 10-06 loss (rho -0.45) |
+| Two-day path | Spike day, reversal day, net | Separates round trips from one-way moves |
+| Layer summary | Median and dollar-volume weighted return, share down, median RVOL | Breadth of a theme move |
+| Crowding score | Mean percentile rank of run size, beta, small size | Fixed before 10-06; secondary sort in H13 |
+| Distribution-day count (planned) | Heavy-distribution days per cohort member over 25 sessions | Scenario signpost in the case study |
+
 ## 3. Rules under test (framework section 10)
 
 Weekly snapshot, candidate-buy conditions, one-third initial sizing, 200-day exit rule,

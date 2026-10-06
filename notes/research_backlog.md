@@ -16,6 +16,10 @@ Ideas not yet scheduled. Promote to the blueprint roadmap when they earn a slot.
 - Below-cash small caps: re-rating base rate conditional on burn cuts vs continued burn (biotech and adjacent).
 - De-SPAC supply calendar (PIPE resale, warrants, earnouts, lockups) as a drift predictor (H11).
 - X: lead time of executive posts over 8-Ks; cashtag attention z-score reversal (H10).
+- Thematic ETF flow (ARK daily trades, ARKG creations and redemptions) as a negative signal distinct from specialist conviction (D-023).
+- Sell-side target-hike clustering after large runs as a late-stage marker (count of target raises per name in 5 sessions vs the run size).
+- AI labs entering wet-lab biology (Anthropic, others): track as a two-sided event for data generators (customer and competitor) and for gene-editing IP.
+- Lilly TuneLab vendor list and any disclosed revenue from it (TWST, DNA): first quantitative test of fundamental H9.
 
 ## Adjacent sleeve candidates (screen before adding)
 - eVTOL, space, defense autonomy, nuclear and fusion names that pass the same gates.
@@ -43,6 +47,9 @@ Ideas not yet scheduled. Promote to the blueprint roadmap when they earn a slot.
 - CMS Part D / Part B spending dashboards; ICER reports.
 - IHME GBD results tool.
 - Delisted price history vendors (Q-003).
+
+## Theme case studies
+- 2026-10-06 AI-bio data layer reversal: done (`docs/research/2026-10-06_ai_bio_theme_reversal.md`). Follow-up after Q3 reports (mid November): score each fit-matrix falsifier and the scenario signposts.
 
 ## Memos to write (research order, Phase 2)
 PACB, SDGR, RXRX, then TEM, GRAL, QSI, DNA, REPL, IOVA, SLS, EDSA, HROW, ETON.
