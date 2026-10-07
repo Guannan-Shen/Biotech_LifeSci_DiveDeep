@@ -7,6 +7,8 @@
 # snapshot:    market data at a point in time; never treat as current without a refresh.
 # thesis_note: the investor's own framing; evidence class own_assumption unless sourced.
 
+# D-022: snapshots with as_of 2026-10-05 were fetched before that day's open and hold the
+# 2026-10-02 close. Later snapshots are fetched after the close of their as_of date.
 snapshot_defaults:
   as_of: "2026-10-05"
   source: "FMP company profile (profile-symbol endpoint), fetched 2026-10-05"
@@ -151,6 +153,29 @@ companies:
     thesis_note: "Event-driven; verify lead program, trial status and funding first."
     snapshot: {price: 3.86, market_cap_usd: 37184229}
 
+  # --- Clinical genomics, added 2026-10-06 (AI-bio reversal case study, D-021) ----
+  - ticker: NTRA
+    name: Natera
+    cik: "0001604821"
+    role: watchlist
+    archetypes: [dx_data]
+    thesis_note: "Quality compounder candidate (H6); AI label incidental. Case study docs/research/2026-10-06_ai_bio_theme_reversal.md"
+    snapshot: {as_of: "2026-10-06", source: "FMP profile, fetched after the 2026-10-06 close", price: 400.65, market_cap_usd: 57379089750}
+  - ticker: GH
+    name: Guardant Health
+    cik: "0001576280"
+    role: watchlist
+    archetypes: [dx_data]
+    thesis_note: "Liquid biopsy scale-up toward breakeven; Shield screening adoption. Q3 on 2026-10-29 (unverified)."
+    snapshot: {as_of: "2026-10-06", source: "FMP profile, fetched after the 2026-10-06 close", price: 170.69, market_cap_usd: 22905944257}
+  - ticker: ADPT
+    name: Adaptive Biotechnologies
+    cik: "0001478320"
+    role: watchlist
+    archetypes: [dx_data]
+    thesis_note: "clonoSEQ MRD launch drift toward FCF breakeven by year-end 2026 (management guidance)."
+    snapshot: {as_of: "2026-10-06", source: "FMP profile, fetched after the 2026-10-06 close", price: 26.9, market_cap_usd: 4305183600}
+
   # --- Adjacent sleeve: regulated deep-tech --------------------------------------
   - ticker: MRLN
     name: Merlin
@@ -187,6 +212,16 @@ companies:
   # --- AI discovery chart, listed names not already above ------------------------
   - {ticker: ABSI, name: Absci, role: screen_only, archetypes: [ai_platform]}
 
+  # --- AI-bio reversal case study cohort (2026-10-06), not yet researched ----------
+  - {ticker: CDNA, name: CareDx, role: screen_only, archetypes: [dx_data]}
+  - {ticker: VCYT, name: Veracyte, role: screen_only, archetypes: [dx_data]}
+  - {ticker: ABCL, name: AbCellera Biologics, role: screen_only, archetypes: [ai_platform]}
+  - {ticker: CRSP, name: CRISPR Therapeutics, role: screen_only, archetypes: [launch, clinical_binary]}
+  - {ticker: BEAM, name: Beam Therapeutics, role: screen_only, archetypes: [clinical_binary]}
+  - {ticker: NTLA, name: Intellia Therapeutics, role: screen_only, archetypes: [clinical_binary]}
+  - {ticker: PRME, name: Prime Medicine, role: screen_only, archetypes: [clinical_binary]}
+
 benchmarks:
   - {ticker: XBI, name: SPDR S&P Biotech ETF, role: primary}
   - {ticker: IBB, name: iShares Biotechnology ETF, role: diagnostic}
+  - {ticker: ARKG, name: ARK Genomic Revolution ETF, role: diagnostic_theme}

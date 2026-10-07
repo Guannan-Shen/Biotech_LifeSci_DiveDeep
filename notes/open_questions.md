@@ -18,3 +18,7 @@
 | Q-014 | MRLN: verify diluted share count, quarterly burn split, preferred accrued value and terms, PIPE resale size, deal-projection details, executive turnover (8-K 5.02), Reg FD social channels. KC-135 status found: test flights since 2024, still a prototype program. | Memo cannot assign probabilities without them | Data (M1, M13, M14) | Open (partly answered) |
 | Q-015 | YouTube Data API key and a podcast transcript route (platform transcripts vs local speech-to-text)? | M15 automation in Phase 3 | Investor | Open |
 | Q-016 | Daily price history for HUMA and MRLN: the FMP plan blocks charts. Pull on the local machine or a second vendor? | H12 case study returns; H11 supply-day volume | Investor | Open |
+| Q-017 | Daily price and volume history for the AI-bio cohort (36 symbols) and ARKG holdings history. FMP plan allows only profiles here; Yahoo, Stooq, Nasdaq and ark-funds.com are blocked from this sandbox. Run on the local machine? | H13 test, distribution-day counts, moving averages for the 7.4 calendar | Investor | Open |
+| Q-018 | ARK daily trade files as a flow source: acceptable to scrape on the local machine, or use a vendor? | D-023 thematic flow signal | Investor | Open |
+| Q-019 | QSI fell from 1.55 (10-02 close) to 1.28 (10-05 close), -17%, with no explanation found. Financing, filing or a data error? | Two-day path table in the 10-06 case study | Data (M1) | Open |
+| Q-020 | October FOMC hike odds: sources quote about 36% to 73%. Which is current, from CME FedWatch? | Scenario signposts in the 10-06 case study | Data (M5) | Open |

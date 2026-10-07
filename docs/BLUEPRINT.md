@@ -1,6 +1,6 @@
 # Blueprint: Biotech & Life Sciences DiveDeep
 
-Status: v0.1 (2026-10-05). Owner: Guannan Shen. This is the north-star document.
+Status: v0.2 (2026-10-06; v0.1 2026-10-05). Owner: Guannan Shen. This is the north-star document.
 Every session starts by re-reading it, and every material design change lands here
 first (with an entry in `notes/decision_log.md`), then in code.
 
@@ -68,8 +68,8 @@ dependent on forecasting science.
 | H9 | AI-for-bio value capture: in the current AI cycle, data generators and tools with recurring consumables convert AI demand into revenue earlier than AI-native drug pipelines. | Segment revenue, customer disclosures | Panel study, slow (multi-year) |
 | H10 | Attention and disclosure on X: official-channel posts lead press releases and filings; abnormal cashtag attention spikes in small caps predict short-term reversal. | X API, EDGAR timestamps | Lead-lag study; event study on attention z-scores |
 | H11 | De-SPAC overhang: PIPE resale registrations, warrant exercisability and lockup expiries predict negative drift; the stock bottoms after supply clears, and names trading below residual cash (after senior claims) with controlled burn re-rate. | EDGAR 424B3/S-1, 8-K, prices | Event study around supply dates |
-
 | H12 | Credible dissent: public criticism from qualified insiders (former regulators or reviewers, trial investigators, ex-employees, domain experts) in long-form media precedes negative revisions; a dissent flag improves left-tail avoidance (H1). | Podcasts, YouTube, FDA review documents, petitions | Case studies first (Humacyte), then event study on a labeled dissent set |
+| H13 | Crowded-theme blow-off reversal: when a theme cohort's leaders finish a large run (close several times the 52-week low) and print a heavy-distribution day while the broad market is flat or up, they underperform XBI and run-matched controls over the next 1-6 months; names whose validation gap is closed hold up better. | Prices and volume, thematic ETF holdings, fit matrix | Event study, pre-registered (`notes/backtests/2026-10-06_H13_theme_blowoff_reversal.md`) |
 
 Hypotheses are ranked by data availability and testability. H1, H3, H5, H7 come
 first because public data covers them well.
@@ -96,6 +96,16 @@ Archetypes decide which model applies (details in `docs/framework/archetypes.md`
 | `dx_data` | Diagnostics and clinical data | TEM, GRAL | Billable volume x ASP, coverage |
 | `ai_platform` | AI-native discovery or automated labs | RXRX, DNA, SDGR (pipeline) | Platform validation chain + asset rNPV |
 | `regulated_deeptech` | Adjacent sleeve: venture-like, runway-bound, regulatory or program gate | MRLN | Milestone event tree (certification, contracts) + runway + cash floor |
+
+**Theme cohorts (added 2026-10-06, D-021).** A narrative can make names from different
+archetypes trade as one block (the AI-bio data layer of 2026-10-06 joined tools,
+diagnostics, software and gene editing). A theme event gets a case study in
+`docs/research/`: a layer taxonomy by position in the value chain, a one-day or multi-day
+cohort snapshot (`src/biotech_divedeep/signals/cohort.py`), and a **fit matrix** that
+assigns each asset its archetype lens, the hypotheses that apply, the first missing link
+in the validation chain, a falsifier and the next evidence node
+(`data/reference/ai_bio_fit_matrix.csv` is the template). The archetype still decides the
+valuation model; the theme only explains the correlated price action.
 
 Each company also carries a `sleeve`: `core` (biotech and life sciences) or `adjacent`
 (see `docs/framework/adjacent_deeptech.md`).
@@ -145,7 +155,7 @@ Design rules:
 | M2 | FDA tracker | Approvals, labels, CRLs, AdComs, safety (FAERS), manufacturing (483/warning letters), exclusivity | `docs/modules/fda.md` |
 | M3 | ClinicalTrials.gov tracker | Trial cards, version diffs, date slippage, enrollment, endpoint changes | `docs/modules/clinicaltrials.md` |
 | M4 | Company news tracker | IR press releases, events/presentations, conference calendar | `docs/modules/company_news.md` |
-| M5 | Market & trend | Prices, XBI/IBB benchmarks, relative strength, regime, liquidity | `docs/modules/market_trend.md` |
+| M5 | Market & trend | Prices, XBI/IBB benchmarks, relative strength, regime, liquidity, theme-cohort features | `docs/modules/market_trend.md` |
 | M6 | Catalyst calendar | Fuses M1-M4 into dated, sourced, confidence-scored catalysts | `docs/modules/catalyst_calendar.md` |
 | M7 | Fundamentals, runway & dilution | Cash, burn, debt, share count, financing capacity, stress runway | `docs/modules/edgar.md` (section 5) |
 | M8 | Thesis & valuation | One-page memo, three scenarios, per-share value, evidence log | `docs/framework/investment_framework.md` |
@@ -184,7 +194,8 @@ src/biotech_divedeep/
 Research order for memos (calibrating one model per archetype): PACB (tools), SDGR
 (software + pipeline), RXRX (AI platform), then TEM/GRAL (dx), QSI/DNA (early product,
 turnaround), REPL/IOVA (launch), SLS/EDSA (binary), HROW/ETON (commercial pharma).
-MRLN runs in parallel as the adjacent-sleeve pilot (`docs/memos/MRLN.md`) to test
+Theme case studies run alongside the memos whenever a cohort moves as a block (first:
+`docs/research/2026-10-06_ai_bio_theme_reversal.md`). MRLN runs in parallel as the adjacent-sleeve pilot (`docs/memos/MRLN.md`) to test
 whether the framework transfers outside biotech. This is a research order, not a buy
 order.
 
