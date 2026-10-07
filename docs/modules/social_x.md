@@ -85,3 +85,20 @@ channels.
 ```
 
 Handles are added only after verification against the company website or filings.
+
+## 8. Attention without the X API (added 2026-10-07, D-027)
+
+The 2026-10-06 case study missed the attention force because M13 has no feed. Until Q-012 is
+decided, three routes cover part of the gap:
+
+| Route | What it measures | Tooling | Caveat |
+|---|---|---|---|
+| Wikimedia pageviews (REST, free, needs a User-Agent with contact) | Daily views of company and concept pages | `scripts/attention_proxies.py`, `signals/attention.py` | Curiosity, not trading intent; English Wikipedia only |
+| GDELT DOC 2.0 `timelinevol` (free) | Share of online news coverage matching a query | Same script | News, not social; coverage lag of hours |
+| Manual X log | Notable posts the investor or the weekly review sees (T1-T5), with URL, author tier, time and reach | A row per post in `notes/` as `unverified` events | Selection bias; record what was looked for, not only what was found |
+
+Signal definition: `abnormal_attention` is the z-score of log(1 + daily count) against the
+trailing 60 days, excluding the current day. Test with H10 and H13: does peak abnormal
+attention on a theme's company and concept pages lead or coincide with the price peak, and do
+names with the largest attention z-scores fall most after a heavy-distribution day? Terms are
+listed in `config/attention_terms.yaml`; raw responses go to `data/raw/attention/<date>/`.

@@ -20,6 +20,12 @@ Ideas not yet scheduled. Promote to the blueprint roadmap when they earn a slot.
 - Sell-side target-hike clustering after large runs as a late-stage marker (count of target raises per name in 5 sessions vs the run size).
 - AI labs entering wet-lab biology (Anthropic, others): track as a two-sided event for data generators (customer and competitor) and for gene-editing IP.
 - Lilly TuneLab vendor list and any disclosed revenue from it (TWST, DNA): first quantitative test of fundamental H9.
+- H14 event study: giant announcements with vs without financial terms (M16 log); pre-register before pulling prices.
+- Launch-analog library seeded from the 2026 launch layer (MYQORZO, BRINSUPRI, YUTREPIA, TUDRIQEV, AUVELITY agitation, IMCIVREE HO): patients, start forms, net revenue by quarter since approval (H2).
+- Demand vs net revenue divergence (prescriptions up, net revenue lagging: HROW, ARDX) as a launch-drift signal.
+- Takeout base rate for approved-product small and mid caps (2026: APLS, CPRX, CRNX) and premium distribution (H8).
+- Attention lead-lag: Wikimedia and GDELT peaks vs price peaks for theme cohorts (2000 genomics, 2021 ARKG, 2026 AI-bio) (H10, H13).
+- Issuance as a top signal: follow-ons, ATMs and converts within 63 days after a theme peak (GSY attribute; H13 A1).
 
 ## Adjacent sleeve candidates (screen before adding)
 - eVTOL, space, defense autonomy, nuclear and fusion names that pass the same gates.
@@ -49,7 +55,9 @@ Ideas not yet scheduled. Promote to the blueprint roadmap when they earn a slot.
 - Delisted price history vendors (Q-003).
 
 ## Theme case studies
+- 2026-10-07 follow-ups: launch layer screen and stretch, valuation and reversal odds (done).
 - 2026-10-06 AI-bio data layer reversal: done (`docs/research/2026-10-06_ai_bio_theme_reversal.md`). Follow-up after Q3 reports (mid November): score each fit-matrix falsifier and the scenario signposts.
 
 ## Memos to write (research order, Phase 2)
 PACB, SDGR, RXRX, then TEM, GRAL, QSI, DNA, REPL, IOVA, SLS, EDSA, HROW, ETON.
+HROW moves up if Q3 (November) passes its falsifier (`docs/research/2026-10-07_launch_layer_screen.md` section 3).

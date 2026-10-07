@@ -1,0 +1,45 @@
+# M16 big pharma and AI-lab watch (docs/modules/pharma_ai_watch.md, D-025).
+# URLs and handles are written from memory and NOT yet verified (this sandbox blocks most sites).
+# Verify each on the local machine, then set verified: true. Never treat a handle as official
+# until the company's own site or filings link to it (M13 tier rules).
+
+actors:
+  # --- Trillion-dollar and large pharma -------------------------------------------
+  - {name: Eli Lilly, ticker: LLY, group: pharma_1t, newsroom: "https://investor.lilly.com/news-releases", x: LillyPad, verified: false}
+  - {name: Novo Nordisk, ticker: NVO, group: pharma_large, newsroom: "https://www.novonordisk.com/news-and-media/news-and-ir-materials.html", x: novonordisk, verified: false}
+  - {name: Johnson & Johnson, ticker: JNJ, group: pharma_large, newsroom: "https://www.jnj.com/media-center/press-releases", x: JNJNews, verified: false}
+  - {name: AbbVie, ticker: ABBV, group: pharma_large, newsroom: "https://news.abbvie.com/", x: abbvie, verified: false}
+  - {name: Merck & Co., ticker: MRK, group: pharma_large, newsroom: "https://www.merck.com/media/news/", x: Merck, verified: false}
+  - {name: AstraZeneca, ticker: AZN, group: pharma_large, newsroom: "https://www.astrazeneca.com/media-centre/press-releases.html", x: AstraZeneca, verified: false}
+  - {name: Novartis, ticker: NVS, group: pharma_large, newsroom: "https://www.novartis.com/news/news-archive", x: Novartis, verified: false}
+  - {name: Roche, ticker: RHHBY, group: pharma_large, newsroom: "https://www.roche.com/media/releases", x: Roche, verified: false}
+  - {name: Amgen, ticker: AMGN, group: pharma_large, newsroom: "https://www.amgen.com/newsroom/press-releases", x: Amgen, verified: false}
+  - {name: Pfizer, ticker: PFE, group: pharma_large, newsroom: "https://www.pfizer.com/newsroom/press-releases", x: pfizer, verified: false}
+  - {name: Sanofi, ticker: SNY, group: pharma_large, newsroom: "https://www.sanofi.com/en/media-room/press-releases", x: sanofi, verified: false}
+  - {name: GSK, ticker: GSK, group: pharma_large, newsroom: "https://www.gsk.com/en-gb/media/press-releases/", x: GSK, verified: false}
+  - {name: Bristol Myers Squibb, ticker: BMY, group: pharma_large, newsroom: "https://news.bms.com/", x: bmsnews, verified: false}
+  - {name: Gilead Sciences, ticker: GILD, group: pharma_large, newsroom: "https://www.gilead.com/news", x: GileadSciences, verified: false}
+  - {name: Vertex Pharmaceuticals, ticker: VRTX, group: pharma_large, newsroom: "https://news.vrtx.com/", x: VertexPharma, verified: false}
+  - {name: Biogen, ticker: BIIB, group: pharma_acquirer, newsroom: "https://investors.biogen.com/news-releases", x: biogen, verified: false}
+
+  # --- AI labs, model makers and compute ------------------------------------------
+  - {name: OpenAI, ticker: null, group: ai_lab, newsroom: "https://openai.com/news/", x: OpenAI, verified: false}
+  - {name: Anthropic, ticker: null, group: ai_lab, newsroom: "https://www.anthropic.com/news", x: AnthropicAI, verified: false}
+  - {name: Google DeepMind, ticker: GOOGL, group: ai_lab, newsroom: "https://deepmind.google/discover/blog/", x: GoogleDeepMind, verified: false}
+  - {name: Isomorphic Labs, ticker: GOOGL, group: ai_lab, newsroom: "https://www.isomorphiclabs.com/articles", x: IsomorphicLabs, verified: false}
+  - {name: NVIDIA, ticker: NVDA, group: compute, newsroom: "https://nvidianews.nvidia.com/", x: NVIDIAHealth, verified: false}
+  - {name: Microsoft Research, ticker: MSFT, group: ai_lab, newsroom: "https://www.microsoft.com/en-us/research/blog/", x: MSFTResearch, verified: false}
+
+  # --- Large tools and platform hosts --------------------------------------------
+  - {name: Revvity, ticker: RVTY, group: tools_large, newsroom: "https://ir.revvity.com/news", x: Revvity, verified: false}
+  - {name: Thermo Fisher Scientific, ticker: TMO, group: tools_large, newsroom: "https://ir.thermofisher.com/investors/news-events/news/default.aspx", x: thermofisher, verified: false}
+  - {name: Danaher, ticker: DHR, group: tools_large, newsroom: "https://investors.danaher.com/news", x: DanaherCorp, verified: false}
+
+# Terms for EDGAR full-text search (efts.sec.gov) once the M1 connector runs: finds counterparties
+# that disclose terms of these programs in 8-K, 10-Q or 10-K text.
+edgar_full_text_terms:
+  - TuneLab
+  - Claude Science
+  - GPT-Rosalind
+  - Isomorphic Labs
+  - BioNeMo

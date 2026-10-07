@@ -119,7 +119,7 @@ companies:
     cik: "0001737953"
     role: watchlist
     archetypes: [launch]
-    thesis_note: "Investor note: recently FDA approved, launch slower than hoped. Approval status and date unverified in repo."
+    thesis_note: "TUDRIQEV (RP1) accelerated approval 2026-08-06 (fda.gov) with nivolumab in anti-PD-1-failed melanoma. 8.8x off 52-week low on 2026-10-06; H1 financing check alongside H2."
     snapshot: {price: 13.07, market_cap_usd: 1098220735}
   - ticker: IOVA
     name: Iovance Biotherapeutics
@@ -220,6 +220,23 @@ companies:
   - {ticker: BEAM, name: Beam Therapeutics, role: screen_only, archetypes: [clinical_binary]}
   - {ticker: NTLA, name: Intellia Therapeutics, role: screen_only, archetypes: [clinical_binary]}
   - {ticker: PRME, name: Prime Medicine, role: screen_only, archetypes: [clinical_binary]}
+
+  # --- Launch and commercial layer screen (2026-10-07, D-024), not yet researched -----
+  # Snapshot data: data/reference/launch_commercial_snapshot_2026-10-06.csv. Acquired in 2026 and
+  # kept out of the live list: APLS, CPRX, CRNX (data/reference/launch_layer_ma_2026.csv).
+  - {ticker: MDGL, name: Madrigal Pharmaceuticals, role: screen_only, archetypes: [launch]}
+  - {ticker: INSM, name: Insmed, role: screen_only, archetypes: [launch, commercial_pharma]}
+  - {ticker: CYTK, name: Cytokinetics, role: screen_only, archetypes: [launch]}
+  - {ticker: LQDA, name: Liquidia, role: screen_only, archetypes: [launch]}
+  - {ticker: SPRY, name: ARS Pharmaceuticals, role: screen_only, archetypes: [launch]}
+  - {ticker: TARS, name: Tarsus Pharmaceuticals, role: screen_only, archetypes: [commercial_pharma]}
+  - {ticker: KRYS, name: Krystal Biotech, role: screen_only, archetypes: [commercial_pharma]}
+  - {ticker: AXSM, name: Axsome Therapeutics, role: screen_only, archetypes: [commercial_pharma]}
+  - {ticker: MIRM, name: Mirum Pharmaceuticals, role: screen_only, archetypes: [commercial_pharma]}
+  - {ticker: ADMA, name: ADMA Biologics, role: screen_only, archetypes: [commercial_pharma]}
+  - {ticker: TVTX, name: Travere Therapeutics, role: screen_only, archetypes: [commercial_pharma]}
+  - {ticker: ARDX, name: Ardelyx, role: screen_only, archetypes: [commercial_pharma]}
+  - {ticker: RYTM, name: Rhythm Pharmaceuticals, role: screen_only, archetypes: [commercial_pharma]}
 
 benchmarks:
   - {ticker: XBI, name: SPDR S&P Biotech ETF, role: primary}

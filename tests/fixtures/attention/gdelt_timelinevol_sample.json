@@ -1,0 +1,6 @@
+{"query_details": {"title": "\"Twist Bioscience\"", "date_resolution": "day"},
+ "timeline": [{"series": "Volume Intensity", "data": [
+   {"date": "20261002T000000Z", "value": 0.0021},
+   {"date": "20261001T000000Z", "value": 0.0012},
+   {"date": "20261003T000000Z", "value": 0.0105}
+ ]}]}

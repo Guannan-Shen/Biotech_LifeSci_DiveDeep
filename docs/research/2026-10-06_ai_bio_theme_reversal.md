@@ -29,14 +29,23 @@ or company release confirms them).
 3. **The selloff was sector-specific.** The S&P 500 and Nasdaq closed at records (SPY
    +0.5%, NVDA flat) while healthcare was the only falling sector. ARKG fell 8.8% on 3.8x
    volume; XBI fell 3.4%. Money left the AI-bio trade and stayed in megacap AI.
-4. **Three forces stacked:** a narrative peak (Lilly TuneLab deals, Anthropic's wet lab,
-   "genomics is AI infrastructure" target hikes), flows (ARK's 21st straight session
-   selling TWST, insider Form 144s, call-option chasing in DNA) and macro (10-year
-   Treasury near 5.25%, the highest since 2007, after a September Fed hike).
-5. **Inside the cohort, run size predicted the damage.** How far a stock stood above its
+4. **Four forces stacked:** a narrative peak (Lilly TuneLab deals, Anthropic's wet lab,
+   "genomics is AI infrastructure" target hikes), an attention peak on social media (the
+   Anthropic ART thread and its backlash on X in late September, an AI drug discovery article
+   the investor saw spread widely on X over the 10-03/04 weekend and 10-05, retail sentiment
+   running hot), flows (ARK's 21st straight session selling TWST, insider Form 144s,
+   call-option chasing in DNA) and macro (10-year Treasury near 5.25%, the highest since 2007,
+   after a September Fed hike). The first draft listed three forces: the system has no social
+   feed yet (M13 is designed, not built), so the attention force was invisible to it, not
+   absent (section 3.3, revised 2026-10-07).
+5. **Inside the cohort, stretch predicted the damage.** How far a stock stood above its
    52-week low ranked with the day's loss (Spearman -0.45, n = 23). Beta (-0.19) and the
    composite crowding score fixed in advance (-0.10) did much worse. One day and 23 names
-   cannot carry inference, so this becomes a pre-registered test (H13).
+   cannot carry inference, so this becomes a pre-registered test (H13). **Follow-up
+   2026-10-07:** the prior close's position inside the 52-week range (a slow KDJ input) does
+   better (rho -0.60, p = 0.004, survives a Holm correction; run size does not), and the same
+   measure explains nothing in the launch layer (-0.15). See
+   `docs/research/2026-10-07_stretch_valuation_and_reversal_odds.md`.
 6. **Plan:** treat 10-06 as a *distribution* signal for the epicenter and an *evidence
    test* for everyone else. The next three to six weeks hold the deciding data: FOMC on
    10-28 and Q3 reports from late October to mid November. Decide per name with the fit
@@ -132,7 +141,7 @@ QSI's Monday drop has no explanation in the sources searched; check for a financ
 filing before using it (Q-019). RXRX kept most of Monday's gain on 3.4x volume, which
 reads as supply absorbed by buyers.
 
-### 3.3 Mechanics: three stacked forces
+### 3.3 Mechanics: four stacked forces (attention added 2026-10-07)
 
 **Narrative.** Three real events built the story within three weeks: Lilly paying outside
 labs to generate data for TuneLab, Tempus extending a paid data license, and an AI lab
@@ -144,6 +153,25 @@ price, so they carry little new information.
 A second reading of the Anthropic news cuts the other way: an AI lab that runs its own
 wet lab is a customer of reagents and instruments, and also a possible competitor to
 outsourced data generation. The market priced only the first reading.
+
+**Attention (added 2026-10-07).** Social media carried the narrative to people who do not read
+press releases, and the timing matches the price peak. What is on record, all `U`:
+
+| Date | Item | Source |
+|---|---|---|
+| 2026-09-23 to 09-30 | Anthropic's ART announcement spread on X and drew a backlash from scientists ("Claude discovered something in biology"); Salon described a long X post by an AI company head promising cures within 5-10 years | [Salon, 2026-09-30](https://www.salon.com/2026/09/30/ai-hype-promises-miracles-thats-as-risky-as-doomsday-talk/) |
+| Late Sep to early Oct | Retail coverage of the run: TWST and TXG up about 533% and 499% year to date; a Stocktwits headline on two ARK biotech bets up nearly 6x noted retail "still isn't sold on one" | [Stocktwits](https://stocktwits.com/news-articles/markets/equity/cathie-wood-loads-up-on-these-biotech-stocks-after-strong-rallies-unloads-18-m-worth-of-twst-shares/cZDt2hdRBkH), [Stocktwits](https://stocktwits.com/news-articles/markets/equity/cathie-wood-arkg-crushing-other-etfs-2-biotech-bets-surged-6x-this-year/cZDpFghRBSW) |
+| 2026-10-03 to 10-05 | A widely shared AI drug discovery article on X, seen by the investor | Investor observation; link requested (Q-021). x.com is blocked from this sandbox and web search did not locate it |
+| 2026-10-05 | DNA +21% on heavy call-option volume | [GuruFocus](https://www.gurufocus.com/news/9110384/ginkgo-bioworks-dna-surges-21-on-heavy-options-activity-following-lilly-tunelab-partnership) |
+
+Reading (A): an attention spike that arrives with the price peak fits the attention
+literature (Da, Engelberg and Gao 2011: search spikes predict about two weeks of higher prices
+and a reversal within the year; Barber and Odean 2008: attention-driven buying by individuals).
+A viral weekend article followed by a Monday melt-up on call buying and a Tuesday reversal is
+the attention version of a blow-off. It is also a measurement gap: M13 has no data feed, so the
+case study could not see the force. Free proxies (Wikimedia pageviews, GDELT news volume) are now
+scripted for the local machine (`scripts/attention_proxies.py`, D-027) until X API budget is
+decided (Q-012).
 
 **Flows.** Thematic money was leaving while the price peaked. ARK had sold TWST for 21
 sessions; ARKG traded 3.8x normal volume; insiders filed sales into the spike; DNA's
@@ -332,7 +360,9 @@ argues for A.
    before any price looks attractive.
 3. **Set entry prices from scenario values**, built on post-financing share counts, never
    from the distance to the high.
-4. **Keep IOVA out of the AI bucket.** Judge it on Q3 against the raised guide.
+4. **Keep IOVA out of the AI bucket.** Judge it on Q3 against the raised guide. The wider
+   launch and commercial layer (HROW, ETON and 15 peers) is screened in
+   `docs/research/2026-10-07_launch_layer_screen.md`.
 
 ### 7.4 Calendar to watch
 
@@ -370,6 +400,18 @@ argues for A.
 - Most event sources are press aggregators (`U`); company releases are linked where
   found. EDGAR is blocked in this environment (Q-004).
 - Probabilities in section 6 are judgment, to be replaced by H13 base rates.
+- No social-media data: the attention force in section 3.3 rests on press coverage and the
+  investor's own observation (M13 not built; Q-012, Q-021).
+
+## 10. Follow-up, 2026-10-07
+
+| Investor question | Answer | Where |
+|---|---|---|
+| Explore the launch layer (HROW, ETON), keep IOVA out of AI | The layer barely moved on 10-06 (median launch +0.1%, commercial -1.7%) and trades at a fraction of the AI layers' growth-adjusted P/S; discounts there are name-specific; three 2026 takeouts (APLS, CPRX, CRNX) set a floor | `docs/research/2026-10-07_launch_layer_screen.md` |
+| Social media was missing from the forces | Added as a fourth force (section 3.3); free attention proxies scripted; investor's X article link requested | Section 3.3; `docs/modules/social_x.md` section 7; Q-021 |
+| Watch the trillion-dollar and large pharma and the AI labs | New module M16 with a seeded event log and hypothesis H14 (terms-disclosed announcements drift, terms-free ones reverse) | `docs/modules/pharma_ai_watch.md`; `data/reference/pharma_ai_watch_events.csv` |
+| Does a large intraday reversal lead to a month-long selloff; short opportunity? | Crash odds over quarters are elevated (Greenwood, Shleifer and You), but the next month favors a partial bounce (no-news shocks reverse); shorts are outside the mandate until Q-002; if allowed: small, defined-risk, confirmation-triggered, relative to XBI | `docs/research/2026-10-07_stretch_valuation_and_reversal_odds.md` sections 4-6 |
+| Strengthen the run-size conclusion (RSI, KDJ, Bollinger, forward P/S, momentum, similarity) | Range position before the day beats run size (rho -0.60 vs -0.45) and survives Holm; P/S does not predict the day but shows what the price requires (20x sales needs about 32% a year for five years to return 0%); daily-bar indicators scripted and pre-registered (H13 A1) | Same note, sections 2-3; `scripts/technical_panel.py` |
 
 ## Sources
 

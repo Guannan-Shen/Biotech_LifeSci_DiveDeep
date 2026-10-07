@@ -1,0 +1,18 @@
+ticker,name,layer,investor_named,close,change,change_pct,volume,avg_volume,range_low_52w,range_high_52w,beta,market_cap_usd
+HROW,Harrow,commercial_pharma,true,30.35,-0.23,-0.75213,421487,633100,28.54,54.85,0.241,1131299497
+ETON,Eton Pharmaceuticals,commercial_pharma,true,54.77,-0.85,-1.52823,492343,546642,14.27,66.37,0.9,1500279448
+IOVA,Iovance Biotherapeutics,launch,true,12.96,-1.19,-8.40989,18925441,16639733,1.76,15.3,0.757,5786665920
+REPL,Replimune Group,launch,false,13.25,0.1,0.76046,2616967,4660495,1.5,16.33,0.938,1113345428
+MDGL,Madrigal Pharmaceuticals,launch,false,496.45,2.83,0.57332,330278,320211,393.61,615,-1.052,11470030445
+INSM,Insmed,launch,false,105.23,1.4,1.34836,3685955,3126058,90.39,212.75,0.823,22808812960
+CYTK,Cytokinetics,launch,false,61.35,-1.35,-2.15311,3228895,2066830,54.3,88.31,0.36,7633964550
+LQDA,Liquidia,launch,false,25.91,-1.73,-6.25904,5310522,2321125,21.94,93.61,0.535,2304127045
+SPRY,ARS Pharmaceuticals,launch,false,4.295,0.005,0.11655,1219172,1874223,3.985,13.15,0.877,426507510
+TARS,Tarsus Pharmaceuticals,commercial_pharma,false,74.11,-0.345,-0.46337,432426,921488,53.89,91.53,0.541,3188508640
+KRYS,Krystal Biotech,commercial_pharma,false,326.81,-8.04,-2.40108,352025,371861,179.19,382.54,0.498,9634293438
+AXSM,Axsome Therapeutics,commercial_pharma,false,174.34,-2.74,-1.54732,1367832,810165,117.3,260.19,0.596,8971495604
+MIRM,Mirum Pharmaceuticals,commercial_pharma,false,79.25,-2.18,-2.67715,1146939,781186,63.23,130,0.491,4832760100
+ADMA,ADMA Biologics,commercial_pharma,false,10.18,0.07,0.69238,2100139,2915989,7.21,20.46,0.774,2359446239
+TVTX,Travere Therapeutics,commercial_pharma,false,55.98,-1.69,-2.93047,3108029,1750945,22.59,68.73,1.059,5205742542
+ARDX,Ardelyx,commercial_pharma,false,3.31,-0.08,-2.35988,5816284,4161683,3.23,8.4,0.678,817665990
+RYTM,Rhythm Pharmaceuticals,commercial_pharma,false,90.77,-1.68,-1.8172,992869,733214,74.5,122.2,1.968,6226241072

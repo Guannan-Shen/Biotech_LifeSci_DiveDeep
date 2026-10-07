@@ -1,0 +1,21 @@
+# Attention proxies (M13 fallback without X API budget; D-027).
+# wiki: English Wikipedia article title (underscores). gdelt: GDELT DOC 2.0 query string.
+# Verify each article title exists before relying on it; a redirect or missing page returns 404.
+# Theme terms track the narrative itself rather than one company.
+
+companies:
+  - {ticker: TWST, wiki: Twist_Bioscience, gdelt: '"Twist Bioscience"'}
+  - {ticker: TXG, wiki: 10x_Genomics, gdelt: '"10x Genomics"'}
+  - {ticker: DNA, wiki: Ginkgo_Bioworks, gdelt: '"Ginkgo Bioworks"'}
+  - {ticker: TEM, wiki: Tempus_AI, gdelt: '"Tempus AI"'}
+  - {ticker: GRAL, wiki: Grail_(company), gdelt: '"GRAIL" Galleri'}
+  - {ticker: ILMN, wiki: Illumina,_Inc., gdelt: '"Illumina"'}
+  - {ticker: RXRX, wiki: Recursion_Pharmaceuticals, gdelt: '"Recursion Pharmaceuticals"'}
+  - {ticker: SDGR, wiki: Schrödinger_(company), gdelt: '"Schrodinger" drug'}
+  - {ticker: IOVA, wiki: Iovance_Biotherapeutics, gdelt: '"Iovance"'}
+  - {ticker: HROW, wiki: Harrow_Health, gdelt: '"Harrow" ophthalmic'}
+
+themes:
+  - {name: ai_drug_discovery, wiki: Drug_discovery, gdelt: '"AI drug discovery" OR "AI-designed drug"'}
+  - {name: ai_lab_wet_lab, wiki: Anthropic, gdelt: 'Anthropic "wet lab"'}
+  - {name: tunelab, wiki: Eli_Lilly_and_Company, gdelt: '"TuneLab"'}
