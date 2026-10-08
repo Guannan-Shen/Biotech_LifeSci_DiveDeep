@@ -1,6 +1,6 @@
 # HROW (Harrow): Why It Lags, and the Hold Decision
 
-Date: 2026-10-07. Status: short memo for an existing position; full memo in the research order
+Date: 2026-10-07 (section 5 added 2026-10-08). Status: short memo for an existing position; full memo in the research order
 after Q3. Archetype `commercial_pharma`; lenses H6 (quality) and H2 (VEVYE ramp), with an H1
 balance-sheet check. Builds on `docs/research/2026-10-07_launch_layer_screen.md` section 3.
 Research note, not investment advice. **F** fact, **G** guidance, **A** own assumption,
@@ -67,6 +67,27 @@ read on Q3 than the market.
   the print.
 - **Tax note:** if held at a loss, harvesting before Q3 and rebuying after the 30-day wash-sale
   window is an option; it changes after-tax returns, not the thesis.
+
+## 5. Business quality card (added 2026-10-08)
+
+Full card: `docs/research/2026-10-08_hrow_business_quality.md` (gate spec in
+`docs/framework/business_quality.md`). Revision note: sections 1-4 priced the stock without
+looking inside the product lines; this section corrects that.
+
+| Lens | Finding | Class |
+|---|---|---|
+| Products | Two franchises on one chassis. Ocular surface: VEVYE (42% of Q2 revenue), TYRVAYA (closed H2 2026), BYQLOVI, compounded drops. Retina: IHEEZO (22%), BYOOVIZ, OPUVIZ from 2027, TRIESENCE | U / A |
+| VEVYE | Real formulation edge and share gains (14.6% of branded dry eye TRx); patents to 2037-2042; but PBM-gated in a class anchored by generic cyclosporine, and H1 2026 bought volume with price. Moat narrow, stable | U |
+| IHEEZO | A reimbursement product: Medicare pays ASP plus 6% for a gel that competes with drops costing a few dollars. Pass-through ended 2026-04-01; 2025 revenue (81.3M) was inflated by channel loading. Moat narrow, eroding; the 25% July price increase is the live price test | U / A |
+| Business model | Good, at the bottom edge (9 of 16; pricing power 0). Strength: deal sourcing (VEVYE about 11 dollars of 2025 revenue per dollar paid). Blocks great: no wide moat, licensors share the margin, leverage | A |
+| People | Discount the guidance, not the strategy: 2 of 7 guides hit, posterior 0.36 (80% interval 0.19-0.55). The 2026 sales build is a genuine pre-committed sacrifice, checked by the FY2026 report | U / A |
+| H2 bridge | Holding small lines at mid estimates, no plausible VEVYE and IHEEZO combination reaches the USD 350M low end; the top corner gives about 347M | A |
+
+**Effect on section 3.** Base and bull both assume the revenue guide is met (65% together); the
+card caps guidance-dependent scenarios at 55%. Re-weighted 45 / 40 / 15, the probability-weighted
+value is about 29 against 30.35, so the small positive edge disappears (A). Section 4's rules stand;
+add two product-level Q3 checks: VEVYE revenue growing faster than TRx, and IHEEZO revenue per
+demand unit at least 1.2x the Q2-implied level with units not falling.
 
 ## Sources
 

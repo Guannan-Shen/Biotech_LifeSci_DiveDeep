@@ -61,3 +61,10 @@ Ideas not yet scheduled. Promote to the blueprint roadmap when they earn a slot.
 ## Memos to write (research order, Phase 2)
 PACB, SDGR, RXRX, then TEM, GRAL, QSI, DNA, REPL, IOVA, SLS, EDSA, HROW, ETON.
 HROW moves up if Q3 (November) passes its falsifier (`docs/research/2026-10-07_launch_layer_screen.md` section 3).
+
+## Business quality gate (added 2026-10-08)
+- [ ] Pre-register H15 in `notes/backtests/` (guidance-miss event study; credibility sort) before pulling prices.
+- [ ] Backfill the guidance ledger from 8-K exhibits for every commercial and launch name (ETON, REPL, IOVA first), so H15 has a sample.
+- [ ] Apply the card to ETON next; it shares HROW's archetype and its acquisition-driven growth needs the deal ledger.
+- [ ] After Q3 (mid November): resolve HROW's Q3 product price tests and re-score C3 and the IHEEZO moat.
+- [ ] Contribution multiple per deal (revenue minus royalty, COGS and attributable selling cost) once segment data allow it.

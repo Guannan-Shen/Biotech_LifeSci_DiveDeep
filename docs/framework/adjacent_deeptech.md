@@ -54,6 +54,12 @@ milestone slips more than two quarters, or a prototype contract ends without a f
 - Government revenue timing: awards are obligated in tranches; announced ceiling values
   are not revenue.
 
+**Business quality gate** (D-030). Map revenue by contract type (development and
+integration work, production units, recurring software licence per aircraft). Development revenue
+at or below cost is not evidence of the target model. The moat question is whether certification
+precedent or a program-of-record position exists today, not whether it could. Merger-proxy and SPAC
+projections enter the guidance credibility ledger like any other guide.
+
 **Price gate.** Three scenarios at one date. Two numbers anchor every scenario:
 - **Cash floor per share** = (usable cash at valuation date, projected, **minus senior
   claims**: debt, preferred liquidation preference plus accrued dividends) / common

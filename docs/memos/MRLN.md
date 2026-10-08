@@ -1,7 +1,7 @@
 # Memo (draft): MRLN, Merlin, Inc.
 
 Status: **draft, evidence incomplete**. Adjacent-sleeve pilot (D-013). Research date
-2026-10-05 (revision 2: capital structure corrected, dissent scan added). Horizon 6 to
+2026-10-05 (revision 2: capital structure corrected, dissent scan added; section 12a business quality card added 2026-10-08). Horizon 6 to
 24 months. Template: framework section 11.
 
 Evidence classes in brackets: [F] fact from a primary filing, [G] management guidance,
@@ -146,6 +146,21 @@ dilutive raise within 12 to 18 months.
 
 Price at the 52-week low on 2026-10-05. No entry under the trend overlay. Use relative
 volume and turnover around supply dates (H11) to judge when overhang has cleared.
+
+## 12a. Business quality card (added 2026-10-08)
+
+Full card: `docs/research/2026-10-08_mrln_business_quality.md`.
+
+| Lens | Finding | Class |
+|---|---|---|
+| Product and revenue | Revenue is US government development work (about 97%), delivered at or slightly below cost; the per-aircraft licence the thesis needs has no revenue yet | U |
+| Moat | None to narrow. Certification precedent was the moat to build; the closest path (New Zealand Part 23 STC, SOI 3 in August) was withdrawn on 2026-09-09 for an undated Part 25 path. Defense incumbency on one USD 105M IDIQ is real but thin | U / A |
+| Business model | Unproven: revenue about 7% of the quarterly cost base. The target model (certified licence per tail) would be great if it existed | A |
+| People | Unknown: no resolved guides yet; the USD 32M FY2026 projection resolves in early 2027 against USD 3.2M in H1. Founder owns about 11.5%. The NZ pivot is logged as `unqualified` until a certification basis, budget and date are named | U |
+
+New lead evidence nodes: (1) a dated, regulator-acknowledged Part 25 certification project with a
+named aircraft and operator; (2) a designated C-130J airframe and the first funded integration task
+order. New falsifier: FY2026 revenue below USD 10M.
 
 ## 13. Next research steps
 

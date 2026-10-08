@@ -1,6 +1,6 @@
 # Blueprint: Biotech & Life Sciences DiveDeep
 
-Status: v0.3 (2026-10-07; v0.2 2026-10-06; v0.1 2026-10-05). Owner: Guannan Shen. This is the north-star document.
+Status: v0.4 (2026-10-08; v0.3 2026-10-07; v0.2 2026-10-06; v0.1 2026-10-05). Owner: Guannan Shen. This is the north-star document.
 Every session starts by re-reading it, and every material design change lands here
 first (with an entry in `notes/decision_log.md`), then in code.
 
@@ -71,6 +71,7 @@ dependent on forecasting science.
 | H12 | Credible dissent: public criticism from qualified insiders (former regulators or reviewers, trial investigators, ex-employees, domain experts) in long-form media precedes negative revisions; a dissent flag improves left-tail avoidance (H1). | Podcasts, YouTube, FDA review documents, petitions | Case studies first (Humacyte), then event study on a labeled dissent set |
 | H13 | Crowded-theme blow-off reversal: when a theme cohort's leaders finish a large run (close several times the 52-week low) and print a heavy-distribution day while the broad market is flat or up, they underperform XBI and run-matched controls over the next 1-6 months; names whose validation gap is closed hold up better. | Prices and volume, thematic ETF holdings, fit matrix | Event study, pre-registered (`notes/backtests/2026-10-06_H13_theme_blowoff_reversal.md`; amendment A1 adds range position, RSI, KDJ, Bollinger, momentum, acceleration, similarity and growth gap as exploratory predictors) |
 | H14 | Giant read-through: announcements by large pharma or AI labs that name a listed small or mid-cap counterparty move it; those without financial terms reverse within about a month, those with disclosed terms drift. | M16 event log, counterparties' filings, prices | Event study split by terms disclosed (`docs/modules/pharma_ai_watch.md` section 4) |
+| H15 | Management credibility: a low posterior hit rate on management's own guidance predicts negative drift after a fresh miss and a wider discount to guided value; a strong costly-signal record (pre-announced, quantified, dated sacrifices that paid off) predicts better 12-month excess return among commercial names. | 8-K and earnings-release guidance history, `data/reference/guidance_ledger.csv`, `costly_signal_ledger.csv` | Event study after guidance misses; cross-sectional sort on credibility (pre-registration pending) |
 
 Hypotheses are ranked by data availability and testability. H1, H3, H5, H7 come
 first because public data covers them well.
@@ -107,6 +108,8 @@ assigns each asset its archetype lens, the hypotheses that apply, the first miss
 in the validation chain, a falsifier and the next evidence node
 (`data/reference/ai_bio_fit_matrix.csv` is the template). The archetype still decides the
 valuation model; the theme only explains the correlated price action.
+
+**Business quality (added 2026-10-08, D-030).** Before the price gate, every memo answers four questions in `docs/framework/business_quality.md`: what each product does and earns (product and revenue map), whether that is defensible (moat grade and trend), whether the way the company makes money is normal, good or great (business model grade), and whether the people can deliver (guidance credibility, capital allocation returns, alignment, costly-signal ledger). The archetype picks the valuation model; the business quality card decides how much of the modelled value to trust and which scenario weights to use.
 
 Each company also carries a `sleeve`: `core` (biotech and life sciences) or `adjacent`
 (see `docs/framework/adjacent_deeptech.md`).
@@ -159,7 +162,7 @@ Design rules:
 | M5 | Market & trend | Prices, XBI/IBB benchmarks, relative strength, regime, liquidity, theme-cohort features | `docs/modules/market_trend.md` |
 | M6 | Catalyst calendar | Fuses M1-M4 into dated, sourced, confidence-scored catalysts | `docs/modules/catalyst_calendar.md` |
 | M7 | Fundamentals, runway & dilution | Cash, burn, debt, share count, financing capacity, stress runway | `docs/modules/edgar.md` (section 5) |
-| M8 | Thesis & valuation | One-page memo, three scenarios, per-share value, evidence log | `docs/framework/investment_framework.md` |
+| M8 | Thesis & valuation | One-page memo, business quality card, three scenarios, per-share value, evidence log | `docs/framework/investment_framework.md`, `docs/framework/business_quality.md` |
 | M9 | Event prediction | Financing, FDA action, trial-delay, launch-curve, takeout models | `docs/modules/event_prediction.md` |
 | M10 | Opportunity map | Unmet need x economics x crowding by indication and modality | `docs/modules/opportunity_map.md` |
 | M11 | Portfolio & backtest | Point-in-time backtest vs XBI, sizing, risk budget, paper trading | `docs/modules/portfolio_backtest.md` |

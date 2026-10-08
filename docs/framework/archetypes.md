@@ -19,6 +19,7 @@ Examples: SLS (SELLAS; investor note: phase 3 "powerball"), EDSA (Edesa).
 | Watch events | ctgov status, enrollment complete, interim analysis, DSMB recommendations, topline, S-3/ATM activity |
 | Failure modes | Underpowered or poorly controlled trial; endpoint drift; readout delays that force financing at the low; event-driven trials where accrual is slower than guided |
 | Position rule | Sized as an event: cap = loss budget / stress drop (assume 70-90% gap). Consider H3 run-up rule: own into the event, cut before the binary unless the edge is in the outcome itself |
+| Moat and people prompts | Differentiated mechanism and IP life; management's record of trials reading out on time and on the guided endpoint (`business_quality.md` section 5) |
 | Prediction hooks | Trial-delay model (ctgov slippage), financing model (raise after data or before runway hits 12 months), outcome prior from phase/indication base rates |
 
 SLS specific research questions: what event count triggers the final analysis, how
@@ -39,6 +40,7 @@ took longer than many expected).
 | Watch events | Quarterly product revenue (XBRL), label expansions, confirmatory trial status (accelerated approvals), payer policies, FAERS signals, manufacturing 483s |
 | Failure modes | Site-of-care friction (cell and oncolytic therapies need authorized treatment centers); manufacturing capacity; reimbursement lag; confirmatory trial risk; overhead built for a faster ramp |
 | Model | Patient-cohort model (framework section 5); one-time therapies use a site-activation x throughput model |
+| Moat and people prompts | Site-of-care economics and reimbursement; launch guidance vs analogs, candor about slow quarters |
 | Prediction hooks | Launch-analog library: normalize quarterly revenue since approval for comparable launches (modality, setting, pricing) and score where each launch sits vs the analog band |
 
 Insight to test (H2): the market tends to price approval as the finish line, then
@@ -58,6 +60,7 @@ Investor description: "platform-like" life-science companies.
 | Watch events | Product approvals and acquisitions, debt refinancing, quarterly revenue, generic or 505(b)(2) competition, Orange Book exclusivity changes |
 | Failure modes | Acquisition-driven growth hiding organic decline; leverage; single-product concentration; reimbursement changes |
 | Model | Normalized FCF, product-level DCF, exclusivity-aware terminal values |
+| Moat and people prompts | Exclusivity, call-point scale, reimbursement position, deal sourcing (deal multiple = revenue in year two or three / total paid); guidance credibility ledger |
 
 These names test H6 (quality inside biotech). They also act as a ballast within a
 basket that otherwise carries binary risk.
@@ -73,6 +76,7 @@ Examples: PACB, ILMN, TXG, TWST, QSI.
 | Watch events | Quarterly results, product launches, NIH and academic budget news, China exposure, large pharma or AI-lab data-generation deals |
 | Failure modes | Placements bought with price cuts; academic funding shocks; competitive platform transitions |
 | AI angle (H9) | Data generators may be the earliest beneficiaries of AI-for-bio demand. Track disclosed AI or foundation-model customers and their consumable volume |
+| Moat and people prompts | Installed-base pull-through and workflow lock-in; product-transition execution and pricing discipline |
 
 ## `software`: simulation and discovery software
 
@@ -84,6 +88,7 @@ Examples: SDGR, CERT.
 | Key metrics | ACV, number of customers above thresholds, net retention, deferred revenue, services margin, milestone income (non-recurring) |
 | Failure modes | License-model transitions masking or faking growth; services dilution; pharma R&D budget cuts |
 | Model | Software multiple on normalized FCF plus separate pipeline rNPV or equity stakes |
+| Moat and people prompts | Switching cost and data; honesty through license-model transitions |
 
 ## `dx_data`: diagnostics and clinical data
 
@@ -95,6 +100,7 @@ Examples: TEM, GRAL.
 | Key metrics | Test volume, ASP, collections, gross margin per test, coverage decisions (CMS NCD/LCD, commercial), data-licensing backlog |
 | Watch events | FDA decisions (PMA), AdComs, CMS coverage, guideline inclusion, legislation affecting screening coverage |
 | Failure modes | Volume growth with falling ASP; regulatory approval without reimbursement; data revenue lumpiness |
+| Moat and people prompts | Coverage decisions and guideline inclusion; coverage-timeline guidance vs outcomes |
 
 ## `ai_platform`: AI-native discovery and automated labs
 
@@ -107,6 +113,7 @@ Examples: RXRX, DNA, SDGR (pipeline side).
 | Watch events | Phase 2 data, partner opt-ins or terminations, restructurings, compute and data deals |
 | Failure modes | Platform narrative without human proof; partner attrition; burn above revenue scaling |
 | Note | AI does not raise priors by itself (framework section 4). See `docs/research/ai_drug_discovery_cycle_times.md` for the rNPV trade-off between faster discovery and higher clinical success rates |
+| Moat and people prompts | Proprietary data and validated predictions; partner milestone guidance vs cash received |
 
 ---
 
