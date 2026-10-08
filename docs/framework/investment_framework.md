@@ -49,7 +49,7 @@ Additional names added 2026-10-05 (see `docs/framework/archetypes.md`): HROW and
 (commercial specialty / rare-disease pharma), SLS (phase 3 binary), REPL and IOVA
 (post-approval launch execution).
 
-## 3. Three gates before any buy discussion
+## 3. Four gates before any buy discussion
 
 ### Evidence gate
 
@@ -75,6 +75,21 @@ Additional names added 2026-10-05 (see `docs/framework/archetypes.md`): HROW and
   holders whenever the company raises at a lower price. Lesson from the MRLN memo,
   where a USD 120M preferred turned an apparent below-cash stock into one priced well
   above its residual cash.
+
+### Business quality gate (added 2026-10-08, D-030)
+
+Full specification: `docs/framework/business_quality.md`. Before pricing anything, answer:
+
+- **Product and revenue map**: what each product does, who pays, how much it earns per unit,
+  how long it is protected, how much a licensor takes, and what would make a prescriber stop.
+- **Competitive advantage**: moat grade (none / narrow / wide) and trend per major product,
+  tested by price, share and returns, never by a patent date alone.
+- **Business model grade**: normal / good / great from eight scored criteria with gates.
+- **People**: guidance credibility posterior, capital allocation returns, alignment, the
+  costly-signal ledger (pre-committed sacrifices only), candor, bench.
+
+The card changes the price gate: guidance-based scenarios are capped by credibility, the model
+grade sets the exit multiple range, and unknown or unproven grades cap position size.
 
 ### Price gate
 
@@ -263,6 +278,8 @@ turnover, slippage and missed rebounds.
 1. Company / ticker / business archetype / research date / horizon.
 2. Price, shares, market cap, debt, restricted and unrestricted cash, each with its date.
 3. Core view: which two variables improve over the next 2 to 4 quarters?
+3a. Business quality card: product map, moat grade and trend, business model grade, people grade
+    with ledger numbers (`docs/framework/business_quality.md` section 7).
 4. Variant perception: what does the price assume, and how does our view differ?
 5. Three key metrics: definition, current value, target range, disclosure frequency.
 6. Catalysts: date window, source, certainty, delay scenario.
