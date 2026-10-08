@@ -35,3 +35,38 @@ def test_dissent_register_is_well_formed():
 def test_other_reference_tables_parse():
     assert len(read("ai_discovery_cycle_times.csv")) == 11
     assert len(read("specialist_concentration_snapshot.csv")) == 20
+
+
+EVIDENCE = {"fact", "management_guidance", "own_assumption", "unverified"}
+
+
+def test_revenue_baseline_is_well_formed():
+    rows = read("revenue_baseline_2026.csv")
+    tickers = [r["ticker"] for r in rows]
+    assert len(tickers) == len(set(tickers))
+    for r in rows:
+        assert r["basis"] in {"guidance", "run_rate"}, r["ticker"]
+        assert float(r["value_usd_m"]) > 0, r["ticker"]
+        assert r["evidence_class"] in EVIDENCE, r["ticker"]
+        assert r["source_url"].startswith("https://"), r["ticker"]
+        if r["low_usd_m"] and r["high_usd_m"]:
+            assert float(r["low_usd_m"]) <= float(r["value_usd_m"]) <= float(r["high_usd_m"]), r["ticker"]
+
+
+def test_launch_layer_tables():
+    snap = read("launch_commercial_snapshot_2026-10-06.csv")
+    assert {r["layer"] for r in snap} == {"launch", "commercial_pharma"}
+    deals = read("launch_layer_ma_2026.csv")
+    assert {d["target"] for d in deals} == {"APLS", "CPRX", "CRNX"}
+    snap_tickers = {r["ticker"] for r in snap}
+    assert not snap_tickers & {d["target"] for d in deals}  # acquired names live in the deal table only
+
+
+def test_pharma_ai_watch_events():
+    rows = read("pharma_ai_watch_events.csv")
+    assert rows
+    for r in rows:
+        assert len(r["event_date"]) == 10, r["summary"]
+        assert r["date_precision"] in {"day", "month", "approx"}, r["summary"]
+        assert r["evidence_class"] in EVIDENCE, r["summary"]
+        assert r["financial_terms_disclosed"] in {"true", "false"}, r["summary"]

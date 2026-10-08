@@ -22,6 +22,32 @@ every sample below; it served to form the hypothesis.
 | Secondary questions | Does a second heavy-distribution day within 25 sessions raise the hit rate? Does the 10-year yield change over the prior 21 days interact with the outcome? Do names with closed validation gaps (fit matrix `first_gap` in {none_major, per_share_value}) underperform less? |
 | Known analogs to check after the run (not tuning inputs) | Genomics after March 2000; biotech after July 2015; ARKG holdings after February 2021; COVID vaccine names in 2020-2021. |
 
+## Amendment A1 (2026-10-07, before any price history was pulled)
+
+Added after the investor asked whether RSI, KDJ, Bollinger bands, forward sales multiples or
+momentum and similarity measures explain the damage better than run size. The primary metric,
+triggers, periods and success threshold above are unchanged. The features below are
+**exploratory secondary predictors**, each measured at the close before the trigger day
+(`src/biotech_divedeep/signals/technical.py`, `src/biotech_divedeep/models/multiples.py`):
+
+| Feature | Definition | Expected sign vs forward excess return |
+|---|---|---|
+| range_pos_252 | (close - 252-day low) / (252-day high - 252-day low) | Negative (motivated in-sample: rho -0.60 on 2026-10-06, so not independent evidence) |
+| rsi14 | Wilder RSI(14) | Negative |
+| kdj_j | KDJ(9) J line | Negative |
+| boll_pct_b, boll_bw | Bollinger(20, 2) %b and bandwidth | Negative, negative |
+| from_sma50, from_sma200 | Close / moving average - 1 | Negative |
+| mom_12_1 | Return t-252 to t-21 | Negative within triggered names (crash odds, GSY 2019) |
+| accel | Share of the 252-day log return earned in the last 63 days | Negative |
+| sim_theme_63 | 63-day return correlation with the theme ETF or cluster | Negative (more theme flow, more unwind) |
+| growth_gap | Latest yoy revenue growth minus the CAGR the price needs for a 0% return at 5x sales in 5 years | Positive (names whose growth covers the multiple hold up) |
+| new_issuance | Follow-on, ATM or convertible within 63 days before the trigger | Negative (GSY issuance attribute) |
+
+Reporting: one table of Spearman rho with bootstrap intervals for all features, Holm-adjusted;
+no feature is promoted to a rule unless it holds in the out-of-sample period. The cross-layer
+pooling trap seen on 2026-10-06 (both-layer rho inflated by layer membership) is avoided by
+testing within cohorts only.
+
 ## Results (append after running)
 
 | Run | Date | Variant | Primary metric | Notes |

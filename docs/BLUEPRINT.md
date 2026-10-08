@@ -1,6 +1,6 @@
 # Blueprint: Biotech & Life Sciences DiveDeep
 
-Status: v0.2 (2026-10-06; v0.1 2026-10-05). Owner: Guannan Shen. This is the north-star document.
+Status: v0.3 (2026-10-07; v0.2 2026-10-06; v0.1 2026-10-05). Owner: Guannan Shen. This is the north-star document.
 Every session starts by re-reading it, and every material design change lands here
 first (with an entry in `notes/decision_log.md`), then in code.
 
@@ -69,7 +69,8 @@ dependent on forecasting science.
 | H10 | Attention and disclosure on X: official-channel posts lead press releases and filings; abnormal cashtag attention spikes in small caps predict short-term reversal. | X API, EDGAR timestamps | Lead-lag study; event study on attention z-scores |
 | H11 | De-SPAC overhang: PIPE resale registrations, warrant exercisability and lockup expiries predict negative drift; the stock bottoms after supply clears, and names trading below residual cash (after senior claims) with controlled burn re-rate. | EDGAR 424B3/S-1, 8-K, prices | Event study around supply dates |
 | H12 | Credible dissent: public criticism from qualified insiders (former regulators or reviewers, trial investigators, ex-employees, domain experts) in long-form media precedes negative revisions; a dissent flag improves left-tail avoidance (H1). | Podcasts, YouTube, FDA review documents, petitions | Case studies first (Humacyte), then event study on a labeled dissent set |
-| H13 | Crowded-theme blow-off reversal: when a theme cohort's leaders finish a large run (close several times the 52-week low) and print a heavy-distribution day while the broad market is flat or up, they underperform XBI and run-matched controls over the next 1-6 months; names whose validation gap is closed hold up better. | Prices and volume, thematic ETF holdings, fit matrix | Event study, pre-registered (`notes/backtests/2026-10-06_H13_theme_blowoff_reversal.md`) |
+| H13 | Crowded-theme blow-off reversal: when a theme cohort's leaders finish a large run (close several times the 52-week low) and print a heavy-distribution day while the broad market is flat or up, they underperform XBI and run-matched controls over the next 1-6 months; names whose validation gap is closed hold up better. | Prices and volume, thematic ETF holdings, fit matrix | Event study, pre-registered (`notes/backtests/2026-10-06_H13_theme_blowoff_reversal.md`; amendment A1 adds range position, RSI, KDJ, Bollinger, momentum, acceleration, similarity and growth gap as exploratory predictors) |
+| H14 | Giant read-through: announcements by large pharma or AI labs that name a listed small or mid-cap counterparty move it; those without financial terms reverse within about a month, those with disclosed terms drift. | M16 event log, counterparties' filings, prices | Event study split by terms disclosed (`docs/modules/pharma_ai_watch.md` section 4) |
 
 Hypotheses are ranked by data availability and testability. H1, H3, H5, H7 come
 first because public data covers them well.
@@ -166,6 +167,7 @@ Design rules:
 | M13 | Social / X tracker | Official-channel disclosures, expert and press accounts, cashtag attention | `docs/modules/social_x.md` |
 | M14 | Government contracts & non-FDA regulators | USAspending, SAM.gov, DoD contract announcements, FAA records (adjacent sleeve) | `docs/framework/adjacent_deeptech.md` (section 3) |
 | M15 | Long-form media & dissent tracker | Podcasts, YouTube, conference talks, investigative press; dissent register per company | `docs/modules/long_form_media.md` |
+| M16 | Big pharma & AI-lab watch | Announcements by the trillion-dollar and large pharma, AI labs and compute vendors; counterparties, terms disclosed, M&A floors | `docs/modules/pharma_ai_watch.md` |
 
 Package layout mirrors the modules:
 
@@ -195,7 +197,9 @@ Research order for memos (calibrating one model per archetype): PACB (tools), SD
 (software + pipeline), RXRX (AI platform), then TEM/GRAL (dx), QSI/DNA (early product,
 turnaround), REPL/IOVA (launch), SLS/EDSA (binary), HROW/ETON (commercial pharma).
 Theme case studies run alongside the memos whenever a cohort moves as a block (first:
-`docs/research/2026-10-06_ai_bio_theme_reversal.md`). MRLN runs in parallel as the adjacent-sleeve pilot (`docs/memos/MRLN.md`) to test
+`docs/research/2026-10-06_ai_bio_theme_reversal.md`). Each theme study also screens the layers
+that did *not* move with the theme (first: `docs/research/2026-10-07_launch_layer_screen.md`),
+because a theme selloff can hide or create discounts elsewhere. MRLN runs in parallel as the adjacent-sleeve pilot (`docs/memos/MRLN.md`) to test
 whether the framework transfers outside biotech. This is a research order, not a buy
 order.
 
@@ -224,3 +228,5 @@ Tracked with status in `notes/open_questions.md`. The ones that change the desig
 5. Target number of holdings and rebalance cadence (weekly review assumed).
 6. Maximum weight of the adjacent sleeve (15% proposed) and its diagnostic benchmark.
 7. Budget for X API access, and the list of accounts worth following per company.
+8. Price-history route for the local machine (Stooq script ready) and whether paid consensus
+   estimates are worth buying for forward multiples (Q-017, Q-025).

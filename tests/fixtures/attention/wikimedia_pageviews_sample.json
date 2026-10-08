@@ -1,0 +1,5 @@
+{"items": [
+ {"project": "en.wikipedia", "article": "Twist_Bioscience", "granularity": "daily", "timestamp": "2026100300", "access": "all-access", "agent": "user", "views": 410},
+ {"project": "en.wikipedia", "article": "Twist_Bioscience", "granularity": "daily", "timestamp": "2026100100", "access": "all-access", "agent": "user", "views": 120},
+ {"project": "en.wikipedia", "article": "Twist_Bioscience", "granularity": "daily", "timestamp": "2026100200", "access": "all-access", "agent": "user", "views": 150}
+]}

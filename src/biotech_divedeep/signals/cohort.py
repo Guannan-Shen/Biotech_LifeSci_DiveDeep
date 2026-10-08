@@ -11,6 +11,7 @@ next. Thresholds are initial values to be tested in H13, not tuned parameters.
 from __future__ import annotations
 
 import csv
+import random
 from collections.abc import Callable, Iterable, Sequence
 from dataclasses import dataclass
 from pathlib import Path
@@ -66,6 +67,22 @@ class DaySnapshot:
     def from_high(self) -> float:
         """Close relative to the 52-week high (negative = below the high)."""
         return self.close / self.high_52w - 1.0
+
+    @property
+    def range_position(self) -> float:
+        """Close within the 52-week range, 0 at the low and 1 at the high (252-day RSV)."""
+        span = self.high_52w - self.low_52w
+        return 0.5 if span == 0 else (self.close - self.low_52w) / span
+
+    @property
+    def prev_range_position(self) -> float:
+        """The same for the prior close: how stretched the name was going into the day.
+
+        The 52-week high can include the day's own intraday high (TWST on 2026-10-06), so this value
+        is a slight understatement of the true prior-day position, never an overstatement.
+        """
+        span = self.high_52w - self.low_52w
+        return 0.5 if span == 0 else (self.prev_close - self.low_52w) / span
 
     @property
     def dollar_volume(self) -> float:
@@ -135,6 +152,49 @@ def spearman(x: Sequence[float], y: Sequence[float]) -> float:
     vx = sum((a - mx) ** 2 for a in rx)
     vy = sum((b - my) ** 2 for b in ry)
     return cov / (vx * vy) ** 0.5
+
+
+def spearman_bootstrap_ci(
+    x: Sequence[float], y: Sequence[float], n_boot: int = 4000, level: float = 0.90, seed: int = 7
+) -> tuple[float, float]:
+    """Percentile bootstrap interval for Spearman rho (pairs resampled with replacement).
+
+    With n near 20 the interval is wide; that width is the point. Resamples with a constant column
+    (possible with heavy ties) are skipped.
+    """
+    if len(set(x)) < 3 or len(set(y)) < 3:
+        raise ValueError("need at least three distinct values in each sequence")
+    rng = random.Random(seed)
+    n = len(x)
+    stats: list[float] = []
+    attempts = 0
+    while len(stats) < n_boot:
+        attempts += 1
+        if attempts > 50 * n_boot:
+            raise ValueError("too many degenerate resamples; data are nearly constant")
+        idx = [rng.randrange(n) for _ in range(n)]
+        bx, by = [x[i] for i in idx], [y[i] for i in idx]
+        if len(set(bx)) < 3 or len(set(by)) < 3:
+            continue
+        stats.append(spearman(bx, by))
+    stats.sort()
+    tail = (1.0 - level) / 2.0
+    return stats[int(tail * n_boot)], stats[int((1.0 - tail) * n_boot) - 1]
+
+
+def spearman_permutation_p(
+    x: Sequence[float], y: Sequence[float], n_perm: int = 10000, seed: int = 11
+) -> float:
+    """Two-sided permutation p-value for Spearman rho (y shuffled against x)."""
+    rng = random.Random(seed)
+    observed = abs(spearman(x, y))
+    ys = list(y)
+    hits = 0
+    for _ in range(n_perm):
+        rng.shuffle(ys)
+        if abs(spearman(x, ys)) >= observed - 1e-12:
+            hits += 1
+    return (hits + 1) / (n_perm + 1)
 
 
 def crowding_score(snaps: Sequence[DaySnapshot]) -> dict[str, float]:
