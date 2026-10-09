@@ -29,6 +29,9 @@ turns them into a single timestamped event stream, and uses that stream to:
 | [`docs/research/`](docs/research/) | Notes on external material (AI discovery cycle times, specialist ownership) |
 | [`notes/`](notes/) | Session log, decision log, open questions, research backlog |
 | [`config/universe.yaml`](config/universe.yaml) | Watchlist, screen candidates, benchmarks |
+| [`data/reference/us_lifesci_universe.csv`](data/reference/us_lifesci_universe.csv) | Every US-listed biotech and life-science company, six layers (`scripts/build_lifesci_universe.py`) |
+| [`data/reference/biotech_takeouts.csv`](data/reference/biotech_takeouts.csv) | Biotech takeouts 2005-2026; measured hazard in `takeout_base_rates_2021_2026.csv` |
+| [`docs/framework/takeout_case_study.md`](docs/framework/takeout_case_study.md) | Case-control method for studying each buyout's setup |
 | [`docs/runbooks/local_setup.md`](docs/runbooks/local_setup.md) | Clone locally and check access to SEC, FDA and ClinicalTrials.gov |
 | [`docs/memos/`](docs/memos/) | Company memos (first: MRLN, adjacent-sleeve pilot) |
 
@@ -45,6 +48,13 @@ pip install -e ".[dev]"          # add ".[data]" for pandas / pyarrow / duckdb
 python -m pytest
 ruff check .
 export SEC_USER_AGENT="Your Name your@email"   # required by SEC for EDGAR access
+
+# Listed universe and takeout history (GitHub mirror of the Nasdaq screener; sponsors for ETFs)
+python scripts/listing_history.py --repo ../US-Stock-Symbols   # clones on first run
+python scripts/fetch_etf_holdings.py                           # XBI, XPH, XHE, IBB; local machine
+python scripts/build_lifesci_universe.py
+python scripts/takeout_base_rate.py
+python scripts/takeout_screen.py summary --since 2005
 ```
 
 ## Disclaimer

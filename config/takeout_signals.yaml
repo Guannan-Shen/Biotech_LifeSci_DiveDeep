@@ -1,0 +1,103 @@
+# Pre-deal signal catalog for takeout case studies (H8, D-041).
+#
+# Each case study codes the signals below for the target AND for its matched controls, with the
+# date the signal became public (`available_at`). Signals are grouped by what they measure.
+# `public` says whether an investor could have seen the signal before the announcement; signals that
+# are only known after the deal (first contact date, number of bidders) live in the process table
+# (`data/reference/takeout_case_process.csv`), never here.
+#
+# `direction` is the prior expectation for takeout likelihood (own_assumption): up, down or unclear.
+# `source` names the module or filing that can detect it, so coding can be automated later.
+# `lead` is the typical lead time we expect before an announcement (own_assumption):
+#   long (more than a year), medium (3-12 months), short (under 3 months), immediate (days).
+
+as_of: 2026-10-09
+
+groups:
+  A: asset and data
+  B: strategic interest
+  C: ownership and activism
+  D: governance and preparation
+  E: capital and financing behaviour
+  F: commercial position and exclusivity
+  G: disclosure behaviour
+  H: market microstructure
+  I: dissent and negative news
+
+signals:
+  A1: {name: clean_randomized_phase2, direction: up, lead: medium, public: true, source: "M4 press release, models/phase2.py grade_phase2",
+       definition: "Randomized Phase 2 topline graded clean (all gates, graded share at least 0.65)."}
+  A2: {name: positive_pivotal, direction: up, lead: medium, public: true, source: "M4 press release, M3 results",
+       definition: "Pivotal or Phase 3 trial met its primary endpoint."}
+  A3: {name: approval, direction: up, lead: medium, public: true, source: "M2 FDA approvals",
+       definition: "FDA approval of the lead asset or a new indication."}
+  A4: {name: launch_above_expectations, direction: up, lead: medium, public: true, source: "M1 10-Q product revenue vs guidance and analogs",
+       definition: "First three launch quarters beat guidance or the analog curve (H2)."}
+  A5: {name: peer_mechanism_deal, direction: up, lead: medium, public: true, source: "biotech_takeouts.csv, M16",
+       definition: "A company with the same mechanism or in the same indication was bought or licensed for more than USD 1B in the prior 12 months."}
+  A7: {name: positive_phase2_ungraded, direction: up, lead: medium, public: true, source: "M4 press release",
+       definition: "Company-reported positive Phase 2 topline not yet graded with grade_phase2; upgrade to A1 or drop once graded."}
+  A6: {name: data_failure_or_crl, direction: down, lead: short, public: true, source: "M2 CRLs, M4",
+       definition: "Failed trial or complete response letter on the lead asset."}
+
+  B1: {name: pharma_option_or_rofn, direction: up, lead: long, public: true, source: "M1 8-K item 1.01, 10-K exhibits",
+       definition: "A large pharma holds an option, right of first negotiation or co-development rights on the lead asset."}
+  B2: {name: pharma_equity_stake, direction: up, lead: long, public: true, source: "M1 SC 13G/13D, 8-K",
+       definition: "A large pharma owns equity (any size) or bought shares in a financing."}
+  B3: {name: acquirer_gap_area, direction: up, lead: long, public: true, source: "M16 loss-of-exclusivity table",
+       definition: "Three or more large pharmas face 2027-2032 loss of exclusivity in the lead asset's area."}
+  B4: {name: unsolicited_approach_disclosed, direction: up, lead: short, public: true, source: "M1 8-K, press",
+       definition: "Company or bidder discloses an approach, or a public bid is made."}
+  B5: {name: credible_media_report_of_talks, direction: up, lead: immediate, public: true, source: "Bloomberg, WSJ, FT, Reuters",
+       definition: "A tier-one outlet reports talks (RBC 2026 review: hit rate about 60-70% for such outlets, 20-30% for Betaville)."}
+
+  C1: {name: activist_13d_or_proxy, direction: up, lead: medium, public: true, source: "M1 SC 13D, DEFC14A, DFAN14A",
+       definition: "An activist files a 13D, nominates directors or publicly demands a sale review."}
+  C2: {name: specialist_fund_accumulation, direction: up, lead: medium, public: true, source: "M1 13F (45-day lag), H4",
+       definition: "Dedicated biotech funds raise their aggregate stake by at least 3 points of shares outstanding over two quarters."}
+  C3: {name: strategic_review_announced, direction: up, lead: short, public: true, source: "M1 8-K, press",
+       definition: "The company announces a review of strategic alternatives."}
+  C4: {name: insider_open_market_buying, direction: up, lead: medium, public: true, source: "M1 Form 4",
+       definition: "Officers or directors buy shares in the open market."}
+
+  D1: {name: change_in_control_plan_adopted, direction: up, lead: medium, public: true, source: "M1 8-K item 5.02, exhibit 10",
+       definition: "Adoption or enrichment of a change-in-control severance plan or single-trigger vesting."}
+  D2: {name: poison_pill_adopted, direction: unclear, lead: short, public: true, source: "M1 8-K item 3.03",
+       definition: "Shareholder rights plan adopted (often after a stake builds)."}
+  D3: {name: dealmaker_director_or_cbo, direction: up, lead: medium, public: true, source: "M1 8-K item 5.02",
+       definition: "New director or chief business officer who previously sold a public biotech."}
+  D4: {name: retention_awards, direction: up, lead: short, public: true, source: "M1 8-K item 5.02",
+       definition: "Special retention grants to key employees outside the normal cycle."}
+
+  E1: {name: no_raise_after_good_data, direction: up, lead: short, public: true, source: "M1 424B, 8-K; models/phase2.py",
+       definition: "No equity raise within 90 days of positive data despite a price run-up and less than 24 months of runway."}
+  E2: {name: long_runway, direction: unclear, lead: long, public: true, source: "M7 runway",
+       definition: "More than 36 months of runway: no forced financing, so the company can wait for its price."}
+  E3: {name: atm_or_shelf_unused, direction: up, lead: short, public: true, source: "M1 10-Q ATM disclosure, S-3",
+       definition: "ATM programme in place but unused through a run-up, or an expiring shelf not renewed."}
+  E4: {name: distress_financing, direction: down, lead: short, public: true, source: "M1 424B, going-concern language",
+       definition: "Dilutive financing at a discount, warrants, or going-concern language (lowers full-value takeout odds)."}
+
+  F1: {name: subscale_commercial_footprint, direction: up, lead: long, public: true, source: "10-K employees, sales force disclosures",
+       definition: "Approved product sold by a sales force too small for the addressable prescriber base."}
+  F2: {name: dated_loss_of_exclusivity, direction: up, lead: long, public: true, source: "Orange Book, settlements",
+       definition: "A settlement or patent ruling fixes a generic or biosimilar entry date (Pacira: early 2030)."}
+  F3: {name: single_product_concentration, direction: up, lead: long, public: true, source: "product_revenue_map.csv",
+       definition: "One product is more than 80% of revenue."}
+
+  G1: {name: skipped_conference_or_call, direction: up, lead: short, public: true, source: "M4 events calendar",
+       definition: "Company cancels a scheduled conference presentation or earnings call without explanation."}
+  G2: {name: guidance_withdrawn, direction: unclear, lead: short, public: true, source: "M1 8-K, guidance_ledger.csv",
+       definition: "Annual guidance withdrawn or not given at the usual time."}
+
+  H1: {name: abnormal_call_option_volume, direction: up, lead: immediate, public: true, source: "options data (not in repo)",
+       definition: "Short-dated out-of-the-money call volume more than three standard deviations above normal (Augustin, Brenner and Subrahmanyam 2019)."}
+  H2: {name: unexplained_runup_vs_xbi, direction: up, lead: short, public: true, source: "M5 prices",
+       definition: "Stock beats XBI by more than 20% over 30 trading days with no company news."}
+  H3: {name: abnormal_volume_no_news, direction: up, lead: short, public: true, source: "M5 volume (D-018)",
+       definition: "Volume above three times the 50-day average on a day with no company news."}
+
+  I1: {name: short_seller_report, direction: unclear, lead: medium, public: true, source: "M15 dissent register",
+       definition: "A published short report on the company or its lead asset."}
+  I2: {name: credible_dissent, direction: down, lead: medium, public: true, source: "M15 dissent register (H12)",
+       definition: "Qualified insider or regulator criticism of the lead asset."}

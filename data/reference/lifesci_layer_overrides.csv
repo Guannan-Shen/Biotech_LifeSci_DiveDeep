@@ -1,0 +1,120 @@
+ticker,layer,sublayer,reason
+TMO,tools,tools_diversified,Nasdaq files Thermo Fisher under industrial machinery
+DHR,tools,tools_diversified,Nasdaq files Danaher under industrial machinery
+QSI,tools,proteomics,Nasdaq files Quantum-Si under industrial machinery; watchlist tools name
+AZTA,tools,sample_management,Nasdaq files Azenta under industrial machinery
+ILMN,tools,sequencing,Nasdaq files Illumina under medical specialities
+PACB,tools,sequencing,watchlist tools name
+TXG,tools,single_cell_spatial,watchlist tools name
+TWST,tools,synthetic_dna,filed under biological products; sells DNA synthesis
+DNA,tools,synbio_platform,filed under biological products; watchlist ai_platform and tools
+RGEN,tools,bioprocess,filed under biological products; bioprocessing consumables
+TECH,tools,reagents,filed under biological products; Bio-Techne reagents and instruments
+MRVI,tools,reagents,Maravai nucleic acid reagents
+CDXS,tools,enzymes,Codexis enzyme engineering
+MXCT,tools,cell_engineering,filed under contract research; MaxCyte electroporation instruments
+CTKB,tools,flow_cytometry,Cytek flow cytometry
+WST,tools,pharma_packaging,West Pharmaceutical containment and delivery components
+STVN,tools,pharma_packaging,Stevanato drug containment
+SHC,services,sterilization,Sotera Health sterilization and lab testing
+FTRE,services,cro,Fortrea contract research; filed under medical specialities
+IQV,services,cro,IQVIA
+MEDP,services,cro,Medpace
+CRL,services,cro_preclinical,Charles River
+ICLR,services,cro,ICON
+OABI,services,discovery_platform,OmniAb antibody discovery licensing
+INCY,therapeutics,commercial,Nasdaq files Incyte under contract research
+EYPT,therapeutics,clinical,Nasdaq files EyePoint under laboratory instruments
+MDWD,therapeutics,commercial,MediWound filed under medicinal chemicals
+LNTH,therapeutics,radiopharma,Lantheus radiopharmaceuticals and imaging agents
+CELC,therapeutics,clinical,Celcuity filed under medical specialities
+ABSI,therapeutics,ai_platform,Absci AI antibody design; filed under contract research
+ABCL,therapeutics,ai_platform,AbCellera antibody discovery platform and pipeline
+RXRX,therapeutics,ai_platform,watchlist ai_platform name
+SDGR,software_data,discovery_software,watchlist software name; filed under pharmaceutical preparations
+CERT,software_data,discovery_software,watchlist software name; Nasdaq files Certara under software
+SLP,software_data,discovery_software,Simulations Plus modelling software
+VEEV,software_data,life_science_software,Veeva cloud software for life sciences
+TEM,diagnostics,dx_data,watchlist dx_data name; Nasdaq files Tempus under software
+EXAS,diagnostics,cancer_screening,Exact Sciences
+NTRA,diagnostics,genetic_testing,Natera
+GH,diagnostics,cancer_screening,Guardant Health; name contains Health but is a diagnostics company
+GRAL,diagnostics,cancer_screening,watchlist dx_data name
+QGEN,diagnostics,sample_to_insight,Qiagen; filed under biological products
+LH,diagnostics,clinical_labs,Labcorp
+DGX,diagnostics,clinical_labs,Quest Diagnostics
+IDXX,diagnostics,animal_health_dx,IDEXX veterinary diagnostics
+NEOG,diagnostics,food_animal_safety,Neogen food and animal safety testing
+ZTS,therapeutics,animal_health,Zoetis animal health
+ELAN,therapeutics,animal_health,Elanco animal health
+PAHC,therapeutics,animal_health,Phibro animal health
+OBIO,medtech,drug_device,Orchestra BioMed device and drug-device programs
+UNH,excluded,managed_care,UnitedHealth: name evades the care keyword
+CI,excluded,managed_care,Cigna
+CNC,excluded,managed_care,Centene
+MOH,excluded,managed_care,Molina
+HUM,excluded,managed_care,Humana
+ELV,excluded,managed_care,Elevance
+OSCR,excluded,managed_care,Oscar Health
+CLOV,excluded,managed_care,Clover Health
+ALHC,excluded,managed_care,Alignment Healthcare
+HSIC,excluded,distribution,Henry Schein distribution
+RDNT,excluded,care_delivery,RadNet imaging centres
+CON,excluded,care_delivery,Concentra occupational health
+ACHC,excluded,care_delivery,Acadia Healthcare
+TRUP,excluded,insurance,Trupanion pet insurance
+LMRI,excluded,care_delivery,imaging centres
+KEQU,excluded,lab_furniture,Kewaunee Scientific laboratory furniture
+ULS,excluded,testing_certification,UL Solutions product safety testing
+NRC,excluded,healthcare_analytics,NRC Health patient surveys
+ACHV,therapeutics,clinical,Achieve Life Sciences cytisinicline; filed under diagnostic substances
+ABT,medtech,diversified,Abbott: devices diagnostics and nutrition; filed under pharmaceutical preparations
+PBH,excluded,consumer_health,Prestige Consumer Healthcare over-the-counter brands
+PRGO,excluded,consumer_health,Perrigo consumer self-care
+RPRX,therapeutics,royalty,Royalty Pharma royalty aggregator
+LGND,therapeutics,royalty,Ligand royalty and platform licensing
+LLY,therapeutics,large_pharma,acquirer universe
+JNJ,therapeutics,large_pharma,acquirer universe
+ABBV,therapeutics,large_pharma,acquirer universe
+MRK,therapeutics,large_pharma,acquirer universe
+NVS,therapeutics,large_pharma,acquirer universe
+AZN,therapeutics,large_pharma,acquirer universe
+AMGN,therapeutics,large_pharma,acquirer universe
+GILD,therapeutics,large_pharma,acquirer universe
+NVO,therapeutics,large_pharma,acquirer universe
+PFE,therapeutics,large_pharma,acquirer universe
+VRTX,therapeutics,large_pharma,acquirer universe
+BMY,therapeutics,large_pharma,acquirer universe
+SNY,therapeutics,large_pharma,acquirer universe
+GSK,therapeutics,large_pharma,acquirer universe
+REGN,therapeutics,large_pharma,acquirer universe
+TAK,therapeutics,large_pharma,acquirer universe
+BIIB,therapeutics,large_pharma,acquirer universe
+TEVA,therapeutics,generics,acquirer universe
+VTRS,therapeutics,generics,acquirer universe; buyer of Pacira (2026-10-08)
+AMRX,therapeutics,generics,generics and specialty
+RDY,therapeutics,generics,Dr. Reddy's
+ANTM,excluded,managed_care,Anthem (now Elevance); historical snapshots
+EHC,excluded,care_delivery,Encompass Health rehabilitation hospitals
+MD,excluded,care_delivery,Pediatrix Medical Group
+USPH,excluded,care_delivery,U.S. Physical Therapy
+FIGS,excluded,apparel,FIGS medical apparel
+HNGR,excluded,care_delivery,Hanger orthotic and prosthetic clinics
+MPLN,excluded,healthcare_analytics,MultiPlan claims pricing
+PDCO,excluded,distribution,Patterson Companies dental and animal health distribution
+AHCO,excluded,distribution,AdaptHealth home medical equipment
+CGC,excluded,cannabis,Canopy Growth
+TLRY,excluded,cannabis,Tilray Brands
+SNDL,excluded,cannabis,SNDL
+CRON,excluded,cannabis,Cronos Group
+ACB,excluded,cannabis,Aurora Cannabis
+THRN,excluded,supplements,Thorne HealthTech
+PETQ,excluded,pet_products,PetIQ
+ABCM,tools,reagents,Abcam antibodies and reagents; bought by Danaher in 2023
+OLK,tools,proteomics,Olink; bought by Thermo Fisher in 2023
+SLGC,tools,proteomics,SomaLogic; merged into Standard BioTools in 2024
+CTLT,services,cdmo,Catalent; bought by Novo Holdings in 2024
+CDMO,services,cdmo,Avid Bioservices; bought by GHO and Ampersand in 2024
+BLFS,tools,bioprocess,BioLife Solutions cell and gene therapy bioproduction tools
+SLNO,therapeutics,commercial,Soleno; Nasdaq filed it under electromedical apparatus before 2021-05
+PPD,services,cro,PPD contract research; bought by Thermo Fisher in 2021

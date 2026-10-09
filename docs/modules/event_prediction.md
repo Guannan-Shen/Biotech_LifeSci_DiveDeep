@@ -20,6 +20,12 @@ likelihood ratios from `config/takeout_priors.yaml` until the hazard model is fi
 `models/phase2.py` gives P6 its shrinkage, assurance and scorecard. Both are described in
 `docs/research/2026-10-08_takeout_database_and_phase2_gate.md`.
 
+Update 2026-10-09 (D-039 to D-042): the base hazard and size ratios in the priors are now measured
+on a 2021-2026 listing panel (`scripts/takeout_base_rate.py`); P5's denominator for 2021 onwards
+comes from `data/reference/lifesci_listing_counts_monthly.csv`; setup features for P5 are
+discovered with case-control studies (`docs/framework/takeout_case_study.md`,
+`models/takeout_case.py`). Train P5 on `deal_kind` in {strategic, contested} only.
+
 P6 stays mostly prior-driven; outcome prediction from public data is weak and the
 framework says so. P1 and P2 are the most data-rich and likely the most useful.
 

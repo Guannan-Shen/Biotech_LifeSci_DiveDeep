@@ -1,7 +1,7 @@
 """Takeout database summary, takeout score, Phase 2 shrinkage and basket arithmetic (H8, H16).
 
 Usage:
-  python scripts/takeout_screen.py summary [--since 2025]
+  python scripts/takeout_screen.py summary [--since 2005] [--until 2026] [--all-kinds]
   python scripts/takeout_screen.py score --stage phase2_clean --mcap 1.5 --traits acquirer_gap_area [--premium 0.45]
   python scripts/takeout_screen.py phase2 --estimate 10 --se 4 --prior-mean 3 --prior-sd 4 [--design-effect 10]
   python scripts/takeout_screen.py basket 0.08 0.08 0.05 ...
@@ -24,6 +24,7 @@ from biotech_divedeep.models.phase2 import (
     shrink_effect,
 )
 from biotech_divedeep.models.takeout import (
+    STRATEGIC_KINDS,
     basket_deal_distribution,
     expected_kicker,
     load_deals,
@@ -42,10 +43,13 @@ def _pct(x: float) -> str:
 
 
 def cmd_summary(args: argparse.Namespace) -> None:
-    deals = [d for d in load_deals(DEALS) if d.year >= args.since]
+    deals = [d for d in load_deals(DEALS) if args.since <= d.year <= args.until]
+    if not args.all_kinds:
+        deals = [d for d in deals if d.deal_kind in STRATEGIC_KINDS]
     s = summarize_deals(deals)
     sourced = sum(bool(d.source_url) for d in deals)
-    print(f"Deals announced since {args.since}: {s.n} (all evidence `unverified`; {sourced} with a source URL)")
+    scope = "all deal kinds" if args.all_kinds else "strategic and contested deals only"
+    print(f"Deals announced {args.since}-{args.until}: {s.n}, {scope} (all `unverified`; {sourced} with a source URL)")
     print(f"Lead asset not yet approved: {_pct(s.share_clinical)}")
     print(f"Randomized Phase 2, pivotal or commercial data before the deal: {_pct(s.share_with_phase2_plus_data)}")
     for title, table in (
@@ -54,6 +58,7 @@ def cmd_summary(args: argparse.Namespace) -> None:
         ("Acquirer type", s.by_acquirer_type),
         ("Therapeutic area", s.by_area),
         ("Consideration", s.by_consideration),
+        ("Deal kind", s.by_deal_kind),
     ):
         print(f"\n{title}:")
         for key, n in table.items():
@@ -105,6 +110,8 @@ def main() -> None:
     sub = parser.add_subparsers(dest="cmd", required=True)
     p = sub.add_parser("summary")
     p.add_argument("--since", type=int, default=2019)
+    p.add_argument("--until", type=int, default=2100)
+    p.add_argument("--all-kinds", action="store_true", help="include buy-ins, going-private, distressed, cash shells")
     p.set_defaults(func=cmd_summary)
     p = sub.add_parser("score")
     p.add_argument("--stage", required=True)
