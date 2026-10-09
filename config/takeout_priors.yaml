@@ -1,0 +1,52 @@
+# Takeout hazard priors for models/takeout.py (H8, M9 P5; D-034).
+#
+# Evidence class of every number in this file: own_assumption.
+# They are a transparent starting point so the screen can rank names today. P5 replaces them
+# with coefficients fitted on a point-in-time company-quarter panel (deals in
+# data/reference/biotech_takeouts.csv as events, every listed biotech company-quarter as the
+# denominator). Until then, read the output as a ranking with a wide band, not a probability.
+#
+# Mechanics: odds = base_odds x product(likelihood ratios); p = odds / (1 + odds); capped.
+# Likelihood ratios multiply, so correlated traits double count. Keep the list short.
+
+as_of: 2026-10-08
+
+# Annual probability that a randomly chosen US-listed small or mid-cap biotech announces a
+# definitive sale. Rough range: 20 to 35 public US biotech targets a year over 600 to 700 listed
+# names, with 2026 running hot (about USD 130B of biopharma M&A in H1 per IQVIA as reported by
+# GeneOnline). Replace with the computed hazard once the denominator exists (Q-032).
+base_annual_hazard:
+  low: 0.02
+  mid: 0.035
+  high: 0.05
+
+max_probability: 0.6
+
+# Stage of the lead asset and quality of its latest data (pick one).
+stage:
+  approved_commercial: 1.3
+  filed: 1.6
+  phase3: 1.4
+  phase2_clean: 1.8              # randomized Phase 2 graded `clean` by models/phase2.py
+  phase2_positive_not_clean: 1.1
+  phase2_no_data: 0.7
+  phase1: 0.5
+  preclinical_or_platform: 0.3
+
+# Market capitalisation band in USD billions (pick one). Big pharma buys USD 1-15B most often.
+market_cap:
+  micro_under_0.3: 0.4
+  small_0.3_to_2: 1.0
+  mid_2_to_10: 1.2
+  large_10_to_25: 0.7
+  mega_over_25: 0.3
+
+# Binary traits; apply the ratio when the trait is present.
+traits:
+  acquirer_gap_area: 1.3          # therapeutic area where three or more large pharmas face 2027-2032 loss of exclusivity
+  activist_or_strategic_review: 2.0   # 13D activist, proxy contest, or a public review of strategic alternatives
+  pharma_equity_or_option: 1.5    # a large pharma owns equity, holds an option, ROFN or co-development rights
+  subscale_commercial: 1.3        # approved product sold by a sales force too small for the market
+  runway_under_12m: 0.8           # distressed: financing or a low-premium sale more likely than a full-value takeout
+  controlling_holder: 0.6         # a founder, parent or fund controls more than 30% and has said it will not sell
+  mechanism_crowded_by_big_pharma: 0.8  # large pharmas already own a late-stage asset on the same target

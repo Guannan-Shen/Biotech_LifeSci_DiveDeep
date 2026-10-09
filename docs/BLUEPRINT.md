@@ -1,6 +1,6 @@
 # Blueprint: Biotech & Life Sciences DiveDeep
 
-Status: v0.4 (2026-10-08; v0.3 2026-10-07; v0.2 2026-10-06; v0.1 2026-10-05). Owner: Guannan Shen. This is the north-star document.
+Status: v0.5 (2026-10-08, takeout database and Phase 2 gate; v0.4 2026-10-08; v0.3 2026-10-07; v0.2 2026-10-06; v0.1 2026-10-05). Owner: Guannan Shen. This is the north-star document.
 Every session starts by re-reading it, and every material design change lands here
 first (with an entry in `notes/decision_log.md`), then in code.
 
@@ -64,7 +64,7 @@ dependent on forecasting science.
 | H5 | Trend and regime: XBI regime (vs 200-day MA, rates), stock relative strength and volume confirmation (breakouts on above-average volume, accumulation vs distribution) improve timing of fundamental entries. | Prices and Trading Volume | Overlay test on H1-H4 |
 | H6 | Quality inside biotech: profitable or near-profitable specialty pharma (HROW, ETON type) is underfollowed and compounds vs XBI. | XBRL fundamentals | Factor sort |
 | H7 | Trial-registry signals: primary-completion slippage, enrollment cuts, endpoint edits and status changes on ClinicalTrials.gov lead price and outcome. | ctgov version history | Event study |
-| H8 | Takeout likelihood: patent-cliff-driven M&A favors late-stage assets in acquirer-gap therapeutic areas; a takeout probability score adds return. | EDGAR, ctgov, FDA, M&A history | Classifier + portfolio tilt |
+| H8 | Takeout likelihood: acquirers buy de-risked mechanisms (randomized Phase 2, pivotal or commercial data) and approved products in acquirer-gap areas; a company-quarter hazard model with stage, Phase 2 grade, size, activist, partner and gap-area features beats stage base rates, and a top-decile basket that passes H1 beats XBI. The takeout is a kicker on a standalone thesis, never the thesis. | Deal table `data/reference/biotech_takeouts.csv`, EDGAR SC TO-T / SC 14D9 / DEFM14A, 13D, ctgov, FDA | Discrete-time hazard model (P5), time-split Brier; basket test (pre-registration pending; priors in `config/takeout_priors.yaml` until fitted) |
 | H9 | AI-for-bio value capture: in the current AI cycle, data generators and tools with recurring consumables convert AI demand into revenue earlier than AI-native drug pipelines. | Segment revenue, customer disclosures | Panel study, slow (multi-year) |
 | H10 | Attention and disclosure on X: official-channel posts lead press releases and filings; abnormal cashtag attention spikes in small caps predict short-term reversal. | X API, EDGAR timestamps | Lead-lag study; event study on attention z-scores |
 | H11 | De-SPAC overhang: PIPE resale registrations, warrant exercisability and lockup expiries predict negative drift; the stock bottoms after supply clears, and names trading below residual cash (after senior claims) with controlled burn re-rate. | EDGAR 424B3/S-1, 8-K, prices | Event study around supply dates |
@@ -72,6 +72,7 @@ dependent on forecasting science.
 | H13 | Crowded-theme blow-off reversal: when a theme cohort's leaders finish a large run (close several times the 52-week low) and print a heavy-distribution day while the broad market is flat or up, they underperform XBI and run-matched controls over the next 1-6 months; names whose validation gap is closed hold up better. | Prices and volume, thematic ETF holdings, fit matrix | Event study, pre-registered (`notes/backtests/2026-10-06_H13_theme_blowoff_reversal.md`; amendment A1 adds range position, RSI, KDJ, Bollinger, momentum, acceleration, similarity and growth gap as exploratory predictors) |
 | H14 | Giant read-through: announcements by large pharma or AI labs that name a listed small or mid-cap counterparty move it; those without financial terms reverse within about a month, those with disclosed terms drift. | M16 event log, counterparties' filings, prices | Event study split by terms disclosed (`docs/modules/pharma_ai_watch.md` section 4) |
 | H15 | Management credibility: a low posterior hit rate on management's own guidance predicts negative drift after a fresh miss and a wider discount to guided value; a strong costly-signal record (pre-announced, quantified, dated sacrifices that paid off) predicts better 12-month excess return among commercial names. | 8-K and earnings-release guidance history, `data/reference/guidance_ledger.csv`, `costly_signal_ledger.csv` | Event study after guidance misses; cross-sectional sort on credibility (pre-registration pending) |
+| H16 | Phase 2 quality drift: positive randomized Phase 2 readouts graded `clean` (gates: randomized control, pre-specified primary met, no new safety signal; graded items in `models/phase2.py`) earn positive excess return vs XBI from an entry after the first post-data financing, and beat `positive_not_clean` readouts. Shrinkage and assurance, not the point estimate, measure how much of the effect survives to Phase 3. | 8-K and press-release toplines, ctgov versions, 424B5, prices | Event study, pre-registered (`notes/backtests/2026-10-08_H16_phase2_quality_drift.md`) |
 
 Hypotheses are ranked by data availability and testability. H1, H3, H5, H7 come
 first because public data covers them well.
@@ -163,7 +164,7 @@ Design rules:
 | M6 | Catalyst calendar | Fuses M1-M4 into dated, sourced, confidence-scored catalysts | `docs/modules/catalyst_calendar.md` |
 | M7 | Fundamentals, runway & dilution | Cash, burn, debt, share count, financing capacity, stress runway | `docs/modules/edgar.md` (section 5) |
 | M8 | Thesis & valuation | One-page memo, business quality card, three scenarios, per-share value, evidence log | `docs/framework/investment_framework.md`, `docs/framework/business_quality.md` |
-| M9 | Event prediction | Financing, FDA action, trial-delay, launch-curve, takeout models | `docs/modules/event_prediction.md` |
+| M9 | Event prediction | Financing, FDA action, trial-delay, launch-curve, takeout models; Phase 2 quality grade and assurance | `docs/modules/event_prediction.md`, `docs/research/2026-10-08_takeout_database_and_phase2_gate.md` |
 | M10 | Opportunity map | Unmet need x economics x crowding by indication and modality | `docs/modules/opportunity_map.md` |
 | M11 | Portfolio & backtest | Point-in-time backtest vs XBI, sizing, risk budget, paper trading | `docs/modules/portfolio_backtest.md` |
 | M12 | Reporting | Weekly review, alerts, memo rendering | `docs/modules/portfolio_backtest.md` (section 6) |
@@ -202,7 +203,7 @@ turnaround), REPL/IOVA (launch), SLS/EDSA (binary), HROW/ETON (commercial pharma
 Theme case studies run alongside the memos whenever a cohort moves as a block (first:
 `docs/research/2026-10-06_ai_bio_theme_reversal.md`). Each theme study also screens the layers
 that did *not* move with the theme (first: `docs/research/2026-10-07_launch_layer_screen.md`),
-because a theme selloff can hide or create discounts elsewhere. MRLN runs in parallel as the adjacent-sleeve pilot (`docs/memos/MRLN.md`) to test
+because a theme selloff can hide or create discounts elsewhere. A takeout and Phase 2 screen (`scripts/takeout_screen.py`, H8 and H16) runs alongside: every positive randomized Phase 2 in the research universe gets a scorecard, and takeout scores break ties inside baskets that already pass the gates. MRLN runs in parallel as the adjacent-sleeve pilot (`docs/memos/MRLN.md`) to test
 whether the framework transfers outside biotech. This is a research order, not a buy
 order.
 
