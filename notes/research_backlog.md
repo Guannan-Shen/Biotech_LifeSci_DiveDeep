@@ -68,3 +68,12 @@ HROW moves up if Q3 (November) passes its falsifier (`docs/research/2026-10-07_l
 - [ ] Apply the card to ETON next; it shares HROW's archetype and its acquisition-driven growth needs the deal ledger.
 - [ ] After Q3 (mid November): resolve HROW's Q3 product price tests and re-score C3 and the IHEEZO moat.
 - [ ] Contribution multiple per deal (revenue minus royalty, COGS and attributable selling cost) once segment data allow it.
+
+## Takeout and Phase 2 screen (added 2026-10-08)
+- [ ] Verify the 64 recall-only rows of `biotech_takeouts.csv` against EDGAR and add premiums (unaffected close and VWAP) for every row.
+- [ ] Pull the complete event list and the company-quarter denominator (Q-032); compute the empirical base hazard and replace `base_annual_hazard`.
+- [ ] Pre-register the H8 hazard model (Q-034), then fit it with time-split validation.
+- [ ] Build the readout list for H16 from 8-K item 8.01 toplines (M1, M4) and ctgov versions (M3); recruit a second grader.
+- [ ] Acquirer gap map: large pharmas' 2027-2032 loss-of-exclusivity revenue by therapeutic area (feeds `acquirer_gap_area`).
+- [ ] Score the seed list in section 8 of the research note once stage, cash and holders are verified; add HROW and ETON if Q-036 says yes.
+- [ ] Merger-arbitrage side note: spreads on announced deals with CVRs (Biogen-Apellis, Lilly-AtaiBeckley) as a lower-variance sleeve, if Q-002 allows.

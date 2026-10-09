@@ -152,7 +152,9 @@ USD 120M of Hercules debt tied to milestones (G), so H1 (financing risk) applies
 
 All `U` (press and law-firm summaries; 8-Ks to check). Two lessons: acquirers are paying for
 approved, growing assets (patent-cliff demand, H8), and the premiums were moderate (about 20-30%),
-so the floor is real but not a lottery ticket. The research universe must keep these names with
+so the floor is real but not a lottery ticket. **Correction 2026-10-08:** only Catalyst fits that
+range (21% to its unaffected close); Apellis was 140% to its 2026-03-30 close and Crinetics 102%
+(`docs/research/2026-10-08_takeout_database_and_phase2_gate.md` section 2). The research universe must keep these names with
 their deal prices (no survivorship filter), which is why they sit in a separate table rather than
 being dropped.
 
