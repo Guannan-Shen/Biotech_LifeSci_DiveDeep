@@ -8,6 +8,7 @@ version for the weekly report arrives in Phase 2.
 | Need | Candidate source | Caveat |
 |---|---|---|
 | Daily adjusted prices, watchlist | FMP (connected; current plan blocks batch endpoints) | Per-symbol calls only on current plan |
+| Daily closes, volumes, one-day returns for every listed stock since 2021-06 (added 2026-10-11, D-044) | Git history of the listing mirror via `scripts/mirror_daily_prices.py`; benchmarks `EW_LIFESCI_200M` (XBI-like) and `EW_TOOLS` | Two date regimes (lag from 2026-09-24, `core/calendar.py`); about 1% stale snapshots; no ETFs; provenance in `docs/research/mirror_price_reference_data.md` |
 | XBI, IBB total return | FMP or ETF provider history | Use adjusted close with dividends |
 | Delisted price history | Requires a vendor that keeps delisted names (FMP higher tier, Sharadar, Norgate, CRSP) | **Decision pending**; without it backtests carry survivorship bias |
 | Short interest | FINRA semi-monthly short interest files | Lagged |

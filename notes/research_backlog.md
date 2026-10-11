@@ -26,6 +26,9 @@ Ideas not yet scheduled. Promote to the blueprint roadmap when they earn a slot.
 - Takeout base rate for approved-product small and mid caps (2026: APLS, CPRX, CRNX) and premium distribution (H8).
 - Attention lead-lag: Wikimedia and GDELT peaks vs price peaks for theme cohorts (2000 genomics, 2021 ARKG, 2026 AI-bio) (H10, H13).
 - Issuance as a top signal: follow-ons, ATMs and converts within 63 days after a theme peak (GSY attribute; H13 A1).
+- H17 extensions: drift after conference presentations (HUPO, ASMS, AGBT) for tools names; cross-name read-through when one platform reports (QSI and NAUT moved together on 2026-09-29).
+- Proteomics platform map: MS (Thermo, Bruker), affinity (Olink in Thermo, SomaScan in Illumina since 2026-01-30), sample prep (Seer), single-molecule (QSI, NAUT, Glyphic, Portal, nanopore efforts); which job each wins.
+- Mirror price panel for H13 and H5: the silver table now covers every life-science name since 2021-06; ETFs still missing.
 
 ## Adjacent sleeve candidates (screen before adding)
 - eVTOL, space, defense autonomy, nuclear and fusion names that pass the same gates.
