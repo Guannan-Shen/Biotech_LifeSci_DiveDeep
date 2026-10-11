@@ -1,6 +1,7 @@
 # Takeout hazard priors for models/takeout.py (H8, M9 P5; D-034).
 #
-# Evidence class of every number in this file: own_assumption.
+# Evidence class: the base hazard and the micro, small and mid size ratios are measured (D-040);
+# every other number is own_assumption.
 # They are a transparent starting point so the screen can rank names today. P5 replaces them
 # with coefficients fitted on a point-in-time company-quarter panel (deals in
 # data/reference/biotech_takeouts.csv as events, every listed biotech company-quarter as the
@@ -9,16 +10,19 @@
 # Mechanics: odds = base_odds x product(likelihood ratios); p = odds / (1 + odds); capped.
 # Likelihood ratios multiply, so correlated traits double count. Keep the list short.
 
-as_of: 2026-10-08
+as_of: 2026-10-09
 
-# Annual probability that a randomly chosen US-listed small or mid-cap biotech announces a
-# definitive sale. Rough range: 20 to 35 public US biotech targets a year over 600 to 700 listed
-# names, with 2026 running hot (about USD 130B of biopharma M&A in H1 per IQVIA as reported by
-# GeneOnline). Replace with the computed hazard once the denominator exists (Q-032).
+# Annual probability that a listed US therapeutics company under USD 25B announces a strategic or
+# contested sale. MEASURED on 2026-10-09 (D-040) from the point-in-time listing panel, 2021-02 to
+# 2026-10 (`scripts/takeout_base_rate.py`, `data/reference/takeout_base_rates_2021_2026.csv`):
+# 108 deals over about 4,165 company-years, posterior mean 2.6% (80% interval 2.3% to 2.9%).
+# `high` is raised to 3.5% because 330 small and mid exits are not yet resolved and some are
+# deals missing from the table, so the measured rate is a floor (Q-037). Replaces the
+# own_assumption range 2% / 3.5% / 5% of 2026-10-08.
 base_annual_hazard:
-  low: 0.02
-  mid: 0.035
-  high: 0.05
+  low: 0.023
+  mid: 0.026
+  high: 0.035
 
 max_probability: 0.6
 
@@ -33,13 +37,17 @@ stage:
   phase1: 0.5
   preclinical_or_platform: 0.3
 
-# Market capitalisation band in USD billions (pick one). Big pharma buys USD 1-15B most often.
+# Market capitalisation band (pick one). Ratios are the MEASURED band hazard divided by the pooled
+# 2.6% (2021-2026 panel): micro 0.6%, small 4.8%, mid 8.1%. Large and mega rest on one deal each, so
+# they stay own_assumption, set below 1 because most such companies are acquirers or too large.
+# Stage and size are correlated (approved products sit in larger companies), so stacking the stage
+# and size ratios double counts part of the effect until P5 fits them jointly.
 market_cap:
-  micro_under_0.3: 0.4
-  small_0.3_to_2: 1.0
-  mid_2_to_10: 1.2
-  large_10_to_25: 0.7
-  mega_over_25: 0.3
+  micro_under_0.3: 0.23
+  small_0.3_to_2: 1.85
+  mid_2_to_10: 3.1
+  large_10_to_25: 0.9
+  mega_over_25: 0.5
 
 # Binary traits; apply the ratio when the trait is present.
 traits:

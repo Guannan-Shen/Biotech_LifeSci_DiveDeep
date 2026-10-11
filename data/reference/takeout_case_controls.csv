@@ -1,0 +1,9 @@
+case_id,target_ticker,t0,control_ticker,control_name,match_snapshot,target_mcap_usd_m,control_mcap_usd_m,cap_band,pool_rank,match_reason,censored,coding_status
+TK-2026-01,PCRX,2026-10-08,ETON,Eton Pharmaceuticals,2026-07-01,998.3,991.6,small_0.3_to_2,2,commercial specialty pharma with several approved products; watchlist name,True,selected
+TK-2026-01,PCRX,2026-10-08,PHAR,Pharming Group,2026-07-01,998.3,981.0,small_0.3_to_2,4,commercial rare-disease pharma with an approved product and a launch,True,selected
+TK-2026-03,CRNX,2026-07-06,KNSA,Kiniksa Pharmaceuticals,2026-04-01,3802.9,3685.2,mid_2_to_10,5,commercial single-franchise company with a growing approved product,True,selected
+TK-2026-03,CRNX,2026-07-06,LQDA,Liquidia,2026-04-01,3802.9,3325.4,mid_2_to_10,12,first-year launch of an approved product,True,selected
+TK-2026-10,VTYX,2026-01-07,ACRS,Aclaris Therapeutics,2025-10-01,221.8,205.8,micro_under_0.3,12,clinical-stage immunology with oral and antibody programmes,True,selected
+TK-2026-10,VTYX,2026-01-07,BIOA,BioAge Labs,2025-10-01,221.8,210.8,micro_under_0.3,11,clinical-stage metabolic and inflammation programmes,True,selected
+TK-2026-15,SLNO,2026-04-06,RARE,Ultragenyx Pharmaceutical,2026-01-01,2486.8,2219.0,mid_2_to_10,14,commercial rare-disease company,True,selected
+TK-2026-15,SLNO,2026-04-06,MESO,Mesoblast,2026-01-01,2486.8,2311.2,mid_2_to_10,11,recent first launch of an approved product,True,selected

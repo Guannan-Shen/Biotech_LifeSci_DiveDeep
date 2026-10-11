@@ -68,7 +68,9 @@ link to a deal (the `activist_or_strategic_review` likelihood ratio of 2.0 in th
 ## 2. The database
 
 `data/reference/biotech_takeouts.csv`, one row per definitive agreement to acquire a US-listed
-biotech or specialty pharma, 2019-01 to 2026-10-08. 88 rows.
+biotech or specialty pharma, 2019-01 to 2026-10-08. 88 rows. (Update 2026-10-09: extended to
+2005-2026, 229 rows, with `deal_kind`; the measured base hazard replaces the assumed one. See
+`docs/research/2026-10-09_takeout_history_universe_and_case_method.md`.)
 
 | Column group | Fields |
 |---|---|

@@ -41,8 +41,17 @@ KEY_DATA = {
     "none",
     "unknown",
 }
-ACQUIRER_TYPES = {"big_pharma", "mid_pharma", "large_generic", "biotech", "private_pharma", "royalty_or_shell"}
+ACQUIRER_TYPES = {
+    "big_pharma", "mid_pharma", "large_generic", "biotech", "private_pharma", "royalty_or_shell", "private_equity",
+}
 CONSIDERATION = {"cash", "cash_cvr", "stock", "cash_stock"}
+# strategic: a negotiated sale; contested: a hostile or competing public bid before signing; parent_buy_in:
+# a controlling holder buys the minority; going_private: a management or financial consortium; distressed:
+# a sale under financing pressure at a low price; cash_shell: a buyer of a cash-rich, failed company (D-042).
+DEAL_KINDS = {"strategic", "contested", "parent_buy_in", "going_private", "distressed", "cash_shell"}
+# Kinds that describe a full-value strategic takeout, the event H8 predicts.
+STRATEGIC_KINDS = {"strategic", "contested"}
+PRIOR_RELATIONSHIP = {"yes", "no", "unknown"}  # acquirer was a partner, licensee or holder before the deal
 
 
 # --------------------------------------------------------------------------------------------
@@ -75,6 +84,8 @@ class Deal:
     activist_or_review: str
     evidence_class: str
     source_url: str
+    deal_kind: str = "strategic"
+    prior_relationship: str = "unknown"
 
     @property
     def year(self) -> int:
@@ -104,6 +115,8 @@ def load_deals(path: str | Path) -> list[Deal]:
             activist_or_review=r["activist_or_review"],
             evidence_class=r["evidence_class"],
             source_url=r["source_url"],
+            deal_kind=r.get("deal_kind") or "strategic",
+            prior_relationship=r.get("prior_relationship") or "unknown",
         )
         for r in rows
     ]
@@ -117,6 +130,7 @@ class DealSummary:
     by_acquirer_type: dict[str, int]
     by_area: dict[str, int]
     by_consideration: dict[str, int]
+    by_deal_kind: dict[str, int]
     share_clinical: float  # lead asset not yet approved
     share_with_phase2_plus_data: float  # randomized Phase 2, pivotal or approval data before the deal
     premium_last_close: tuple[float, float, float] | None  # quartiles (25th, median, 75th)
@@ -153,6 +167,7 @@ def summarize_deals(deals: Iterable[Deal]) -> DealSummary:
         by_acquirer_type=count("acquirer_type"),
         by_area=count("therapeutic_area"),
         by_consideration=count("consideration"),
+        by_deal_kind=count("deal_kind"),
         share_clinical=sum(d.stage_at_deal not in {"approved"} for d in deals) / n,
         share_with_phase2_plus_data=sum(d.key_data_before_deal in strong for d in deals) / n,
         premium_last_close=_quartiles(premiums),

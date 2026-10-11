@@ -1,6 +1,6 @@
 # Blueprint: Biotech & Life Sciences DiveDeep
 
-Status: v0.5 (2026-10-08, takeout database and Phase 2 gate; v0.4 2026-10-08; v0.3 2026-10-07; v0.2 2026-10-06; v0.1 2026-10-05). Owner: Guannan Shen. This is the north-star document.
+Status: v0.6 (2026-10-09, listed universe, listing history, measured takeout hazard, case-study method; v0.5 2026-10-08, takeout database and Phase 2 gate; v0.4 2026-10-08; v0.3 2026-10-07; v0.2 2026-10-06; v0.1 2026-10-05). Owner: Guannan Shen. This is the north-star document.
 Every session starts by re-reading it, and every material design change lands here
 first (with an entry in `notes/decision_log.md`), then in code.
 
@@ -64,7 +64,7 @@ dependent on forecasting science.
 | H5 | Trend and regime: XBI regime (vs 200-day MA, rates), stock relative strength and volume confirmation (breakouts on above-average volume, accumulation vs distribution) improve timing of fundamental entries. | Prices and Trading Volume | Overlay test on H1-H4 |
 | H6 | Quality inside biotech: profitable or near-profitable specialty pharma (HROW, ETON type) is underfollowed and compounds vs XBI. | XBRL fundamentals | Factor sort |
 | H7 | Trial-registry signals: primary-completion slippage, enrollment cuts, endpoint edits and status changes on ClinicalTrials.gov lead price and outcome. | ctgov version history | Event study |
-| H8 | Takeout likelihood: acquirers buy de-risked mechanisms (randomized Phase 2, pivotal or commercial data) and approved products in acquirer-gap areas; a company-quarter hazard model with stage, Phase 2 grade, size, activist, partner and gap-area features beats stage base rates, and a top-decile basket that passes H1 beats XBI. The takeout is a kicker on a standalone thesis, never the thesis. | Deal table `data/reference/biotech_takeouts.csv`, EDGAR SC TO-T / SC 14D9 / DEFM14A, 13D, ctgov, FDA | Discrete-time hazard model (P5), time-split Brier; basket test (pre-registration pending; priors in `config/takeout_priors.yaml` until fitted) |
+| H8 | Takeout likelihood: acquirers buy de-risked mechanisms (randomized Phase 2, pivotal or commercial data) and approved products in acquirer-gap areas; a company-quarter hazard model with stage, Phase 2 grade, size, activist, partner and gap-area features beats stage base rates, and a top-decile basket that passes H1 beats XBI. The takeout is a kicker on a standalone thesis, never the thesis. Measured 2021-2026 base hazard by size (D-040): micro 0.6%, small 4.8%, mid 8.1% a year. Setup features come from case-control studies of each deal (D-041). | Deal table `data/reference/biotech_takeouts.csv` (2005-2026), listing panel, case-study tables, EDGAR SC TO-T / SC 14D9 / DEFM14A, 13D, ctgov, FDA | Discrete-time hazard model (P5), time-split Brier; basket test (pre-registration pending; priors in `config/takeout_priors.yaml` until fitted); case-control likelihood ratios after 20 cases |
 | H9 | AI-for-bio value capture: in the current AI cycle, data generators and tools with recurring consumables convert AI demand into revenue earlier than AI-native drug pipelines. | Segment revenue, customer disclosures | Panel study, slow (multi-year) |
 | H10 | Attention and disclosure on X: official-channel posts lead press releases and filings; abnormal cashtag attention spikes in small caps predict short-term reversal. | X API, EDGAR timestamps | Lead-lag study; event study on attention z-scores |
 | H11 | De-SPAC overhang: PIPE resale registrations, warrant exercisability and lockup expiries predict negative drift; the stock bottoms after supply clears, and names trading below residual cash (after senior claims) with controlled burn re-rate. | EDGAR 424B3/S-1, 8-K, prices | Event study around supply dates |
@@ -85,7 +85,13 @@ The universe has two layers:
   tagged with one or more archetypes and a thesis note.
 - **Research universe**: all US-listed companies in biotech, pharma, diagnostics and
   life-science tools SIC codes (2834, 2835, 2836, 3826, 3841, 8731 and peers), including
-  delisted names, used for backtests and screening.
+  delisted names, used for backtests and screening. Built 2026-10-09 (D-038, D-039) from the
+  Nasdaq screener in six layers (therapeutics, tools, services, diagnostics, software and data,
+  medtech): 941 companies today in `data/reference/us_lifesci_universe.csv`, with XBI and IBB
+  membership from the sponsor files when fetched locally. The point-in-time history since
+  2021-01 comes from the git history of a public screener mirror (`scripts/listing_history.py`):
+  monthly entries, exits, ticker changes and market caps, which give the hazard denominator and
+  an audit of the deal table. Before 2021 the denominator still needs EDGAR (Q-032, Q-037).
 
 Archetypes decide which model applies (details in `docs/framework/archetypes.md`):
 
@@ -164,7 +170,7 @@ Design rules:
 | M6 | Catalyst calendar | Fuses M1-M4 into dated, sourced, confidence-scored catalysts | `docs/modules/catalyst_calendar.md` |
 | M7 | Fundamentals, runway & dilution | Cash, burn, debt, share count, financing capacity, stress runway | `docs/modules/edgar.md` (section 5) |
 | M8 | Thesis & valuation | One-page memo, business quality card, three scenarios, per-share value, evidence log | `docs/framework/investment_framework.md`, `docs/framework/business_quality.md` |
-| M9 | Event prediction | Financing, FDA action, trial-delay, launch-curve, takeout models; Phase 2 quality grade and assurance | `docs/modules/event_prediction.md`, `docs/research/2026-10-08_takeout_database_and_phase2_gate.md` |
+| M9 | Event prediction | Financing, FDA action, trial-delay, launch-curve, takeout models; Phase 2 quality grade and assurance; takeout case studies (case-control) | `docs/modules/event_prediction.md`, `docs/research/2026-10-08_takeout_database_and_phase2_gate.md`, `docs/framework/takeout_case_study.md` |
 | M10 | Opportunity map | Unmet need x economics x crowding by indication and modality | `docs/modules/opportunity_map.md` |
 | M11 | Portfolio & backtest | Point-in-time backtest vs XBI, sizing, risk budget, paper trading | `docs/modules/portfolio_backtest.md` |
 | M12 | Reporting | Weekly review, alerts, memo rendering | `docs/modules/portfolio_backtest.md` (section 6) |

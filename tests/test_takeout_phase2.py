@@ -20,7 +20,9 @@ from biotech_divedeep.models.phase2 import (
 from biotech_divedeep.models.takeout import (
     ACQUIRER_TYPES,
     CONSIDERATION,
+    DEAL_KINDS,
     KEY_DATA,
+    PRIOR_RELATIONSHIP,
     STAGES,
     basket_deal_distribution,
     expected_kicker,
@@ -150,6 +152,8 @@ def test_takeout_table_is_well_formed():
         assert r["consideration"] in CONSIDERATION, r["deal_id"]
         assert r["activist_or_review"] in {"yes", "no", "unknown"}, r["deal_id"]
         assert r["date_precision"] in {"day", "approx"}, r["deal_id"]
+        assert r["deal_kind"] in DEAL_KINDS, r["deal_id"]
+        assert r["prior_relationship"] in PRIOR_RELATIONSHIP, r["deal_id"]
         assert r["evidence_class"] in EVIDENCE, r["deal_id"]
         assert len(r["announced_on"]) == 10, r["deal_id"]
         assert r["deal_id"][3:7] == r["announced_on"][:4], r["deal_id"]
@@ -162,13 +166,13 @@ def test_takeout_table_is_well_formed():
 
 
 def test_takeout_table_matches_launch_layer_deals():
-    deals = {d.target_ticker: d for d in load_deals(DEALS)}
+    # Tickers are reused (RNA was Prosensa, then Avidity), so key on ticker and announcement date.
+    deals = {(d.target_ticker, d.announced_on): d for d in load_deals(DEALS)}
     with open(ROOT / "data" / "reference" / "launch_layer_ma_2026.csv", newline="") as fh:
         for row in csv.DictReader(fh):
-            d = deals[row["target"]]
+            d = deals[(row["target"], row["announced"])]
             assert d.price_per_share_usd == pytest.approx(float(row["price_per_share_usd"]))
-            assert d.announced_on == row["announced"]
-    assert "PCRX" in deals
+    assert any(t == "PCRX" for t, _ in deals)
 
 
 def test_summary_counts():

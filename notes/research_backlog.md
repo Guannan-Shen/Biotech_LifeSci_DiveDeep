@@ -77,3 +77,14 @@ HROW moves up if Q3 (November) passes its falsifier (`docs/research/2026-10-07_l
 - [ ] Acquirer gap map: large pharmas' 2027-2032 loss-of-exclusivity revenue by therapeutic area (feeds `acquirer_gap_area`).
 - [ ] Score the seed list in section 8 of the research note once stage, cash and holders are verified; add HROW and ETON if Q-036 says yes.
 - [ ] Merger-arbitrage side note: spreads on announced deals with CVRs (Biogen-Apellis, Lilly-AtaiBeckley) as a lower-variance sleeve, if Q-002 allows.
+
+## Takeout history, listed universe and case studies (added 2026-10-09)
+- [ ] Weekly listing refresh: rerun `scripts/listing_history.py` (it fetches only new snapshots) so new exits flag candidate deals within a month.
+- [ ] Per-year hazard split (2021-2026) to separate the deal cycle from the size effect before trusting the level.
+- [ ] M1 parser for background sections of SC 14D9 and DEFM14A (OpenEDGAR or EDGAR-CRAWLER as a base): first contact, initiator, parties, NDAs, bids, price path, management projections.
+- [ ] Add management projections from merger proxies to `guidance_ledger.csv` and compare them with our rNPVs for the same assets.
+- [ ] Options leakage (signal H1) needs an options volume source; price it under Q-003.
+- [ ] Extend the takeout table to tools and diagnostics deals (Abcam, Olink, Catalent, Exact Sciences, Hologic) in a separate file; the life-science tools layer has its own buyer set.
+- [ ] Verify the 196 recall rows of `biotech_takeouts.csv` on EDGAR, newest first; add unaffected-close and VWAP premiums.
+- [ ] Post-deal outcomes column: CVR paid, asset approved or failed (Oxbryta, magrolimab, emraclidine, pegilodecakin, Nightstar's gene therapy), to study what buyers overpay for.
+

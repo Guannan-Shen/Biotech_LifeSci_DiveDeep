@@ -1,0 +1,20 @@
+symbol,resolution,note,evidence_class,source_url
+CBMG,going_private,"Management-led going-private buyout announced in 2020; not in the deal table (recall)",unverified,
+SVA,trading_halt,"Sinovac: Nasdaq trading halted since 2019 amid a control dispute; not a deal (recall)",unverified,
+NK,merger_rename,"NantKwest merged with ImmunityBio in 2021 and took the ImmunityBio name and ticker IBRX (recall)",unverified,
+TLC,unresolved,"Taiwan Liposome ADS left Nasdaq in 2021; reason not checked",unverified,
+ADGI,rename,"Adagio Therapeutics renamed Invivyd (IVVD) in 2022 (recall)",unverified,
+ZEAL,voluntary_delisting,"Zealand Pharma delisted its ADS from Nasdaq in 2022; Copenhagen listing continues (recall)",unverified,
+SRNE,bankruptcy,"Sorrento Therapeutics Chapter 11 in 2023 (recall)",unverified,
+DNAD,spac,"Social Capital Suvretta Holdings blank-check company mislabelled under pharmaceuticals",unverified,
+LIAN,wind_down,"LianBio wound down and distributed cash in 2024 (recall)",unverified,
+ELYM,rename,"Eliem Therapeutics renamed Climb Bio (CLYM) in 2024 (recall)",unverified,
+BGNE,rename,"BeiGene redomiciled and renamed BeOne Medicines (ONC) in 2025 (recall)",unverified,
+OPT,unresolved,"Opthea ADS left Nasdaq in 2025 after Phase 3 failures; whether voluntary not checked",unverified,
+TNFA,unresolved,"TNF Pharmaceuticals; exit not checked",unverified,
+IMAB,unresolved,"I-Mab ADS; possible rename in 2025, not checked",unverified,
+CYBN,rename,"Cybin renamed Helus Pharma (HELP) on 2026-01-05 and moved to Nasdaq",unverified,https://www.fiercebiotech.com/marketing/cybin-alters-state-become-helus-nasdaq-trip
+MNMD,rename,"MindMed renamed Definium Therapeutics (DFTX) on 2026-01-15",unverified,https://www.sec.gov/Archives/edgar/data/1813814/000119312526009854/mnmd-ex3_2.htm
+GLTO,rename,"Galecto acquired Damora Therapeutics in November 2025 and now trades as Damora (DMRA)",unverified,https://app.edgar.tools/companies/DMRA
+GLPG,unresolved,"Galapagos ADS last seen 2026-05; a 2026 6-K covers a cell therapy wind-down, no delisting found",unverified,
+PRTC,unresolved,"PureTech Health ADS last seen 2026-05; not checked",unverified,
