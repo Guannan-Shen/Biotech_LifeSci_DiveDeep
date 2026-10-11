@@ -37,9 +37,11 @@ REF = ROOT / "data" / "reference"
 
 # Inputs the ledgers do not hold yet (A/U, see the business quality notes in docs/research/).
 # Candor flags: HROW auditor change and late FY2024 10-K; MRLN anonymous culture complaints (B6).
-CANDOR_FLAGS = {"HROW": 1, "MRLN": 1}
+# QSI and NAUT: no candor flags found yet (KPI drift not reviewed; Q-046).
+CANDOR_FLAGS = {"HROW": 1, "MRLN": 1, "QSI": 0, "NAUT": 0}
 ALIGNED = {"HROW": True, "MRLN": True}  # open-market CEO purchase (HROW); founder holds about 11.5% (MRLN)
-REVENUE_TO_OPEX = {"MRLN": 2.2 / 30.0}  # Q2 2026 revenue over an approximate quarterly cash cost base
+# Q2 2026 revenue over an approximate quarterly cash cost base (QSI and NAUT: total opex).
+REVENUE_TO_OPEX = {"MRLN": 2.2 / 30.0, "QSI": 0.344 / 25.8, "NAUT": 0.2 / 15.9}
 
 
 def card(ticker: str, as_of: date) -> None:
@@ -77,9 +79,10 @@ def card(ticker: str, as_of: date) -> None:
     cred = guidance_credibility(load_guides(REF / "guidance_ledger.csv", ticker))
     lo, hi = cred.interval
     mse = "n/a" if cred.mean_signed_error is None else f"{cred.mean_signed_error:+.1%}"
+    slip = "n/a" if cred.mean_slip_days is None else f"{cred.mean_slip_days:+.0f} days"
     print(
         f"D1 guidance: {cred.hits}/{cred.resolved} hit, {cred.pending} pending; posterior {cred.mean:.2f} "
-        f"(80% CI {lo:.2f}-{hi:.2f}); mean signed error {mse}"
+        f"(80% CI {lo:.2f}-{hi:.2f}); mean signed error {mse}; mean timeline slip {slip}"
     )
     sig = costly_signal_score(load_signals(REF / "costly_signal_ledger.csv", ticker))
     print(

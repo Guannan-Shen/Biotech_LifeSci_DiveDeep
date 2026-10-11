@@ -181,3 +181,25 @@ def test_hrow_card_numbers_match_the_memo():
     assert sig.pre_committed == 1 and sig.pending == 1
     mrln = business_model_grade(load_scorecard(REF / "business_quality_scorecard.csv", "MRLN"), 0.0, 2.2 / 30)
     assert mrln.grade == "unproven"
+
+
+def test_timeline_slips_mark_a_habitual_optimist():
+    late = Guide("timeline", deadline=date(2025, 12, 31), actual_date=date(2026, 12, 31))
+    early = Guide("timeline", deadline=date(2025, 12, 31), actual_date=date(2025, 6, 30))
+    assert late.slip_days == 365 and early.slip_days == -184
+    slipper = guidance_credibility([late] * 5)
+    assert slipper.mean_signed_error is None and slipper.mean_slip_days == 365
+    assert people_grade(slipper, 0, True, 0) == "discount"
+
+
+def test_qsi_naut_cards_match_the_memo():
+    qsi = guidance_credibility(load_guides(REF / "guidance_ledger.csv", "QSI"))
+    naut = guidance_credibility(load_guides(REF / "guidance_ledger.csv", "NAUT"))
+    assert (qsi.hits, qsi.resolved) == (2, 3)
+    assert (naut.hits, naut.resolved) == (0, 5)
+    assert naut.mean == pytest.approx(2 / 9)
+    assert naut.mean_slip_days > 180
+    assert people_grade(naut, 0, None, 0) == "discount"
+    for t in ("QSI", "NAUT"):
+        grade = business_model_grade(load_scorecard(REF / "business_quality_scorecard.csv", t), 0.0, 0.01)
+        assert grade.grade == "unproven"

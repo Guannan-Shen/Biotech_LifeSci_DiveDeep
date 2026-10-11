@@ -33,7 +33,8 @@ turns them into a single timestamped event stream, and uses that stream to:
 | [`data/reference/biotech_takeouts.csv`](data/reference/biotech_takeouts.csv) | Biotech takeouts 2005-2026; measured hazard in `takeout_base_rates_2021_2026.csv` |
 | [`docs/framework/takeout_case_study.md`](docs/framework/takeout_case_study.md) | Case-control method for studying each buyout's setup |
 | [`docs/runbooks/local_setup.md`](docs/runbooks/local_setup.md) | Clone locally and check access to SEC, FDA and ClinicalTrials.gov |
-| [`docs/memos/`](docs/memos/) | Company memos (first: MRLN, adjacent-sleeve pilot) |
+| [`docs/memos/`](docs/memos/) | Company memos (MRLN adjacent-sleeve pilot, HROW, QSI and NAUT pair) |
+| [`docs/research/2026-10-11_qsi_naut_protein_platforms_and_drift.md`](docs/research/2026-10-11_qsi_naut_protein_platforms_and_drift.md) | Peptide sequencing vs intact-protein mapping, and post-announcement drift (H17) applied to both |
 
 ## Status
 
@@ -55,6 +56,12 @@ python scripts/fetch_etf_holdings.py                           # XBI, XPH, XHE, 
 python scripts/build_lifesci_universe.py
 python scripts/takeout_base_rate.py
 python scripts/takeout_screen.py summary --since 2005
+
+# Daily prices from the same mirror (bare clone), then post-announcement drift (H17)
+python scripts/mirror_daily_prices.py --repo ../US-Stock-Symbols.git --focus QSI NAUT \
+    --focus-out data/reference/qsi_naut_daily_2021_2026.csv
+python scripts/announcement_drift.py QSI NAUT
+python scripts/business_quality_card.py QSI NAUT
 ```
 
 ## Disclaimer

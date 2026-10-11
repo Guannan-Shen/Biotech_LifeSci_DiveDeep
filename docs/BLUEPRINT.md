@@ -1,6 +1,6 @@
 # Blueprint: Biotech & Life Sciences DiveDeep
 
-Status: v0.6 (2026-10-09, listed universe, listing history, measured takeout hazard, case-study method; v0.5 2026-10-08, takeout database and Phase 2 gate; v0.4 2026-10-08; v0.3 2026-10-07; v0.2 2026-10-06; v0.1 2026-10-05). Owner: Guannan Shen. This is the north-star document.
+Status: v0.7 (2026-10-11, H17 post-announcement drift, daily price history from the listing mirror, QSI and NAUT protein-platform pair; v0.6 2026-10-09, listed universe, listing history, measured takeout hazard, case-study method; v0.5 2026-10-08, takeout database and Phase 2 gate; v0.4 2026-10-08; v0.3 2026-10-07; v0.2 2026-10-06; v0.1 2026-10-05). Owner: Guannan Shen. This is the north-star document.
 Every session starts by re-reading it, and every material design change lands here
 first (with an entry in `notes/decision_log.md`), then in code.
 
@@ -73,6 +73,7 @@ dependent on forecasting science.
 | H14 | Giant read-through: announcements by large pharma or AI labs that name a listed small or mid-cap counterparty move it; those without financial terms reverse within about a month, those with disclosed terms drift. | M16 event log, counterparties' filings, prices | Event study split by terms disclosed (`docs/modules/pharma_ai_watch.md` section 4) |
 | H15 | Management credibility: a low posterior hit rate on management's own guidance predicts negative drift after a fresh miss and a wider discount to guided value; a strong costly-signal record (pre-announced, quantified, dated sacrifices that paid off) predicts better 12-month excess return among commercial names. | 8-K and earnings-release guidance history, `data/reference/guidance_ledger.csv`, `costly_signal_ledger.csv` | Event study after guidance misses; cross-sectional sort on credibility (pre-registration pending) |
 | H16 | Phase 2 quality drift: positive randomized Phase 2 readouts graded `clean` (gates: randomized control, pre-specified primary met, no new safety signal; graded items in `models/phase2.py`) earn positive excess return vs XBI from an entry after the first post-data financing, and beat `positive_not_clean` readouts. Shrinkage and assurance, not the point estimate, measure how much of the effect survives to Phase 3. | 8-K and press-release toplines, ctgov versions, 424B5, prices | Event study, pre-registered (`notes/backtests/2026-10-08_H16_phase2_quality_drift.md`) |
+| H17 | Post-announcement drift: in small-cap life-science stocks the price under-reacts to company announcements, so the reaction (standardized two-day abnormal return with volume confirmation, not consensus EPS, which is noise for pre-revenue names) predicts the abnormal return over the next 20-60 trading days; timeline slips drift more than earnings misses; positive reactions drift less when an ATM is live or a financing follows; large moves with no announcement reverse. Long-only use: an exit or avoid flag after negative surprises (H1) and entry confirmation after positive ones (H5). | 8-K and press-release timestamps (M1, M4), event log `data/reference/announcement_events.csv`, daily prices (`scripts/mirror_daily_prices.py`), shelf and ATM filings | Event study plus calendar-time portfolios, pre-registered (`notes/backtests/2026-10-11_H17_post_announcement_drift.md`); method in `signals/drift.py`; first case study QSI and NAUT |
 
 Hypotheses are ranked by data availability and testability. H1, H3, H5, H7 come
 first because public data covers them well.
@@ -100,7 +101,7 @@ Archetypes decide which model applies (details in `docs/framework/archetypes.md`
 | `clinical_binary` | Clinical-stage, value hinges on readouts | SLS, EDSA | Asset event tree, rNPV |
 | `launch` | Recently approved, commercialization in progress | REPL, IOVA | Patient-cohort launch model vs analogs |
 | `commercial_pharma` | Revenue-generating specialty or rare-disease pharma | HROW, ETON | Normalized FCF, product-level |
-| `tools` | Instruments + consumables | PACB, ILMN, TXG, TWST, QSI | Active installed base x pull-through |
+| `tools` | Instruments + consumables | PACB, ILMN, TXG, TWST, QSI, NAUT | Active installed base x pull-through; pre-commercial platforms (QSI, NAUT) use a milestone event tree with post-financing share counts until an installed base exists |
 | `software` | Simulation and discovery software | SDGR, CERT | ACV, retention, FCF |
 | `dx_data` | Diagnostics and clinical data | TEM, GRAL | Billable volume x ASP, coverage |
 | `ai_platform` | AI-native discovery or automated labs | RXRX, DNA, SDGR (pipeline) | Platform validation chain + asset rNPV |
@@ -166,11 +167,11 @@ Design rules:
 | M2 | FDA tracker | Approvals, labels, CRLs, AdComs, safety (FAERS), manufacturing (483/warning letters), exclusivity | `docs/modules/fda.md` |
 | M3 | ClinicalTrials.gov tracker | Trial cards, version diffs, date slippage, enrollment, endpoint changes | `docs/modules/clinicaltrials.md` |
 | M4 | Company news tracker | IR press releases, events/presentations, conference calendar | `docs/modules/company_news.md` |
-| M5 | Market & trend | Prices, XBI/IBB benchmarks, relative strength, regime, liquidity, theme-cohort features | `docs/modules/market_trend.md` |
+| M5 | Market & trend | Prices, XBI/IBB benchmarks, relative strength, regime, liquidity, theme-cohort features; daily closes and life-science benchmarks rebuilt from the listing mirror's git history (`scripts/mirror_daily_prices.py`, D-044) | `docs/modules/market_trend.md` |
 | M6 | Catalyst calendar | Fuses M1-M4 into dated, sourced, confidence-scored catalysts | `docs/modules/catalyst_calendar.md` |
 | M7 | Fundamentals, runway & dilution | Cash, burn, debt, share count, financing capacity, stress runway | `docs/modules/edgar.md` (section 5) |
 | M8 | Thesis & valuation | One-page memo, business quality card, three scenarios, per-share value, evidence log | `docs/framework/investment_framework.md`, `docs/framework/business_quality.md` |
-| M9 | Event prediction | Financing, FDA action, trial-delay, launch-curve, takeout models; Phase 2 quality grade and assurance; takeout case studies (case-control) | `docs/modules/event_prediction.md`, `docs/research/2026-10-08_takeout_database_and_phase2_gate.md`, `docs/framework/takeout_case_study.md` |
+| M9 | Event prediction | Financing, FDA action, trial-delay, launch-curve, takeout models; Phase 2 quality grade and assurance; takeout case studies (case-control); post-announcement drift (`signals/drift.py`, H17) | `docs/modules/event_prediction.md`, `docs/research/2026-10-08_takeout_database_and_phase2_gate.md`, `docs/framework/takeout_case_study.md` |
 | M10 | Opportunity map | Unmet need x economics x crowding by indication and modality | `docs/modules/opportunity_map.md` |
 | M11 | Portfolio & backtest | Point-in-time backtest vs XBI, sizing, risk budget, paper trading | `docs/modules/portfolio_backtest.md` |
 | M12 | Reporting | Weekly review, alerts, memo rendering | `docs/modules/portfolio_backtest.md` (section 6) |
@@ -205,7 +206,7 @@ src/biotech_divedeep/
 
 Research order for memos (calibrating one model per archetype): PACB (tools), SDGR
 (software + pipeline), RXRX (AI platform), then TEM/GRAL (dx), QSI/DNA (early product,
-turnaround), REPL/IOVA (launch), SLS/EDSA (binary), HROW/ETON (commercial pharma).
+turnaround; QSI now paired with NAUT in `docs/memos/QSI_NAUT.md`), REPL/IOVA (launch), SLS/EDSA (binary), HROW/ETON (commercial pharma).
 Theme case studies run alongside the memos whenever a cohort moves as a block (first:
 `docs/research/2026-10-06_ai_bio_theme_reversal.md`). Each theme study also screens the layers
 that did *not* move with the theme (first: `docs/research/2026-10-07_launch_layer_screen.md`),

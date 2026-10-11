@@ -15,3 +15,19 @@ MRLN,2026-10-08,C5,0,unverified,"Adjusted EBITDA loss of 27.8M in Q2 2026, about
 MRLN,2026-10-08,C6,2,own_assumption,"Large fleets without modern autonomy; pilot shortage; defense demand for reduced-crew aircraft",https://www.globenewswire.com/news-release/2026/09/09/3358555/0/en/merlin-announces-plans-to-pursue-a-civil-certification-strategy-for-large-aircraft.html
 MRLN,2026-10-08,C7,0,unverified,"US government was about 97% of Q2 2026 revenue, concentrated in USSOCOM",https://www.sec.gov/Archives/edgar/data/0002028707/000162828026056882/mrln-20260630.htm
 MRLN,2026-10-08,C8,1,unverified,"Cash 183.9M and no debt, but a 120M senior preferred and about 18 months of trailing runway",https://www.sec.gov/Archives/edgar/data/0002028707/000162828026056882/mrln-20260630.htm
+QSI,2026-10-11,C1,1,unverified,"Gross margin 50% in Q2 2026 and 47% in FY2025, on revenue too small to mean much",https://www.stocktitan.net/news/QSI/quantum-si-reports-second-quarter-2026-financial-results-and-v11bmw6bzrnc.html
+QSI,2026-10-11,C2,1,management_guidance,"2026 revenue mainly kit consumption by the installed base; the base is small and transitioning",https://www.businesswire.com/news/home/20260303534840/en/Quantum-Si-Reports-Fourth-Quarter-and-Full-Year-2025-Financial-Results
+QSI,2026-10-11,C3,0,unverified,"Placement program and upgrade credits embedded in 2026 Platinum Pro sales: price is being given away to hold the base",https://www.businesswire.com/news/home/20260303534840/en/Quantum-Si-Reports-Fourth-Quarter-and-Full-Year-2025-Financial-Results
+QSI,2026-10-11,C4,0,unverified,"Growth is funded by equity: 50M registered direct in July 2025 and a 100M ATM on file",https://www.sec.gov/Archives/edgar/data/1816431/000114036125039703/ny20056813x2_424b3.htm
+QSI,2026-10-11,C5,0,unverified,"Quarterly opex about 25.8M against revenue of 0.34M",https://www.stocktitan.net/news/QSI/quantum-si-reports-second-quarter-2026-financial-results-and-v11bmw6bzrnc.html
+QSI,2026-10-11,C6,1,management_guidance,"Management sizes non-human proteomics at more than 4B a year; unproven that sequencing wins it",https://www.stocktitan.net/news/QSI/quantum-si-reports-second-quarter-2026-financial-results-and-v11bmw6bzrnc.html
+QSI,2026-10-11,C7,0,own_assumption,"All value rides on one platform transition (Proteus)",
+QSI,2026-10-11,C8,1,unverified,"169.9M cash and securities, no debt disclosed, runway guided into Q4 2028",https://www.stocktitan.net/news/QSI/quantum-si-reports-second-quarter-2026-financial-results-and-v11bmw6bzrnc.html
+NAUT,2026-10-11,C1,,own_assumption,"Not testable: revenue is a grant plus one early access sale",
+NAUT,2026-10-11,C2,,own_assumption,"Not testable: assay consumable model not yet selling",
+NAUT,2026-10-11,C3,,own_assumption,"Not testable: no prices disclosed",
+NAUT,2026-10-11,C4,0,management_guidance,"Management expects to raise capital by mid-2027; 125M ATM filed",https://www.marketbeat.com/instant-alerts/nautilus-biotechnology-q2-earnings-call-highlights-2026-07-28/
+NAUT,2026-10-11,C5,0,unverified,"Opex 15.9M a quarter against 0.2M revenue",https://www.tradingview.com/news/tradingview:729979cd5edef:0-nautilus-biotechnology-reports-q2-2026-0-2m-revenue-14-5m-net-loss-129-2m-cash/
+NAUT,2026-10-11,C6,1,own_assumption,"Proteoform biology (neuro, oncology signalling) is an open field; the menu has one validated assay",
+NAUT,2026-10-11,C7,0,own_assumption,"One platform; broadscale ambition now undated, so the near-term value is the proteoform menu",
+NAUT,2026-10-11,C8,0,unverified,"129.2M cash and investments (84.0M current) with about 57M a year burn; runway into Q1 2028 does not cover shipments plus 12 months",https://www.stocktitan.net/sec-filings/NAUT/10-q-nautilus-biotechnology-inc-quarterly-earnings-report-f6eac3d8910b.html

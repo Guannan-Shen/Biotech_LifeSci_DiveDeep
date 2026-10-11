@@ -19,12 +19,12 @@ def test_watchlist_entries_are_complete(universe):
     for company in universe.with_role(Role.WATCHLIST):
         assert company.cik is not None, company.ticker
         assert company.snapshot is not None, company.ticker
-        assert company.snapshot.source.startswith("FMP"), company.ticker
+        assert company.snapshot.source.startswith(("FMP", "listing mirror")), company.ticker  # D-044
 
 
 def test_archetype_lookup(universe):
     tools = {c.ticker for c in universe.with_archetype(Archetype.TOOLS)}
-    assert {"PACB", "ILMN", "TXG", "TWST", "QSI"} <= tools
+    assert {"PACB", "ILMN", "TXG", "TWST", "QSI", "NAUT"} <= tools
     assert universe.by_ticker("iova").archetypes == (Archetype.LAUNCH,)
 
 

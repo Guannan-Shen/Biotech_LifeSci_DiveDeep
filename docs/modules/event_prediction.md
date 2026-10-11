@@ -26,6 +26,11 @@ comes from `data/reference/lifesci_listing_counts_monthly.csv`; setup features f
 discovered with case-control studies (`docs/framework/takeout_case_study.md`,
 `models/takeout_case.py`). Train P5 on `deal_kind` in {strategic, contested} only.
 
+Update 2026-10-11 (D-043): P7 gains a post-event half. `signals/drift.py` measures the reaction
+(EAR, SEAR, abnormal volume) and the drift after it (BHAR from day +2), plus no-news shocks;
+hypothesis H17 is pre-registered in `notes/backtests/2026-10-11_H17_post_announcement_drift.md`
+and the first case study is QSI and NAUT (`scripts/announcement_drift.py`).
+
 P6 stays mostly prior-driven; outcome prediction from public data is weak and the
 framework says so. P1 and P2 are the most data-rich and likely the most useful.
 

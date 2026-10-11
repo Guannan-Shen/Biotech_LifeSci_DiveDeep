@@ -153,6 +153,13 @@ class Guide:
             return None
         return (self.actual - mid) / abs(mid)  # type: ignore[operator]
 
+    @property
+    def slip_days(self) -> int | None:
+        """Days late (positive) or early (negative) for resolved timeline guides."""
+        if self.kind != "timeline" or not self.resolved:
+            return None
+        return (self.actual_date - self.deadline).days  # type: ignore[operator]
+
 
 @dataclass(frozen=True)
 class Credibility:
@@ -161,6 +168,7 @@ class Credibility:
     pending: int
     posterior: BetaPosterior
     mean_signed_error: float | None
+    mean_slip_days: float | None = None  # timeline guides: the signed error in days (D-046)
 
     @property
     def mean(self) -> float:
@@ -184,8 +192,10 @@ def guidance_credibility(
     hits = sum(g.hit for g in resolved)
     errors = [e for g in resolved if (e := g.signed_error) is not None]
     mse = sum(errors) / len(errors) if errors else None
+    slips = [d for g in resolved if (d := g.slip_days) is not None]
+    slip = sum(slips) / len(slips) if slips else None
     post = BetaPosterior(successes=hits, trials=len(resolved), prior_a=prior_a, prior_b=prior_b, ci=ci)
-    return Credibility(len(resolved), hits, len(guides) - len(resolved), post, mse)
+    return Credibility(len(resolved), hits, len(guides) - len(resolved), post, mse, slip)
 
 
 # --------------------------------------------------------------------------------------------
@@ -378,7 +388,9 @@ def people_grade(
     if credibility.resolved < 3:
         return "unknown"
     mse = credibility.mean_signed_error
-    if (credibility.mean < 0.4 and mse is not None and mse < 0) or candor_flags >= 2:
+    slip = credibility.mean_slip_days
+    optimist = (mse is not None and mse < 0) or (slip is not None and slip > 0)
+    if (credibility.mean < 0.4 and optimist) or candor_flags >= 2:
         return "discount"
     if credibility.mean > 0.6 and candor_flags == 0 and aligned and paid_off_sacrifices >= 1:
         return "trust"

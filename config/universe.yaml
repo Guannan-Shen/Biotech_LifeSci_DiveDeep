@@ -34,8 +34,15 @@ companies:
     cik: "0001816431"
     role: watchlist
     archetypes: [tools]
-    thesis_note: "Earliest-stage 'AI protein data' technology option. Watch whether Proteus commercializes on time in 2027."
+    thesis_note: "Earliest-stage 'AI protein data' technology option. Watch whether Proteus commercializes on time in 2027. Pair memo with NAUT: docs/memos/QSI_NAUT.md"
     snapshot: {price: 1.55, market_cap_usd: 306625128}
+  - ticker: NAUT
+    name: Nautilus Biotechnology
+    cik: "0001808805"
+    role: watchlist
+    archetypes: [tools]
+    thesis_note: "Intact single-molecule protein mapping; proteoform assays first, broadscale undated after the July 2026 probe miss. Pair memo with QSI: docs/memos/QSI_NAUT.md"
+    snapshot: {price: 1.82, market_cap_usd: 231604506, as_of: "2026-10-08", source: "listing mirror close (D-044)"}
   - ticker: ILMN
     name: Illumina
     cik: "0001110803"
