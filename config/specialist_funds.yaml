@@ -1,0 +1,63 @@
+# Specialist life-science funds tracked through 13F, 13D/G and Form 4 (H4, H18; docs/modules/ownership_flow.md).
+#
+# Names are written from memory as the funds are commonly known; the exact 13F filer name and the
+# CIK must be resolved on the local machine (EDGAR company search), then `cik` filled in and
+# `verified: true` set. Until then every row is `unverified`. The list is a starting panel, not a
+# quality ranking: "good" is measured per fund by `signals.fund_flow.fund_skill`, point-in-time,
+# from the realized outcomes of its earlier new positions. A panel picked by today's reputation is
+# survivorship-biased (funds that failed are not famous), so closed funds stay in with `active: false`.
+#
+# style:
+#   hedge_specialist  long/short biotech fund; its 13F longs may be one leg of a pair
+#   long_specialist   long-biased dedicated fund
+#   crossover         private plus public rounds; buys in financings, sells after lockups
+#   venture           mostly private; public stakes come from IPOs and are sold or distributed later
+#   activist          files 13D, pushes sales or liquidations (cash-shell plays)
+#   generalist_hc     multi-sector fund with a healthcare team (control group, not specialist)
+#
+# Third-party panels for cross-checking: BiopharmaWatch tracks about 45 biotech-only funds
+# (Baker Bros, Perceptive, RA Capital, OrbiMed, EcoR1, Fairmount among them); Stifel's buyside
+# study counts 237 life-science and 158 healthcare-only specialist funds.
+
+funds:
+  - {name: Baker Bros. Advisors, style: long_specialist, cik: null, verified: false, active: true}
+  - {name: RA Capital Management, style: crossover, cik: null, verified: false, active: true}
+  - {name: Perceptive Advisors, style: hedge_specialist, cik: null, verified: false, active: true}
+  - {name: OrbiMed Advisors, style: crossover, cik: null, verified: false, active: true}
+  - {name: Deerfield Management, style: crossover, cik: null, verified: false, active: true}
+  - {name: Biotechnology Value Fund (BVF Partners), style: long_specialist, cik: null, verified: false, active: true}
+  - {name: EcoR1 Capital, style: long_specialist, cik: null, verified: false, active: true}
+  - {name: Avoro Capital Advisors, style: long_specialist, cik: null, verified: false, active: true}
+  - {name: Boxer Capital, style: hedge_specialist, cik: null, verified: false, active: true}
+  - {name: Cormorant Asset Management, style: crossover, cik: null, verified: false, active: true}
+  - {name: Fairmount Funds Management, style: crossover, cik: null, verified: false, active: true}
+  - {name: Commodore Capital, style: hedge_specialist, cik: null, verified: false, active: true}
+  - {name: Deep Track Capital, style: hedge_specialist, cik: null, verified: false, active: true}
+  - {name: RTW Investments, style: crossover, cik: null, verified: false, active: true}
+  - {name: Redmile Group, style: crossover, cik: null, verified: false, active: true}
+  - {name: Vivo Capital, style: crossover, cik: null, verified: false, active: true}
+  - {name: VHCP Management (Venrock Healthcare Capital Partners), style: crossover, cik: null, verified: false, active: true}
+  - {name: Casdin Capital, style: crossover, cik: null, verified: false, active: true}
+  - {name: Rock Springs Capital Management, style: hedge_specialist, cik: null, verified: false, active: true}
+  - {name: Suvretta Capital Management, style: hedge_specialist, cik: null, verified: false, active: true}
+  - {name: TCG Crossover Management, style: crossover, cik: null, verified: false, active: true}
+  - {name: Logos Global Management, style: crossover, cik: null, verified: false, active: true}
+  - {name: Great Point Partners, style: hedge_specialist, cik: null, verified: false, active: true}
+  - {name: Samsara BioCapital, style: crossover, cik: null, verified: false, active: true}
+  - {name: Paradigm BioCapital Advisors, style: hedge_specialist, cik: null, verified: false, active: true}
+  - {name: Soleus Capital Management, style: crossover, cik: null, verified: false, active: true}
+  - {name: Octagon Capital Advisors, style: hedge_specialist, cik: null, verified: false, active: true}
+  - {name: Frazier Life Sciences Management, style: crossover, cik: null, verified: false, active: true}
+  - {name: Bain Capital Life Sciences, style: crossover, cik: null, verified: false, active: true}
+  - {name: Sofinnova Investments, style: venture, cik: null, verified: false, active: true}
+  - {name: Ally Bridge Group, style: crossover, cik: null, verified: false, active: true}
+  - {name: Tang Capital Management, style: activist, cik: null, verified: false, active: true}
+  - {name: Armistice Capital, style: hedge_specialist, cik: null, verified: false, active: true}
+
+# Generalists with large healthcare books: a control panel for H4, so that "specialist" is
+# tested against "big institutional money" rather than against nobody.
+controls:
+  - {name: Viking Global Investors, style: generalist_hc, cik: null, verified: false, active: true}
+  - {name: Adage Capital Management, style: generalist_hc, cik: null, verified: false, active: true}
+  - {name: Janus Henderson Investors, style: generalist_hc, cik: null, verified: false, active: true}
+  - {name: Wellington Management, style: generalist_hc, cik: null, verified: false, active: true}

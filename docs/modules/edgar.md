@@ -94,8 +94,11 @@ M9.
 
 ## 6. Specialist ownership (H4)
 
+- Built in M17 (`docs/modules/ownership_flow.md`, 2026-10-12): parsers in
+  `connectors/sec_ownership.py`, Form 4 classes in `signals/insider.py`, 13F changes and fund
+  skill in `signals/fund_flow.py`.
 - Curated list of dedicated biotech funds with CIKs in `config/specialist_funds.yaml`
-  (Phase 1). Examples to verify: RA Capital, Baker Bros, Perceptive, EcoR1, BVF, RTW,
+  (created 2026-10-12, CIKs to resolve, Q-051). Examples to verify: RA Capital, Baker Bros, Perceptive, EcoR1, BVF, RTW,
   Deep Track, Avoro, Commodore, Cormorant, Logos, Fairmount, Frazier Life Sciences,
   OrbiMed, Venrock HCP, Vivo, TCG Crossover, Janus life-science sleeve (needs care).
 - Metrics per company and quarter: number of specialist holders, specialist share of

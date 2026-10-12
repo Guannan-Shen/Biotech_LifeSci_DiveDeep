@@ -91,3 +91,14 @@ HROW moves up if Q3 (November) passes its falsifier (`docs/research/2026-10-07_l
 - [ ] Verify the 196 recall rows of `biotech_takeouts.csv` on EDGAR, newest first; add unaffected-close and VWAP premiums.
 - [ ] Post-deal outcomes column: CVR paid, asset approved or failed (Oxbryta, magrolimab, emraclidine, pegilodecakin, Nightstar's gene therapy), to study what buyers overpay for.
 
+
+## Insider and fund flow (added 2026-10-12)
+- [ ] Part B in sample on the local machine: fetch insider data sets 2020q1-2026q2, classify, cluster, run `scripts/ownership_flow.py study` (B1-B3).
+- [ ] Form 144 lead study (B4): notice-to-Form 4 lag distribution; share of notices never executed; sign of the drift after unexecuted notices.
+- [ ] Fund skill table (B5): BHAR of every new position of the panel since 2015, `fund_skill` per fund per quarter, terciles; compare with reputation rankings.
+- [ ] Specialist exits after a run vs financing within 90 days (B6, H4 x H1); overlaps Q-041 (specialists building before takeouts).
+- [ ] Lockup expiries and venture distributions (code J) as scheduled supply: event study around lockup dates after IPOs and follow-ons.
+- [ ] Combine flow with H17: a negative announcement reaction plus holder selling vs either alone.
+- [ ] Part A for foreign private issuers only (no Form 4), to see whether the effect is larger where identity is hidden.
+- [ ] Add an intraday-range source to separate block trades that open down and recover from closes-only supply days.
+- [ ] Exit-rule simulation: trim half on `supply_after_run` with the takeout and catalyst overrides of D-050, net of costs, vs hold.

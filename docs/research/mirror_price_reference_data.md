@@ -35,7 +35,9 @@ screener changes again. Snapshots that repeat the previous one are dropped (six 
   2025-10-06, 2025-10-31, 2026-09-23 among them), so one of the two fields was stale. Event windows
   therefore use close-to-close returns, which telescope over the window, and the benchmarks use
   `ret_1d` averaged over hundreds of names.
-- No split or dividend adjustment beyond what the screener's return applies. QSI and NAUT had no
+- `lastsale` is not split-adjusted; the one-day return is. Multi-day features must back-adjust
+  closes first with `signals.supply.split_adjust` (D-051; 585 split days in the life-science panel).
+  No split or dividend adjustment beyond what the screener's return applies. QSI and NAUT had no
   splits in the period (A; check before reuse on other names).
 - `EW_LIFESCI_200M`: equal-weight `ret_1d` of point-in-time therapeutics and tools names (layer from
   `connectors/listings.py` per snapshot) with prior-day market cap of at least USD 200M, winsorized at

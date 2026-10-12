@@ -1,6 +1,6 @@
 # Blueprint: Biotech & Life Sciences DiveDeep
 
-Status: v0.7 (2026-10-11, H17 post-announcement drift, daily price history from the listing mirror, QSI and NAUT protein-platform pair; v0.6 2026-10-09, listed universe, listing history, measured takeout hazard, case-study method; v0.5 2026-10-08, takeout database and Phase 2 gate; v0.4 2026-10-08; v0.3 2026-10-07; v0.2 2026-10-06; v0.1 2026-10-05). Owner: Guannan Shen. This is the north-star document.
+Status: v0.8 (2026-10-12, H18 insider and holder flow with run-matched controls, M17 ownership-flow module, measured specialist-fund skill, split-adjusted mirror closes; v0.7 2026-10-11, H17 post-announcement drift, daily price history from the listing mirror, QSI and NAUT protein-platform pair; v0.6 2026-10-09, listed universe, listing history, measured takeout hazard, case-study method; v0.5 2026-10-08, takeout database and Phase 2 gate; v0.4 2026-10-08; v0.3 2026-10-07; v0.2 2026-10-06; v0.1 2026-10-05). Owner: Guannan Shen. This is the north-star document.
 Every session starts by re-reading it, and every material design change lands here
 first (with an entry in `notes/decision_log.md`), then in code.
 
@@ -60,7 +60,7 @@ dependent on forecasting science.
 | H1 | Left-tail avoidance: excluding names with short runway, live dilution machinery (effective shelf + ATM + recent run-up) or going-concern language beats XBI with lower drawdown. | EDGAR XBRL, S-3/424B, 10-Q text | Cross-sectional backtest, monthly rebalance |
 | H2 | Launch-execution drift: after approval, the market misprices launch trajectories; early prescription/revenue metrics vs analog curves predict 2-4 quarter returns (REPL, IOVA type). | 10-Q product revenue (XBRL), FDA approvals, analogs | Event study + analog regression |
 | H3 | Catalyst run-up: stocks with a dated binary catalyst drift up into the event; owning the run-up and cutting before the binary has positive expectancy. | ctgov dates, 8-K/PR guidance, PDUFA dates | Event study with exit rules |
-| H4 | Specialist conviction: concentration and changes in dedicated biotech fund ownership (13F, 13D/G) predict forward excess return, especially in small caps. | EDGAR 13F/13D/13G | Quintile sort, lag-aware (45-day 13F delay) |
+| H4 | Specialist conviction: concentration and changes in dedicated biotech fund ownership (13F, 13D/G) predict forward excess return, especially in small caps. Funds are weighted by measured point-in-time skill (shrunk record of their earlier new positions), not by reputation (D-049). | EDGAR 13F/13D/13G, `config/specialist_funds.yaml` | Quintile sort, lag-aware (45-day 13F delay); skill-tercile split (H18 B5) |
 | H5 | Trend and regime: XBI regime (vs 200-day MA, rates), stock relative strength and volume confirmation (breakouts on above-average volume, accumulation vs distribution) improve timing of fundamental entries. | Prices and Trading Volume | Overlay test on H1-H4 |
 | H6 | Quality inside biotech: profitable or near-profitable specialty pharma (HROW, ETON type) is underfollowed and compounds vs XBI. | XBRL fundamentals | Factor sort |
 | H7 | Trial-registry signals: primary-completion slippage, enrollment cuts, endpoint edits and status changes on ClinicalTrials.gov lead price and outcome. | ctgov version history | Event study |
@@ -74,6 +74,7 @@ dependent on forecasting science.
 | H15 | Management credibility: a low posterior hit rate on management's own guidance predicts negative drift after a fresh miss and a wider discount to guided value; a strong costly-signal record (pre-announced, quantified, dated sacrifices that paid off) predicts better 12-month excess return among commercial names. | 8-K and earnings-release guidance history, `data/reference/guidance_ledger.csv`, `costly_signal_ledger.csv` | Event study after guidance misses; cross-sectional sort on credibility (pre-registration pending) |
 | H16 | Phase 2 quality drift: positive randomized Phase 2 readouts graded `clean` (gates: randomized control, pre-specified primary met, no new safety signal; graded items in `models/phase2.py`) earn positive excess return vs XBI from an entry after the first post-data financing, and beat `positive_not_clean` readouts. Shrinkage and assurance, not the point estimate, measure how much of the effect survives to Phase 3. | 8-K and press-release toplines, ctgov versions, 424B5, prices | Event study, pre-registered (`notes/backtests/2026-10-08_H16_phase2_quality_drift.md`) |
 | H17 | Post-announcement drift: in small-cap life-science stocks the price under-reacts to company announcements, so the reaction (standardized two-day abnormal return with volume confirmation, not consensus EPS, which is noise for pre-revenue names) predicts the abnormal return over the next 20-60 trading days; timeline slips drift more than earnings misses; positive reactions drift less when an ATM is live or a financing follows; large moves with no announcement reverse. Long-only use: an exit or avoid flag after negative surprises (H1) and entry confirmation after positive ones (H5). | 8-K and press-release timestamps (M1, M4), event log `data/reference/announcement_events.csv`, daily prices (`scripts/mirror_daily_prices.py`), shelf and ATM filings | Event study plus calendar-time portfolios, pre-registered (`notes/backtests/2026-10-11_H17_post_announcement_drift.md`); method in `signals/drift.py`; first case study QSI and NAUT |
+| H18 | Insider and holder flow: (A) a heavy-volume down day after a stock has doubled (block sale, overnight offering or distribution) predicts underperformance against run-matched controls that rallied as much without one, building slowly over 3-12 months rather than on the print; (B) with seller identity from Form 4, 144 and 13F, discretionary sales by insiders and 10% owners in run state do the same, opportunistic open-market purchases by officers and directors (not offering participation) predict positive drift and routine ones do not, and new positions of high-skill specialist funds beat those of low-skill funds. Long-only use: trim or exit review, with the takeout screen (H8) as an override. In sample (2021-12 to 2023-12) part A shows -12% at 126 sessions and -24% at 252, nothing at 20. | Listing mirror prices and volume (split-adjusted), SEC insider-transaction and 13F data sets, Form 144 | Event study with run-matched controls, pre-registered (`notes/backtests/2026-10-12_H18_insider_and_holder_flow.md`); method in `signals/supply.py`, `signals/insider.py`, `signals/fund_flow.py`; results in `docs/research/2026-10-12_insider_holder_flow.md` |
 
 Hypotheses are ranked by data availability and testability. H1, H3, H5, H7 come
 first because public data covers them well.
@@ -179,6 +180,7 @@ Design rules:
 | M14 | Government contracts & non-FDA regulators | USAspending, SAM.gov, DoD contract announcements, FAA records (adjacent sleeve) | `docs/framework/adjacent_deeptech.md` (section 3) |
 | M15 | Long-form media & dissent tracker | Podcasts, YouTube, conference talks, investigative press; dissent register per company | `docs/modules/long_form_media.md` |
 | M16 | Big pharma & AI-lab watch | Announcements by the trillion-dollar and large pharma, AI labs and compute vendors; counterparties, terms disclosed, M&A floors | `docs/modules/pharma_ai_watch.md` |
+| M17 | Insider & specialist-fund flow | Form 4 classes (open market vs plan, tax, offering participation, distributions), routine vs opportunistic insiders, Form 144, 13F position changes and fund skill, identity-free supply after a run; flags `supply_after_run`, `holder_block_sale`, `opportunistic_insider_buy`, `specialist_conviction` | `docs/modules/ownership_flow.md` |
 
 Package layout mirrors the modules:
 
@@ -186,7 +188,7 @@ Package layout mirrors the modules:
 src/biotech_divedeep/
   core/         events, evidence classes, entity master, storage helpers
   connectors/   edgar, fda, ctgov, company_news, market  (fetch + raw snapshot)
-  signals/      runway, dilution, trial changes, ownership, trend
+  signals/      runway, dilution, trial changes, ownership (insider, fund_flow, supply), trend
   models/       valuation, event prediction, opportunity map
   portfolio/    construction, risk budget, backtest
   reporting/    weekly review, memo rendering
@@ -210,7 +212,7 @@ turnaround; QSI now paired with NAUT in `docs/memos/QSI_NAUT.md`), REPL/IOVA (la
 Theme case studies run alongside the memos whenever a cohort moves as a block (first:
 `docs/research/2026-10-06_ai_bio_theme_reversal.md`). Each theme study also screens the layers
 that did *not* move with the theme (first: `docs/research/2026-10-07_launch_layer_screen.md`),
-because a theme selloff can hide or create discounts elsewhere. A takeout and Phase 2 screen (`scripts/takeout_screen.py`, H8 and H16) runs alongside: every positive randomized Phase 2 in the research universe gets a scorecard, and takeout scores break ties inside baskets that already pass the gates. MRLN runs in parallel as the adjacent-sleeve pilot (`docs/memos/MRLN.md`) to test
+because a theme selloff can hide or create discounts elsewhere. A takeout and Phase 2 screen (`scripts/takeout_screen.py`, H8 and H16) runs alongside: every positive randomized Phase 2 in the research universe gets a scorecard, and takeout scores break ties inside baskets that already pass the gates. Ownership flow (M17, H18) runs alongside as a defensive overlay: supply after a run and holder block sales raise a trim review on held names, with the takeout screen as an override. MRLN runs in parallel as the adjacent-sleeve pilot (`docs/memos/MRLN.md`) to test
 whether the framework transfers outside biotech. This is a research order, not a buy
 order.
 
