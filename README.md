@@ -35,6 +35,8 @@ turns them into a single timestamped event stream, and uses that stream to:
 | [`docs/runbooks/local_setup.md`](docs/runbooks/local_setup.md) | Clone locally and check access to SEC, FDA and ClinicalTrials.gov |
 | [`docs/memos/`](docs/memos/) | Company memos (MRLN adjacent-sleeve pilot, HROW, QSI and NAUT pair) |
 | [`docs/research/2026-10-11_qsi_naut_protein_platforms_and_drift.md`](docs/research/2026-10-11_qsi_naut_protein_platforms_and_drift.md) | Peptide sequencing vs intact-protein mapping, and post-announcement drift (H17) applied to both |
+| [`docs/modules/ownership_flow.md`](docs/modules/ownership_flow.md) | Insider and specialist-fund flow (M17): Form 4 classes, Form 144, 13F changes, measured fund skill |
+| [`docs/research/2026-10-12_insider_holder_flow.md`](docs/research/2026-10-12_insider_holder_flow.md) | Block selling after a run vs run-matched controls (H18), in-sample results |
 
 ## Status
 
@@ -62,6 +64,12 @@ python scripts/mirror_daily_prices.py --repo ../US-Stock-Symbols.git --focus QSI
     --focus-out data/reference/qsi_naut_daily_2021_2026.csv
 python scripts/announcement_drift.py QSI NAUT
 python scripts/business_quality_card.py QSI NAUT
+
+# Insider and holder flow (H18): supply after a run from the mirror panel, then SEC data sets
+python scripts/supply_after_run.py --period in_sample --variants
+python scripts/ownership_flow.py fetch --quarters 2020q1 2026q2   # local machine, SEC_USER_AGENT
+python scripts/ownership_flow.py insider data/raw/sec_ownership/*_form345.zip
+python scripts/ownership_flow.py study --period in_sample
 ```
 
 ## Disclaimer

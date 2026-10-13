@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<edgarSubmission xmlns="http://www.sec.gov/edgar/ownership">
+  <formData>
+    <issuerInfo>
+      <issuerCik>0000111111</issuerCik>
+      <issuerName>Example Bio Inc</issuerName>
+      <nameOfPersonForWhoseAccountTheSecuritiesAreToBeSold>Sample Fund LP</nameOfPersonForWhoseAccountTheSecuritiesAreToBeSold>
+      <relationshipsToIssuer><relationshipToIssuer>10% Stockholder</relationshipToIssuer></relationshipsToIssuer>
+    </issuerInfo>
+    <securitiesInformation>
+      <securitiesClassTitle>Common</securitiesClassTitle>
+      <noOfUnitsSold>400000</noOfUnitsSold>
+      <aggregateMarketValue>5000000</aggregateMarketValue>
+      <approxSaleDate>02/28/2024</approxSaleDate>
+    </securitiesInformation>
+  </formData>
+</edgarSubmission>
